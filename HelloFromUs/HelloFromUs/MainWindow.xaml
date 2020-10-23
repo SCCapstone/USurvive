@@ -16,5 +16,6 @@
         <Label Grid.Row="0">Hello from Joseph!</Label>
         <Label Grid.Row="1">Hello From The Goose!!</Label>
         <Label Grid.Row="2">Howdydo from Matt w/ two t's!</Label>
+        <Label Grid.Row="3">Hey from Reid da boss!</Label>
     </Grid>
 </Window>
