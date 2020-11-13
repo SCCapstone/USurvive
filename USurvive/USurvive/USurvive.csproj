@@ -55,6 +55,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AssignmentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClassesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClassOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAssignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GPACalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GradebookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +98,36 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssignmentsView.xaml.cs">
+      <DependentUpon>AssignmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseExport.cs" />
+    <Compile Include="DatabaseLoad.cs" />
+    <Compile Include="DatabaseSave.cs" />
+    <Compile Include="ClassesView.xaml.cs">
+      <DependentUpon>ClassesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassOverview.xaml.cs">
+      <DependentUpon>ClassOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditAssignment.xaml.cs">
+      <DependentUpon>EditAssignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditClass.xaml.cs">
+      <DependentUpon>EditClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditGrade.xaml.cs">
+      <DependentUpon>EditGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GPACalculator.xaml.cs">
+      <DependentUpon>GPACalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GradebookView.xaml.cs">
+      <DependentUpon>GradebookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
