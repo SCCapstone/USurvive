@@ -55,7 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class.cs" />
+    <Compile Include="ClassList.cs" />
+    <Compile Include="Grade.cs" />
+    <Compile Include="GradeList.cs" />
     <Compile Include="GradeScale.cs" />
+    <Compile Include="IList.cs" />
     <Compile Include="SettingsList.cs" />
     <Compile Include="Syllabus.cs" />
     <Page Include="AssignmentsView.xaml">
