@@ -55,8 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assessment.cs" />
+    <Compile Include="Assignment.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="ClassList.cs" />
+    <Compile Include="Classwork.cs" />
+    <Compile Include="ClassworkList.cs" />
+    <Compile Include="ExtraCredit.cs" />
     <Compile Include="Grade.cs" />
     <Compile Include="GradeList.cs" />
     <Compile Include="GradeScale.cs" />
