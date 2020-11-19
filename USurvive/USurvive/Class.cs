@@ -39,7 +39,8 @@ namespace USurvive
             ret += ",";
             ret += this.CreditHours;
             ret += ",";
-            ret += MeetingTimes.ToString();
+            //ret += MeetingTimes.ToString();
+            ret += "";
 
             return ret;
         }

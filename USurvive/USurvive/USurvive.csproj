@@ -62,6 +62,7 @@
     <Compile Include="Classwork.cs" />
     <Compile Include="ClassworkList.cs" />
     <Compile Include="ExtraCredit.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Grade.cs" />
     <Compile Include="GradeList.cs" />
     <Compile Include="GradeScale.cs" />

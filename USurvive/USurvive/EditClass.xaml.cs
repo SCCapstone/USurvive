@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace USurvive
 {
@@ -22,6 +23,51 @@ namespace USurvive
         public EditClass()
         {
             InitializeComponent();
+        }
+
+
+        //https://stackoverflow.com/a/12721673
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            String name = tbName.Text;
+            String instructor = tbInstructor.Text;
+            int CreditHours = int.Parse(tbCreditHours.Text);
+            Uri ClassWebsite;
+            Uri InstEmail;
+            try
+            {
+                ClassWebsite = new Uri(tbWebsite.Text);
+                InstEmail = new Uri(tbInstEmail.Text);
+            }catch
+            {
+                //*******************************************
+                //*                                         *
+                //*          TEMPORARY SOLUTION!!           *
+                //*                                         *
+                //*******************************************
+                ClassWebsite = null;
+                InstEmail = null;
+            }
+            Syllabus syllabus = null;
+            int classType = 0;
+            String notes = tbNotes.Text;
+            List<MeetingTime> meetingTimes = null;
+
+            Globals.tempClasses.Add(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes));
+            //Console.WriteLine(Globals.tempClasses[0]);
+            this.Close();
+        }
+
+        private void CancelClick(object sender, RoutedEventArgs e)
+        {
+            //Close the window.  Don't bother saving.
+            this.Close();
         }
     }
 }

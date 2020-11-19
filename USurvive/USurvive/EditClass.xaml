@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="EditClass" Height="450" Width="800">
+        Title="EditClass" Height="500" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+        <!-- Labels -->
+        <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class Name"/>
+        <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Instructor"/>
+        <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Credit Hours"/>
+        <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Instructor Email"/>
+        <Label Grid.Column="0" Grid.Row="5" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Website"/>
+        <Label Grid.Column="0" Grid.Row="6" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Meeting Times"/>
+        <Label Grid.Column="0" Grid.Row="7" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class Type"/>
+        <Label Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Grading Scale"/>
+        <Label Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Notes"/>
         
+        
+        <!-- Input Fields -->
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="8,8,10,8" Name="tbName"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="8,8,10,8" Name="tbInstructor"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Margin="8,8,200,8" Name="tbCreditHours" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Margin="8,8,10,8" Name="tbInstEmail"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="8,8,10,8" Name="tbWebsite"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="9" Margin="8,8,10,8" Name="tbNotes"/>
+
+        
+        <!-- Buttons -->
+        <Button Grid.Column="2" Grid.Row="10" Margin="8,8,10,8" Click="CancelClick">Cancel</Button>
+        <Button Grid.Column="1" Grid.Row="10" Margin="8,8,10,8" Click="SaveClick">Save</Button>
     </Grid>
 </Window>

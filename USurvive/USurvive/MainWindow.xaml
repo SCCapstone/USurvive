@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Click="NewClassClick" Style="{StaticResource buttonStyle}" Height="auto">Add Class</Button>
+        <Button x:Name="buttonShowClass" Grid.Column="0" Grid.Row="1" Click="ShowClassClick" Style="{StaticResource buttonStyle}" Height="auto">Show Class</Button>
     </Grid>
 </Window>
