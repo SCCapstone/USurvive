@@ -24,11 +24,35 @@ namespace USurvive
         {
             InitializeComponent();
             Globals.tempClasses = new List<Class>();
+            NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
             DebugPanel debugPanel = new DebugPanel();
             debugPanel.Show();
+        }
+
+        private void Assignments_Click(object sender, RoutedEventArgs e)
+        {
+            AssignmentsView classes = new AssignmentsView();
+            NavigationFrame.Navigate(classes);
+        }
+
+        private void Classes_Click(object sender, RoutedEventArgs e)
+        {
+            
+            ClassesView classes = new ClassesView();
+            NavigationFrame.Navigate(classes);
+            /*
+            Classes classesWindow = new Classes();
+            classesWindow.Show();
+            */
+        }
+    
+        private void Gradebook_Click(object sender, RoutedEventArgs e)
+        {
+            GradebookView classes = new GradebookView();
+            NavigationFrame.Navigate(classes);
         }
     }
 

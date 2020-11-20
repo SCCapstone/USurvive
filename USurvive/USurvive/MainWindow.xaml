@@ -15,5 +15,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Grid.Column="0" Grid.Row="0" Click="DebugClick" Style="{StaticResource buttonStyle}" Height="auto">Open Debug Panel</Button>
+
+        <Button x:Name="Classes" Style="{StaticResource buttonStyle}" Content="Classes" Click="Classes_Click" Margin="0,10,629,175" />
+        <Button x:Name="Assignments" Style="{StaticResource buttonStyle}" Content="Assignments" Click="Assignments_Click" Margin="0,10,471,175" />
+        <Button x:Name="Gradebook" Style="{StaticResource buttonStyle}" Content="Gradebook" Click="Gradebook_Click" Margin="0,10,312,175" />
+        
+        <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Margin="0,54,0,155" Grid.RowSpan="2"/>
+        
     </Grid>
 </Window>

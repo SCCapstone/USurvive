@@ -9,6 +9,7 @@
       Title="AssignmentsView">
 
     <Grid>
-        
+        <Label Content="THIS IS THE ASSIGNMENTS VIEW" HorizontalAlignment="Left" Margin="276,178,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
