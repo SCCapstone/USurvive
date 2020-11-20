@@ -1,11 +1,11 @@
-﻿<Window x:Class="USurvive.MainWindow"
+﻿<Window x:Class="USurvive.DebugPanel"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="DebugPanel" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,6 +14,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Click="DebugClick" Style="{StaticResource buttonStyle}" Height="auto">Open Debug Panel</Button>
+        <Button Grid.Column="0" Grid.Row="0" Click="NewClassClick" Style="{StaticResource buttonStyle}" Height="auto">Add Class</Button>
+        <Button x:Name="buttonShowClass" Grid.Column="0" Grid.Row="1" Click="ShowClassClick" Style="{StaticResource buttonStyle}" Height="auto">Show Class</Button>
     </Grid>
 </Window>

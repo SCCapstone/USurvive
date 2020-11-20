@@ -25,18 +25,10 @@ namespace USurvive
             InitializeComponent();
             Globals.tempClasses = new List<Class>();
         }
-        private void NewClassClick(Object sender, RoutedEventArgs e)
+        private void DebugClick(Object sender, RoutedEventArgs e)
         {
-            EditClass editClass = new EditClass();
-            editClass.Show();
-        }
-        private void ShowClassClick(Object sender, RoutedEventArgs e)
-        {
-            foreach (Class clas in Globals.tempClasses)
-            {
-                Console.WriteLine(clas);
-            }
-            buttonShowClass.Content = "Written to console log";
+            DebugPanel debugPanel = new DebugPanel();
+            debugPanel.Show();
         }
     }
 
