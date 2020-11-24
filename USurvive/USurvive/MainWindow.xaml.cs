@@ -68,7 +68,10 @@ namespace USurvive
             NavigationFrame.Navigate(classes);
         }
 
-        //private void 
+        void DataWindow_Closing(object sender, EventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 
 

@@ -50,7 +50,7 @@ namespace USurvive
         //JSON Load
         private void JSONLoadClick(Object sender, RoutedEventArgs e)
         {
-            ;
+            DatabaseLoad.LoadClasses();
         }
 
 
