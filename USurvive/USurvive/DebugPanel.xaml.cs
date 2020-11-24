@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using Newtonsoft.Json;
+using System.Text.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,9 +34,30 @@ namespace USurvive
         {
             foreach (Class clas in Globals.tempClasses)
             {
-                Console.WriteLine(clas);
+                //Console.WriteLine(clas);
+                this.WriteDebug(clas.ToString());
             }
-            buttonShowClass.Content = "Written to console log";
+        }
+
+
+        //JSON Save
+        private void JSONSaveClick(Object sender, RoutedEventArgs e)
+        {
+            DatabaseSave.SaveClasses();
+        }
+
+
+        //JSON Load
+        private void JSONLoadClick(Object sender, RoutedEventArgs e)
+        {
+            ;
+        }
+
+
+        private void WriteDebug(String text)
+        {
+            debugOutput.Text += "\n" + text;
+            debugOutput.ScrollToEnd();
         }
     }
 }

@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace USurvive
 {
     class Class
     {
-        private string Name { get; set; }
-        private string Instructor { get; set; }
-        private int CreditHours { get; set; }
-        private Uri InstructorEmail { get; set; }
-        private Uri ClassWebsite { get; set; }
-        private Syllabus Syllabus { get; set; }
-        private int ClassType { get; set; } //In person, online live, online async, etc.
-        private string Notes { get; set; }
-        private List<MeetingTime> MeetingTimes { get; set; }
+        public string Name { get; set; }
+        public string Instructor { get; set; }
+        public int CreditHours { get; set; }
+        public Uri InstructorEmail { get; set; }        
+        public Uri ClassWebsite { get; set; }        
+        public Syllabus Syllabus { get; set; }        
+        public int ClassType { get; set; } //In person, online live, online async, etc.        
+        public string Notes { get; set; }        
+        public List<MeetingTime> MeetingTimes { get; set; }
+
 
         public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, List<MeetingTime> meetingTimes){
             this.Name = name;
@@ -28,6 +31,14 @@ namespace USurvive
             this.ClassType = classType;
             this.Notes = notes;
             this.MeetingTimes = meetingTimes;
+
+
+            JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
+        }
+
+        public String ToJson()
+        {
+            return JsonSerializer.Serialize(this);
         }
 
         public override string ToString()

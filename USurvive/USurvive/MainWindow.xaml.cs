@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,18 @@ namespace USurvive
             InitializeComponent();
             Globals.tempClasses = new List<Class>();
             NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
+
+            //Set up dataDir varaiable
+            Globals.dataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            Globals.dataDir += "\\USurvive";
+            //Set up data directory
+            if (!Directory.Exists(Globals.dataDir))
+            {
+                //Create data dir in AppData
+                Directory.CreateDirectory(Globals.dataDir);
+            }
+            //Add final '\' to place path inside %AppData%/USurvive
+            Globals.dataDir += "\\";
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
@@ -54,6 +67,8 @@ namespace USurvive
             GradebookView classes = new GradebookView();
             NavigationFrame.Navigate(classes);
         }
+
+        //private void 
     }
 
 

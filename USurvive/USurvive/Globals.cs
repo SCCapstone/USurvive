@@ -9,5 +9,9 @@ namespace USurvive
     static class Globals
     {
         public static List<Class> tempClasses;
+        //Will be intialized when MainWindow loads
+        public static String dataDir;
+
+        
     }
 }

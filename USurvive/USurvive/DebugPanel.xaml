@@ -9,12 +9,25 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Click="NewClassClick" Style="{StaticResource buttonStyle}" Height="auto">Add Class</Button>
-        <Button x:Name="buttonShowClass" Grid.Column="0" Grid.Row="1" Click="ShowClassClick" Style="{StaticResource buttonStyle}" Height="auto">Show Class</Button>
+        <Button Grid.Column="1" Grid.Row="0" Click="NewClassClick" Style="{StaticResource buttonStyle}" Height="auto">Add Class</Button>
+        <Button x:Name="buttonShowClass" Grid.Column="1" Grid.Row="1" Click="ShowClassClick" Style="{StaticResource buttonStyle}" Height="auto">Show Class</Button>
+        <!--<Border BorderThickness="1" BorderBrush="Black">
+            <ScrollViewer >
+                <TextBlock Grid.Column="0" Grid.Row="0" Name="debugOutput"/>
+            </ScrollViewer>
+        </Border>-->
+
+        <TextBox Grid.Row="0" Grid.Column="0" Name="debugOutput" IsReadOnly="True" VerticalScrollBarVisibility="Visible"></TextBox>
+        
+        <!--JSON save/load-->
+        <Button Grid.Column="2" Grid.Row="0" Click="JSONSaveClick" Style="{StaticResource buttonStyle}" Height="auto">Save class JSON</Button>
+        <Button Grid.Column="2" Grid.Row="1" Click="JSONLoadClick" Style="{StaticResource buttonStyle}" Height="auto">Load class JSON</Button>
     </Grid>
 </Window>
