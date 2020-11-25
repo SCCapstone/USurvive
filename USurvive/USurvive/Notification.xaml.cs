@@ -17,11 +17,20 @@ namespace USurvive
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Notification : Window
     {
-        public Window1()
+        public Notification()
         {
             InitializeComponent();
+        }
+
+        private void CloseClick(Object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void SnoozeClick(Object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
