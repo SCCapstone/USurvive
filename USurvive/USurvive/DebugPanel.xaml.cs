@@ -53,6 +53,12 @@ namespace USurvive
             DatabaseLoad.LoadClasses();
         }
 
+        //Show notification
+        private void ShowNotificationClick(Object sender, RoutedEventArgs e)
+        {
+            //Notification notification = new Notification();
+        }
+
 
         private void WriteDebug(String text)
         {
