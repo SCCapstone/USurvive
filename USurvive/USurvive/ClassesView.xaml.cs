@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,16 @@ namespace USurvive
     /// </summary>
     public partial class ClassesView : Page
     {
+        ObservableCollection<Class> classList;
+
         public ClassesView()
         {
             InitializeComponent();
+            classList = new ObservableCollection<Class>();
+            foreach(Class newClass in Globals.tempClasses){
+                classList.Add(newClass);
+            }
+            dgClassList.DataContext = classList;
         }
     }
 }
