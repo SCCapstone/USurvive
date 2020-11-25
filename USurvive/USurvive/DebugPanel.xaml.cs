@@ -56,7 +56,8 @@ namespace USurvive
         //Show notification
         private void ShowNotificationClick(Object sender, RoutedEventArgs e)
         {
-            //Notification notification = new Notification();
+            Notification notification = new Notification();
+            notification.Show();
         }
 
 
