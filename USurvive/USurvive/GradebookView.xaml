@@ -9,6 +9,27 @@
       Title="GradebookView">
 
     <Grid>
-        <Label Content="THIS IS THE GRADEBOOK VIEW" HorizontalAlignment="Left" Margin="276,178,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Class Name"  Binding="{Binding Class}"/>
+                <DataGridTextColumn Header="Grade"  Binding="{Binding TheGrade}"/>
+                <DataGridTextColumn Header="Credit Hours" Binding="{Binding Hours}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            Grid.Column="0" Grid.Row="1" Click="DisplayGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
+            Display GPA
+        </Button>
+
     </Grid>
 </Page>

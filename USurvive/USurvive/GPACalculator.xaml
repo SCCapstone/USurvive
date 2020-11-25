@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="GPACalculator" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Name="tbGPA" IsReadOnly="True">
+
+        </TextBox>
     </Grid>
 </Window>
