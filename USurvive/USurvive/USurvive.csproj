@@ -102,6 +102,9 @@
     <Compile Include="GradeScale.cs" />
     <Compile Include="IList.cs" />
     <Compile Include="SettingsList.cs" />
+    <Compile Include="Sidebar.xaml.cs">
+      <DependentUpon>Sidebar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Syllabus.cs" />
     <Compile Include="Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
@@ -190,6 +193,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sidebar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
