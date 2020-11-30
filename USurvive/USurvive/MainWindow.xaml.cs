@@ -25,7 +25,7 @@ namespace USurvive
         {
             InitializeComponent();
             Globals.tempClasses = new List<Class>();
-            NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
+            //NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
 
             //Set up dataDir varaiable
             Globals.dataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -38,6 +38,10 @@ namespace USurvive
             }
             //Add final '\' to place path inside %AppData%/USurvive
             Globals.dataDir += "\\";
+
+            //Set up sidebar
+            Sidebar sidebar = new Sidebar();
+            SidebarFrame.Navigate(sidebar);
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
@@ -47,15 +51,15 @@ namespace USurvive
 
         private void Assignments_Click(object sender, RoutedEventArgs e)
         {
-            AssignmentsView classes = new AssignmentsView();
-            NavigationFrame.Navigate(classes);
+            AssignmentsView assignmentsView = new AssignmentsView();
+            NavigationFrame.Navigate(assignmentsView);
         }
 
         private void Classes_Click(object sender, RoutedEventArgs e)
         {
             
-            ClassesView classes = new ClassesView();
-            NavigationFrame.Navigate(classes);
+            ClassesView classesView = new ClassesView();
+            NavigationFrame.Navigate(classesView);
             /*
             Classes classesWindow = new Classes();
             classesWindow.Show();
@@ -64,8 +68,8 @@ namespace USurvive
     
         private void Gradebook_Click(object sender, RoutedEventArgs e)
         {
-            GradebookView classes = new GradebookView();
-            NavigationFrame.Navigate(classes);
+            GradebookView gradebookView = new GradebookView();
+            NavigationFrame.Navigate(gradebookView);
         }
 
         void DataWindow_Closing(object sender, EventArgs e)
