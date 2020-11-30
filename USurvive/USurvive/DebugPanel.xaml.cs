@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace USurvive
 {
@@ -56,7 +57,22 @@ namespace USurvive
         //Show notification
         private void ShowNotificationClick(Object sender, RoutedEventArgs e)
         {
+            //Define variables so the code can be reused later
+            string name = "Fake Assignment";
+            int time = 5;
+            string[] notificationUnit = new string[]{ "minutes", "hours", "days", "weeks" };
+
+
+            //Reusable part of the code
             Notification notification = new Notification();
+            string notificationText = notification.tb_NoteText.Text;
+            notificationText = notificationText.Replace("$ASSIGNMENT", name);
+            notificationText = notificationText.Replace("$TIME", time.ToString());
+            notificationText = notificationText.Replace("$UNITS", notificationUnit[2]);
+            notification.tb_NoteText.Text = notificationText;
+            //Play notification sound
+            SystemSounds.Exclamation.Play();
+            //Show window
             notification.Show();
         }
 

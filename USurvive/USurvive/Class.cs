@@ -19,6 +19,7 @@ namespace USurvive
         public int ClassType { get; set; } //In person, online live, online async, etc.        
         public string Notes { get; set; }        
         public List<MeetingTime> MeetingTimes { get; set; }
+        public DateTime NotificationTime { get; set; }
 
 
         public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, List<MeetingTime> meetingTimes){
@@ -31,7 +32,7 @@ namespace USurvive
             this.ClassType = classType;
             this.Notes = notes;
             this.MeetingTimes = meetingTimes;
-
+            this.NotificationTime = NotificationTime;
 
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }

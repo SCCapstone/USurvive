@@ -22,15 +22,18 @@ namespace USurvive
         public Notification()
         {
             InitializeComponent();
+            //cbSnooze.SelectedItem = "15 minutes";
+            cbSnooze.SelectedIndex = 0;
         }
 
         private void CloseClick(Object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
         private void SnoozeClick(Object sender, RoutedEventArgs e)
         {
-
+            Console.WriteLine(cbSnooze.SelectedItem);
         }
+        
     }
 }
