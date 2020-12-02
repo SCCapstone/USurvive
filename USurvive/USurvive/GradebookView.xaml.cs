@@ -30,9 +30,12 @@ namespace USurvive
 
 
             DG1.DataContext = grades;
-            grades.Add(new Grade("CSCE 522", 99, 3));
-            grades.Add(new Grade("CSCE 520", 86, 3));
-            grades.Add(new Grade("MART 210", 96, 3));
+            DateTime dt = new DateTime(2020, 12, 1);
+            DateTime dt2 = new DateTime(2020, 11, 15);
+            DateTime dt3 = new DateTime(2020, 10, 21);
+            grades.Add(new Grade("CSCE 522", 99, 3, "Homework 2", dt, 99, 100, 33));
+            grades.Add(new Grade("CSCE 520", 99, 3, "Test 1", dt2, 95, 100, 33));
+            grades.Add(new Grade("CSCE 490", 96, 3, "Homework 1", dt3, 97, 100, 33));
         }
         private void DisplayGPA(object sender, RoutedEventArgs e)
         {

@@ -20,10 +20,11 @@
         </Grid.RowDefinitions>
         <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Class Name"  Binding="{Binding Class}"/>
-                <DataGridTextColumn Header="Grade"  Binding="{Binding TheGrade}"/>
-                <DataGridTextColumn Header="Credit Hours" Binding="{Binding Hours}" />
-
+                <DataGridTextColumn Header="Class Name"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Date"  Binding="{Binding ADate}"/>
+                <DataGridTextColumn Header="Points Earned" Binding="{Binding PointsEarned}" />
+                <DataGridTextColumn Header="Max Points"  Binding="{Binding MaxPoints}"/>
+                <DataGridTextColumn Header="Grade Weight"  Binding="{Binding GradeWeight}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button
