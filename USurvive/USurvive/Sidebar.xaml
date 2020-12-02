@@ -21,5 +21,13 @@
 
 
        <Calendar Grid.Row="0" Grid.Column="0"></Calendar>
+
+        <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
+                  </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </Page>
