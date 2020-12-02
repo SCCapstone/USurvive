@@ -9,6 +9,17 @@
       Title="Sidebar">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+
+       <!-- <Calendar Grid.Row="0" Grid.Column="0"></Calendar> -->
     </Grid>
 </Page>

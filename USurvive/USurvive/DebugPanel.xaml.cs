@@ -82,5 +82,10 @@ namespace USurvive
             debugOutput.Text += "\n" + text;
             debugOutput.ScrollToEnd();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
