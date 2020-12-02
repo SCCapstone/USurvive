@@ -23,5 +23,25 @@ namespace USurvive
         {
             InitializeComponent();
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            String name = tbClassName.Text;
+            String date = tbDate.Text;
+            String dueDate = tbDueDate.Text;
+            String grade = tbGrade.Text;
+            String autoIncrementDays = tbAutoIncrementDays.Text;
+
+
+
+
+        }
+
+        private void CancelClick(object sender, RoutedEventArgs e)
+        { 
+
+        }
     }
+
 }
+
