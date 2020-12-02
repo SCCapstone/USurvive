@@ -20,6 +20,6 @@
 
 
 
-       <!-- <Calendar Grid.Row="0" Grid.Column="0"></Calendar> -->
+       <Calendar Grid.Row="0" Grid.Column="0"></Calendar>
     </Grid>
 </Page>

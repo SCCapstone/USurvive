@@ -33,12 +33,14 @@ namespace USurvive
             String autoIncrementDays = tbAutoIncrementDays.Text;
 
 
-    
+
 
         }
 
-// private void CancelClick (object sender, RoutedEventArgs e)
-        
+        private void CancelClick(object sender, RoutedEventArgs e)
+        { 
+
+        }
     }
 
 }
