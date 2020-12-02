@@ -31,6 +31,6 @@
             Grid.Column="0" Grid.Row="1" Click="DisplayGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
             Display GPA
         </Button>
-
+       
     </Grid>
 </Page>
