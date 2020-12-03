@@ -39,9 +39,16 @@ namespace USurvive
             //Add final '\' to place path inside %AppData%/USurvive
             Globals.dataDir += "\\";
 
+            //Load databases
+            DatabaseLoad.LoadClasses();//Load the classes database
+
             //Set up sidebar
             Sidebar sidebar = new Sidebar();
             SidebarFrame.Navigate(sidebar);
+
+            //For now, open to the Classes view.  Eventually this will open to the Today view once that is implemented
+            ClassesView classesView = new ClassesView();
+            NavigationFrame.Navigate(classesView);
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {

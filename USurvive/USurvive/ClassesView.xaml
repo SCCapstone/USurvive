@@ -9,8 +9,16 @@
       Title="ClassesView">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
         <Label Content="THIS IS THE CLASS VIEW" HorizontalAlignment="Left" Margin="130,135,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
+        <DataGrid Name="dgClassList" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
@@ -18,7 +26,8 @@
                 <DataGridTextColumn Header="Instructor Email" Binding="{Binding InstructorEmail}" />
                 <DataGridTextColumn Header="Meeting Times" Binding="{Binding MeetingTimes}" />
             </DataGrid.Columns>
-         
         </DataGrid>
+
+        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="AddClassClick">Add Class</Button>
     </Grid>
 </Page>

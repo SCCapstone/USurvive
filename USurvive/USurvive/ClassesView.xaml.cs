@@ -32,5 +32,10 @@ namespace USurvive
             }
             dgClassList.DataContext = classList;
         }
+        private void AddClassClick(object sender, RoutedEventArgs e)
+        {
+            EditClass editClass = new EditClass();
+            editClass.Show();
+        }
     }
 }

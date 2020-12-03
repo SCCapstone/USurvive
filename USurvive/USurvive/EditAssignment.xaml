@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="EditAssignment" Height="450" Width="800">
+        Title="Edit Assignment" Height="auto" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,7 +27,7 @@
 
         </Grid.RowDefinitions>
         <!-- Labels -->
-        <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class Name"/>
+        <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class"/>
         <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Date"/>
         <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Due Date"/>
         <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Priority"/>
@@ -38,13 +38,28 @@
 
 
         <!-- Input Fields -->
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="8,8,10,8" Name="tbClassName"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="8,8,10,8" Name="tbClassName"/> <!--TODO: Make this a ComboBox -->
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="8,8,10,8" Name="tbDate"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="8,8,10,8" Name="tbDueDate"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="8,8,10,8" Name="tbGrade"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="8,8,10,8" Name="tbAutoIncrementDays"/>
+        <CheckBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="8,8,10,8" Name="cbAutoIncrement"/>
 
-
+        
+        <!-- Combo Box -->
+        <ComboBox Grid.Column="1" Grid.Row="4" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,8,10,8">
+            <ComboBoxItem>1 (Highest)</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5 (Lowest)</ComboBoxItem>
+        </ComboBox>
+        
+        <!-- Radio Buttons -->
+        <RadioButton Grid.Column="1" Grid.Row="8" GroupName="classworkType" IsChecked="True" VerticalAlignment="Center" Margin="8,8,10,8" Name="rbType_Assignment">Assignment</RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="8" GroupName="classworkType" VerticalAlignment="Center" Margin="8,8,10,8" Name="rbType_Assessment">Assessment/Exam</RadioButton>
+        
+        
         <!-- Buttons -->
         <Button Grid.Column="2" Grid.Row="10" Margin="8,8,10,8" Click="CancelClick">Cancel</Button>
         <Button Grid.Column="1" Grid.Row="10" Margin="8,8,10,8" Click="SaveClick">Save</Button>

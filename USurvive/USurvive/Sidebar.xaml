@@ -29,5 +29,6 @@
                   </DataGrid.Columns>
 
         </DataGrid>
+        <Button Grid.Row="2" Grid.Column="0" Click="RefreshClick" Height="40" Margin="8,8,10,8" VerticalAlignment="Bottom">Refresh</Button>
     </Grid>
 </Page>

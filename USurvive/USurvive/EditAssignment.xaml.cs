@@ -32,14 +32,14 @@ namespace USurvive
             String grade = tbGrade.Text;
             String autoIncrementDays = tbAutoIncrementDays.Text;
 
-
+            this.Close();
 
 
         }
 
         private void CancelClick(object sender, RoutedEventArgs e)
-        { 
-
+        {
+            this.Close();
         }
     }
 

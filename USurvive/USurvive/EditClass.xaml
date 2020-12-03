@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="EditClass" Height="500" Width="800">
+        Title="EditClass" Height="auto" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,8 +24,10 @@
             <RowDefinition/>
             <RowDefinition Height="3*"/>
             <RowDefinition/>
-            
         </Grid.RowDefinitions>
+        
+        <!--TODO: Add input fields for Meeting Times, Class Type and Grading Scale -->
+        
         <!-- Labels -->
         <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class Name"/>
         <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Instructor"/>

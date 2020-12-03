@@ -14,11 +14,14 @@ namespace USurvive
         {
             string classFile = Globals.dataDir + "classes.json";
 
-            string[] jsonLines = File.ReadAllLines(classFile);
-
-            foreach (string jsonLine in jsonLines)
+            if (File.Exists(classFile))
             {
-                Globals.tempClasses.Add(JsonSerializer.Deserialize<Class>(jsonLine));
+                string[] jsonLines = File.ReadAllLines(classFile);
+
+                foreach (string jsonLine in jsonLines)
+                {
+                    Globals.tempClasses.Add(JsonSerializer.Deserialize<Class>(jsonLine));
+                }
             }
         }
     }

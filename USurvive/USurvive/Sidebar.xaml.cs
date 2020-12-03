@@ -32,6 +32,17 @@ namespace USurvive
                 classList.Add(newClass);
             }
             dgClassList.DataContext = classList;
+            
+        }
+
+        private void RefreshClick(object sender, RoutedEventArgs e)
+        {
+            classList = new ObservableCollection<Class>();
+            foreach (Class newClass in Globals.tempClasses)
+            {
+                classList.Add(newClass);
+            }
+            dgClassList.DataContext = classList;
         }
     }
 }
