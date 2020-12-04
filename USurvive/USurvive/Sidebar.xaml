@@ -27,7 +27,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
-            </DataGrid.Columns
+            </DataGrid.Columns>
         </DataGrid>
 
         <DataGrid Grid.Row="2" Grid.Column=" 0" Name="dgAssignmentList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
