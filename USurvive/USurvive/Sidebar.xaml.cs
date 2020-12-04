@@ -22,6 +22,7 @@ namespace USurvive
     public partial class Sidebar : Page
     {
         ObservableCollection<Class> classList;
+        ObservableCollection<Assignment> assignmentList;
         public Sidebar()
         {
             InitializeComponent();
@@ -32,6 +33,14 @@ namespace USurvive
                 classList.Add(newClass);
             }
             dgClassList.DataContext = classList;
+
+            assignmentList = new ObservableCollection<Assignment>();
+            foreach ( Assignment newAssignment in Globals.tempAssignments)
+            {
+                assignmentList.Add(newAssignment);
+            }
+            dgAssignmentList.DataContext = assignmentList;
+
             
         }
 
@@ -43,6 +52,15 @@ namespace USurvive
                 classList.Add(newClass);
             }
             dgClassList.DataContext = classList;
+
+
+            assignmentList = new ObservableCollection<Assignment>();
+            foreach (Assignment newAssignment in Globals.tempAssignments)
+            {
+                assignmentList.Add(newAssignment);
+            }
+            dgAssignmentList.DataContext = assignmentList;
+
         }
     }
 }

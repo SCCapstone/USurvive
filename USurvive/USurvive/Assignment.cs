@@ -25,6 +25,7 @@ namespace USurvive
         public Assignment( String name, Class className, DateTime date, DateTime dueDate, int priority,
             Grade grade, bool autoIncrement, int autoIncrementDays)
         {
+            this.name = name;
             this.className = className;
             this.date = date;
             this.dueDate = dueDate;
