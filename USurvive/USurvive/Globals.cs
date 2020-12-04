@@ -12,6 +12,11 @@ namespace USurvive
         //Will be intialized when MainWindow loads
         public static String dataDir;
 
+        public static List<Assignment> tempAssignments;
+       
+
         
     }
+
+    
 }

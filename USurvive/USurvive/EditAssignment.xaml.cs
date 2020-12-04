@@ -26,12 +26,14 @@ namespace USurvive
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-            String name = tbClassName.Text;
+            String name = tbAssignmentName.Text;
             String date = tbDate.Text;
             String dueDate = tbDueDate.Text;
             String grade = tbGrade.Text;
             String autoIncrementDays = tbAutoIncrementDays.Text;
 
+
+            Globals.tempAssignments.Add(new Assignment(name, null, new DateTime(), new DateTime(), 0, null, (bool)cbAutoIncrement.IsChecked, 0));
             this.Close();
 
 

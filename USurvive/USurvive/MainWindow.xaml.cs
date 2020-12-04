@@ -25,8 +25,10 @@ namespace USurvive
         {
             InitializeComponent();
             Globals.tempClasses = new List<Class>();
+            Globals.tempAssignments = new List<Assignment>();
             //NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
-
+            
+            
             //Set up dataDir varaiable
             Globals.dataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             Globals.dataDir += "\\USurvive";
