@@ -83,9 +83,10 @@ namespace USurvive
             debugOutput.ScrollToEnd();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddAssignmentClick(object sender, RoutedEventArgs e)
         {
-
+            EditAssignment editor = new EditAssignment();
+            editor.Show();
         }
     }
 }

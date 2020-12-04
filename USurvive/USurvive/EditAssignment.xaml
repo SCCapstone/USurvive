@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="Edit Assignment" Height="auto" Width="800">
+        Title="Edit Assignment" Height="550" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
