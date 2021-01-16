@@ -11,7 +11,7 @@
 
 ## Setup
 
-There should be no setup necessary, once cloning the repo the program should work perfectly. The only thing that would need to be done is to create a folder to store the  JSON files.
+There should be no setup necessary, once cloning the repo the program should work perfectly upon building in Visual Studio.
 
 
 ## Running
