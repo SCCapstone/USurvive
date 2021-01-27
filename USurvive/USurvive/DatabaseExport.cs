@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace USurvive
 {
-    class DatabaseExport
+    public class DatabaseExport
     {
     }
 }

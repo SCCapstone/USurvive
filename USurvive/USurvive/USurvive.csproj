@@ -120,6 +120,7 @@
     <Compile Include="Assessment.cs" />
     <Compile Include="Assignment.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="AssignmentTestRunner.cs" />
     <Compile Include="ClassList.cs" />
     <Compile Include="Classwork.cs" />
     <Compile Include="ClassworkList.cs" />
@@ -256,7 +257,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="USurvive_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

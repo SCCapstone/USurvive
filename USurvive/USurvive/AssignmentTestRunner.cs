@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace USurvive
 {
-    public class ExtraCredit
+    public class AssignmentTestRunner
     {
+        public Assignment CreateAssignment()
+        {
+            return null;
+        }
     }
 }

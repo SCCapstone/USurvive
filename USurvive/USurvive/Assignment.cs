@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace USurvive
 {
-    class Assignment
+    public class Assignment
     {
         public String name { get; set; }
         public Class className { get; set; }

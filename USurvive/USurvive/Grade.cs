@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace USurvive
 {
-    class Grade
+    public class Grade
     {
         public string Class { get; set; }
         public int TheGrade { get; set; }

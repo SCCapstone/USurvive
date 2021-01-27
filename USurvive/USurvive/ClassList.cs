@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace USurvive
 {
-    class ClassList
+    public class ClassList
     {
     }
 }
