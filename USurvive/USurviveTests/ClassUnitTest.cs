@@ -7,7 +7,7 @@ using USurvive;
 namespace USurviveTests
 {
     [TestClass]
-    class ClassUnitTest
+    public class ClassUnitTest
     {
         [TestMethod]
         public void TestCreditHoursTrue()
