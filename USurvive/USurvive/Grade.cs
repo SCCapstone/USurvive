@@ -16,7 +16,7 @@ namespace USurvive
         public int PointsEarned { get; set; }
         public int MaxPoints { get; set; }
         public int GradeWeight { get; set; }
-        public Grade(string aClass, int aTheGrade, int aHours, String AName, DateTime AADate, int APointsE, int AMaxP, int AGradeW)
+        public Grade(String aClass, int aTheGrade, int aHours, String AName, DateTime AADate, int APointsE, int AMaxP, int AGradeW)
         {
             Class = aClass;
             TheGrade = aTheGrade;
