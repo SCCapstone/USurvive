@@ -10,7 +10,7 @@ namespace USurvive
     {
         public static bool SaveClasses()
         {
-            string classFile = Globals.dataDir + "classes.json";
+            string classFile = Globals.dataDir + Globals.databaseName + "classes.json";
             string bakFile = classFile + ".bak";
             if (File.Exists(classFile))
             {

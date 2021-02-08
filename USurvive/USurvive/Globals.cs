@@ -11,6 +11,7 @@ namespace USurvive
         public static List<Class> tempClasses;
         //Will be intialized when MainWindow loads
         public static String dataDir;
+        public static String databaseName;
 
         public static List<Assignment> tempAssignments;
        
