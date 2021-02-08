@@ -59,6 +59,19 @@ namespace USurvive
             //Add final '\' to path
             Globals.databaseName += "\\";
 
+            //Ensure a directory exists
+            if (!Directory.Exists(Globals.dataDir + Globals.databaseName))
+            {
+                //Display message saying database is corrupt
+                //TODO: Display message saying database is corrupt
+
+                //Ask user to choose new database file
+
+                //Create new folder if none exist
+                Directory.CreateDirectory(Globals.dataDir + Globals.databaseName);
+            }
+
+
             //Make sure temporary directory doesn't exist
             if (Directory.Exists(Globals.dataDir + "\\tempDir"))
                 Directory.Delete(Globals.dataDir + "\\tempDir", true);

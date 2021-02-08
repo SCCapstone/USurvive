@@ -82,6 +82,7 @@ namespace USurvive
                 //Create the new directory
                 Directory.CreateDirectory(Globals.dataDir + databaseString);
                 ZipFile.ExtractToDirectory(filename, Globals.dataDir + databaseString);
+                File.Delete(Globals.dataDir + databaseString + "dbname");//Delete name file
                 return true;
 
 
