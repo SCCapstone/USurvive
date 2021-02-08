@@ -25,7 +25,7 @@ namespace USurvive
                 //Create file containing database name
                 using (System.IO.StreamWriter fileOutput = new System.IO.StreamWriter(Globals.dataDir + Globals.databaseName + "dbname"))
                     fileOutput.WriteLine(Globals.databaseName);
-                //Delete the existing file.  Windows has already gotten permission for us.
+                //Delete the existing file.  Windows has already gotten permission for us. 
                 if (File.Exists(filename))
                     File.Delete(filename);
                 
