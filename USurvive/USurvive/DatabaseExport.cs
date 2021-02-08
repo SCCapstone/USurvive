@@ -38,6 +38,58 @@ namespace USurvive
 
         public static bool ImportDatabase()
         {
+            Microsoft.Win32.OpenFileDialog openDialog = new Microsoft.Win32.OpenFileDialog();
+            openDialog.DefaultExt = ".usurvive";
+            openDialog.Filter = "USurvive Database Files (.usurvive)|*.usurvive";
+
+            bool? result = openDialog.ShowDialog();
+
+            if(result == true)
+            {
+                //Windows won't let us open a file that doesn't exist, so assume it exists.
+                string filename = openDialog.FileName;
+                ZipFile.ExtractToDirectory(filename, Globals.dataDir + "tempDir");//Extract to a working directory.  This will be deleted when we are done.
+
+                if (!File.Exists(Globals.dataDir + "tempDir\\dbname"))
+                {
+                    //Database is invalid
+                    //Show a message saying the database is corrupt (missing dbname file)
+                    //TODO: Show a message saying the database is corrupt
+                    Directory.Delete(Globals.dataDir + "tempDir", true);
+                    return false;
+                }
+                string[] databaseName = File.ReadAllLines(Globals.dataDir + "tempDir\\dbname");
+                string databaseString;
+                if (databaseName.Length == 1)//Ensure database file is somewhat correct
+                {
+                    databaseString = databaseName[0];
+                    while (Directory.Exists(Globals.dataDir + databaseString))
+                    {
+                        //Globals.databaseName = databaseString;
+                        //Our directory already exists
+                        databaseString = databaseString.Replace("\\", "");
+                        databaseString += "-duplicate\\";
+                    }
+                }
+                else
+                {
+                    Directory.Delete(Globals.dataDir + "tempDir", true);
+                    return false;
+                }
+                //We have the data we need, delete the temporary directory
+                Directory.Delete(Globals.dataDir + "tempDir", true);
+
+                //Create the new directory
+                Directory.CreateDirectory(Globals.dataDir + databaseString);
+                ZipFile.ExtractToDirectory(filename, Globals.dataDir + databaseString);
+                return true;
+
+
+
+
+
+            }
+
             return false;
         }
     }

@@ -93,5 +93,9 @@ namespace USurvive
         {
             DatabaseExport.ExportDatabase();
         }
+        private void ImportDatabaseClick(object sender, RoutedEventArgs e)
+        {
+            DatabaseExport.ImportDatabase();
+        }
     }
 }

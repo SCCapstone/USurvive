@@ -59,6 +59,10 @@ namespace USurvive
             //Add final '\' to path
             Globals.databaseName += "\\";
 
+            //Make sure temporary directory doesn't exist
+            if (Directory.Exists(Globals.dataDir + "\\tempDir"))
+                Directory.Delete(Globals.dataDir + "\\tempDir", true);
+
             //Load databases
             DatabaseLoad.LoadClasses();//Load the classes database
 
