@@ -47,10 +47,15 @@ The UI test project is located in USurvive/UITests
 ### Running Tests
 
 Build the USurvive application in Visual Studio
+
 Open the USurvive application (USurvive/USurvive/bin/Debug/USurvive.exe)
+
 Open the UI test project
+
 Right click the UITests project in Solution Explorer
+
 Click "Run Tests"
+
 Set focus to the USurvive window
 
 
