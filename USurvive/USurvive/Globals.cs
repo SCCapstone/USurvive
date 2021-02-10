@@ -14,6 +14,8 @@ namespace USurvive
         public static String dataDir;
         public static String databaseName;
 
+        public static String workingDir;
+
         public static List<Assignment> tempAssignments;
        
 

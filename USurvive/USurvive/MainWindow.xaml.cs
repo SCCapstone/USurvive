@@ -76,6 +76,14 @@ namespace USurvive
             //Make sure temporary directory doesn't exist
             if (Directory.Exists(Globals.dataDir + "\\tempDir"))
                 Directory.Delete(Globals.dataDir + "\\tempDir", true);
+            
+            //Set up working dir variable
+            Globals.workingDir = Globals.dataDir + Globals.databaseName;
+
+            //Ensure syllabus folder exists
+            if (!Directory.Exists(Globals.workingDir + "syllabus")){
+                Directory.CreateDirectory(Globals.workingDir + "syllabus");
+            }
 
             //Load databases
             DatabaseLoad.LoadClasses();//Load the classes database

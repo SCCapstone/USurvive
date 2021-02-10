@@ -97,5 +97,18 @@ namespace USurvive
         {
             DatabaseExport.ImportDatabase();
         }
+
+        private void MakeSyllabusClick(object sender, RoutedEventArgs e)
+        {
+            //Show file load dialog
+            Microsoft.Win32.OpenFileDialog openDialog = new Microsoft.Win32.OpenFileDialog();
+
+            bool? result = openDialog.ShowDialog();
+
+            if(result == true)
+            {
+                Syllabus syllabus = new Syllabus(openDialog.FileName);
+            }
+        }
     }
 }
