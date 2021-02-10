@@ -38,9 +38,44 @@ namespace USurvive
             {
                 //Create data dir in AppData
                 Directory.CreateDirectory(Globals.dataDir);
+                //Create default database directory
+                Directory.CreateDirectory(Globals.dataDir + "\\default");
             }
             //Add final '\' to place path inside %AppData%/USurvive
             Globals.dataDir += "\\";
+
+            Globals.databaseName = "default";
+            //Check for different database setting
+            if (File.Exists(Globals.dataDir+"databaseSetting"))
+            {
+                string[] databaseName = File.ReadAllLines(Globals.dataDir + "databaseSetting");
+                if (databaseName.Length == 1)//Ensure database file is somewhat correct
+                {
+                    string databaseString = databaseName[0];
+                    if (Directory.Exists(Globals.dataDir + databaseString))
+                        Globals.databaseName = databaseString;
+                }
+            }
+
+            //Add final '\' to path
+            Globals.databaseName += "\\";
+
+            //Ensure a directory exists
+            if (!Directory.Exists(Globals.dataDir + Globals.databaseName))
+            {
+                //Display message saying database is corrupt
+                //TODO: Display message saying database is corrupt
+
+                //Ask user to choose new database file
+
+                //Create new folder if none exist
+                Directory.CreateDirectory(Globals.dataDir + Globals.databaseName);
+            }
+
+
+            //Make sure temporary directory doesn't exist
+            if (Directory.Exists(Globals.dataDir + "\\tempDir"))
+                Directory.Delete(Globals.dataDir + "\\tempDir", true);
 
             //Load databases
             DatabaseLoad.LoadClasses();//Load the classes database
@@ -50,8 +85,8 @@ namespace USurvive
             SidebarFrame.Navigate(sidebar);
 
             //For now, open to the Classes view.  Eventually this will open to the Today view once that is implemented
-            ClassesView classesView = new ClassesView();
-            NavigationFrame.Navigate(classesView);
+            HomeView homeView = new HomeView();
+            NavigationFrame.Navigate(homeView);
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
@@ -82,10 +117,18 @@ namespace USurvive
             NavigationFrame.Navigate(gradebookView);
         }
 
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            HomeView homeView = new HomeView();
+            NavigationFrame.Navigate(homeView);
+        }
+
         void DataWindow_Closing(object sender, EventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+
     }
 
 

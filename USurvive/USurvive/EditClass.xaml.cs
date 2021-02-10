@@ -63,6 +63,10 @@ namespace USurvive
                 //*          TEMPORARY SOLUTION!!           *
                 //*                                         *
                 //*******************************************
+
+                Error error = new Error();
+                error.tb_ErrorText.Text = "Website or email URI was invalid!  Setting to null.";
+                error.Show();
                 ClassWebsite = null;
                 InstEmail = null;
             }

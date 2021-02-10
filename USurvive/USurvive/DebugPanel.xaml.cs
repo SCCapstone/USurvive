@@ -88,5 +88,14 @@ namespace USurvive
             EditAssignment editor = new EditAssignment();
             editor.Show();
         }
+
+        private void ExportDatabaseClick(object sender, RoutedEventArgs e)
+        {
+            DatabaseExport.ExportDatabase();
+        }
+        private void ImportDatabaseClick(object sender, RoutedEventArgs e)
+        {
+            DatabaseExport.ImportDatabase();
+        }
     }
 }

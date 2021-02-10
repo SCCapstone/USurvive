@@ -23,9 +23,11 @@
         </Grid.RowDefinitions>
         <Button Grid.Column="4" Grid.Row="0" Click="DebugClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Open Debug Panel</Button>
         <!--Eventually we will make pretty buttons.  Pretty buttons are not a priority right now.-->
-        <Button Grid.Column="0" Grid.Row="0" x:Name="Classes" Style="{StaticResource buttonStyle}" Content="Classes" Click="Classes_Click" Margin="0,18,10,0" />
-        <Button Grid.Column="1" Grid.Row="0" x:Name="Assignments" Style="{StaticResource buttonStyle}" Content="Assignments" Click="Assignments_Click" Margin="0,18,10,0" />
-        <Button Grid.Column="2" Grid.Row="0" x:Name="Gradebook" Style="{StaticResource buttonStyle}" Content="Gradebook" Click="Gradebook_Click" Margin="0,18,10,0" />
+        <Button Grid.Column="0" Grid.Row="0" x:Name="Home" Style="{StaticResource buttonStyle}" Content="Home" Click="Home_Click" Margin="0,18,10,0" />
+        <Button Grid.Column="1" Grid.Row="0" x:Name="Classes" Style="{StaticResource buttonStyle}" Content="Classes" Click="Classes_Click" Margin="0,18,10,0" />
+        <Button Grid.Column="2" Grid.Row="0" x:Name="Assignments" Style="{StaticResource buttonStyle}" Content="Assignments" Click="Assignments_Click" Margin="0,18,10,0" />
+        <Button Grid.Column="3" Grid.Row="0" x:Name="Gradebook" Style="{StaticResource buttonStyle}" Content="Gradebook" Click="Gradebook_Click" Margin="0,18,10,0" />
+        
         <!--Swappable components-->
         <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2" x:Name="NavigationFrame" NavigationUIVisibility="Hidden"/>
         <!--Sidebar-->

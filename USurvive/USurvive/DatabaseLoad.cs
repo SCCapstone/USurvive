@@ -12,7 +12,7 @@ namespace USurvive
     {
         public static void LoadClasses()
         {
-            string classFile = Globals.dataDir + "classes.json";
+            string classFile = Globals.dataDir + Globals.databaseName + "classes.json";
 
             if (File.Exists(classFile))
             {
