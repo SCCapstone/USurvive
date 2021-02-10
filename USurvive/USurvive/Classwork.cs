@@ -15,7 +15,12 @@ namespace USurvive
         Grade grade;
         bool autoIncrement;
         int autoIncrementDays;
-        string type;
+        enum Type
+        {
+            Assignment,
+            Assessment,
+            ExtraCredit
+        }
 
         string GetClassworkType()
         {
