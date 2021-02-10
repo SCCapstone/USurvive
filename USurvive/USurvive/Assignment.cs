@@ -9,7 +9,7 @@ namespace USurvive
 {
     public class Assignment
     {
-        public String name { get; set; }
+        /*public String name { get; set; }
         public Class className { get; set; }
         public DateTime date { get; set; }
 
@@ -42,7 +42,7 @@ namespace USurvive
         public String ToJson()
         {
             return JsonSerializer.Serialize(this);
-        }
+        }*/
 
     }
 
