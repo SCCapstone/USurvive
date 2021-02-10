@@ -84,8 +84,8 @@ namespace USurvive
             SidebarFrame.Navigate(sidebar);
 
             //For now, open to the Classes view.  Eventually this will open to the Today view once that is implemented
-            ClassesView classesView = new ClassesView();
-            NavigationFrame.Navigate(classesView);
+            HomeView homeView = new HomeView();
+            NavigationFrame.Navigate(homeView);
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
