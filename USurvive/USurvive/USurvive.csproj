@@ -125,6 +125,7 @@
     <Compile Include="ClassList.cs" />
     <Compile Include="Classwork.cs" />
     <Compile Include="ClassworkList.cs" />
+    <Compile Include="ClassworkType.cs" />
     <Compile Include="DebugPanel.xaml.cs">
       <DependentUpon>DebugPanel.xaml</DependentUpon>
     </Compile>

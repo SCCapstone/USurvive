@@ -21,20 +21,20 @@ namespace USurvive
     /// </summary>
     public partial class Sidebar : Page
     {
-        ObservableCollection<Class> classList;
-        ObservableCollection<Assignment> assignmentList;
+        System.Collections.ObjectModel.ObservableCollection<Class> classList;
+        System.Collections.ObjectModel.ObservableCollection<Assignment> assignmentList;
         public Sidebar()
         {
             InitializeComponent();
 
-            classList = new ObservableCollection<Class>();
+            classList = new System.Collections.ObjectModel.ObservableCollection<Class>();
             foreach (Class newClass in Globals.tempClasses)
             {
                 classList.Add(newClass);
             }
             dgClassList.DataContext = classList;
 
-            assignmentList = new ObservableCollection<Assignment>();
+            assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
             foreach ( Assignment newAssignment in Globals.tempAssignments)
             {
                 assignmentList.Add(newAssignment);
@@ -46,7 +46,7 @@ namespace USurvive
 
         private void RefreshClick(object sender, RoutedEventArgs e)
         {
-            classList = new ObservableCollection<Class>();
+            classList = new System.Collections.ObjectModel.ObservableCollection<Class>();
             foreach (Class newClass in Globals.tempClasses)
             {
                 classList.Add(newClass);
@@ -54,7 +54,7 @@ namespace USurvive
             dgClassList.DataContext = classList;
 
 
-            assignmentList = new ObservableCollection<Assignment>();
+            assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
             foreach (Assignment newAssignment in Globals.tempAssignments)
             {
                 assignmentList.Add(newAssignment);

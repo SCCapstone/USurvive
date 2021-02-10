@@ -25,7 +25,7 @@ namespace USurvive
         public MainWindow()
         {
             InitializeComponent();
-            Globals.tempClasses = new ObservableCollection<Class>();
+            Globals.tempClasses = new System.Collections.ObjectModel.ObservableCollection<Class>();
             Globals.tempAssignments = new List<Assignment>();
             //NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
             

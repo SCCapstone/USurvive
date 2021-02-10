@@ -9,28 +9,28 @@ namespace USurvive
 {
     public class ClassworkList
     {
-        ObservableCollection<Classwork> classwork { get; set; }
+        System.Collections.ObjectModel.ObservableCollection<Classwork> classwork { get; set; }
 
         public ClassworkList()
         {
-            this.classwork = new ObservableCollection<Classwork>();
+            this.classwork = new System.Collections.ObjectModel.ObservableCollection<Classwork>();
         }
-        public ClassworkList(ObservableCollection<Classwork> classwork)
+        public ClassworkList(System.Collections.ObjectModel.ObservableCollection<Classwork> classwork)
         {
             this.classwork = classwork;
         }
 
-        public void addClasswork(Classwork work)
+        public void AddClasswork(Classwork work)
         {
             this.classwork.Add(work);
         }
 
-        public bool deleteClasswork(Classwork work)
+        public bool DeleteClasswork(Classwork work)
         {
             return false;
         }
 
-        public ObservableCollection<Classwork> getClassworkForClass(Class uClass)
+        public ObservableCollection<Classwork> GetClassworkForClass(Class uClass)
         {
             throw new NotImplementedException();
         }

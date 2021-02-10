@@ -32,8 +32,9 @@ namespace USurvive
             String grade = tbGrade.Text;
             String autoIncrementDays = tbAutoIncrementDays.Text;
 
+            throw new NotImplementedException();
 
-            Globals.tempAssignments.Add(new Assignment(name, null, new DateTime(), new DateTime(), 0, null, (bool)cbAutoIncrement.IsChecked, 0));
+            //Globals.tempAssignments.Add(new Assignment(name, null, new DateTime(), new DateTime(), 0, null, (bool)cbAutoIncrement.IsChecked, 0));
             this.Close();
 
 

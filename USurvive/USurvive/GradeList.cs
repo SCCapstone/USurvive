@@ -9,19 +9,19 @@ namespace USurvive
 {
     public class GradeList
     {
-        ObservableCollection<Grade> grades { get; set; }
+        System.Collections.ObjectModel.ObservableCollection<Grade> grades { get; set; }
 
         public GradeList()
         {
-            this.grades = new ObservableCollection<Grade>();
+            this.grades = new System.Collections.ObjectModel.ObservableCollection<Grade>();
         }
 
-        public GradeList(ObservableCollection<Grade> grades) //Will likely be used when reading JSON
+        public GradeList(System.Collections.ObjectModel.ObservableCollection<Grade> grades) //Will likely be used when reading JSON
         {
             this.grades = grades;
         }
 
-        public ObservableCollection<Grade> GetGrades()
+        public System.Collections.ObjectModel.ObservableCollection<Grade> GetGrades()
         {
             return this.grades;
         }
@@ -30,7 +30,7 @@ namespace USurvive
             this.grades.Add(grade);
         }
 
-        public ObservableCollection<Grade> GetGradesForClass(Class UClass)
+        public System.Collections.ObjectModel.ObservableCollection<Grade> GetGradesForClass(Class UClass)
         {
             //Not implemented
             return null;

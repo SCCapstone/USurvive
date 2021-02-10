@@ -8,6 +8,7 @@ namespace USurvive
 {
     public class Classwork
     {
+        
         //We really only need this one class, the others are redundant.
         string name;
         DateTime dueDate;
@@ -15,13 +16,18 @@ namespace USurvive
         Grade grade;
         bool autoIncrement;
         int autoIncrementDays;
-        enum Type
-        {
-            Assignment,
-            Assessment,
-            ExtraCredit
-        }
+        ClassworkType type;
 
+        public Classwork(string name, DateTime dueDate, int priority, Grade grade, bool autoIncrement, int autoIncrementDays, ClassworkType type)
+        {
+            this.name = name;
+            this.dueDate = dueDate;
+            this.priority = priority;
+            this.grade = grade;
+            this.autoIncrement = autoIncrement;
+            this.autoIncrementDays = autoIncrementDays;
+            this.type = type;
+        }
         string GetClassworkType()
         {
             throw new NotImplementedException();

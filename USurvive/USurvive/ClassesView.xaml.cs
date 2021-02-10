@@ -21,7 +21,7 @@ namespace USurvive
     /// </summary>
     public partial class ClassesView : Page
     {
-        ObservableCollection<Class> classList;
+        System.Collections.ObjectModel.ObservableCollection<Class> classList;
 
         public ClassesView()
         {

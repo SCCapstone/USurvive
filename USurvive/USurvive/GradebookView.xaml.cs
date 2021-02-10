@@ -21,12 +21,12 @@ namespace USurvive
     /// </summary>
     public partial class GradebookView : Page
     {
-        ObservableCollection<Grade> grades;
+        System.Collections.ObjectModel.ObservableCollection<Grade> grades;
         public GradebookView()
         {
             InitializeComponent();
 
-            grades = new ObservableCollection<Grade>();
+            grades = new System.Collections.ObjectModel.ObservableCollection<Grade>();
 
 
             DG1.DataContext = grades;
