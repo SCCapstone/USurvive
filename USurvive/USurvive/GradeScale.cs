@@ -19,7 +19,7 @@ namespace USurvive
             this.roundingType = roundingType;
         }
 
-        public char getLetterGrade(int gradeValue)
+        public char GetLetterGrade(int gradeValue)
         {
             Console.WriteLine("Not implemented!");
             return 'z';

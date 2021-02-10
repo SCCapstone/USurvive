@@ -45,7 +45,7 @@ namespace USurvive
             }
         }
 
-        public string getMeetingTime()
+        public string GetMeetingTime()
         {
             //Get the meeting time as a formatted string
             string ret = "";
@@ -81,7 +81,7 @@ namespace USurvive
 
         }
 
-        public DateTime getNextMeeting()
+        public DateTime GetNextMeeting()
         {
             Console.WriteLine("Not implemented yet!");
             return new DateTime();//Return default value for now, eventually we will write this code
