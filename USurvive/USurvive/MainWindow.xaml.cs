@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace USurvive
 {
@@ -24,7 +25,7 @@ namespace USurvive
         public MainWindow()
         {
             InitializeComponent();
-            Globals.tempClasses = new List<Class>();
+            Globals.tempClasses = new ObservableCollection<Class>();
             Globals.tempAssignments = new List<Assignment>();
             //NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
             

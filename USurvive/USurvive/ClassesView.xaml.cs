@@ -26,10 +26,10 @@ namespace USurvive
         public ClassesView()
         {
             InitializeComponent();
-            classList = new ObservableCollection<Class>();
-            foreach(Class newClass in Globals.tempClasses){
-                classList.Add(newClass);
-            }
+            classList = Globals.tempClasses;
+            //foreach(Class newClass in Globals.tempClasses){
+            //    classList.Add(newClass);
+            //}
             dgClassList.DataContext = classList;
         }
         private void AddClassClick(object sender, RoutedEventArgs e)

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace USurvive
 {
     static class Globals
     {
-        public static List<Class> tempClasses;
+        public static ObservableCollection<Class> tempClasses;
         //Will be intialized when MainWindow loads
         public static String dataDir;
 

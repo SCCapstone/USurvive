@@ -37,14 +37,26 @@ namespace USurvive
         {
             String name = tbName.Text;
             String instructor = tbInstructor.Text;
-            int CreditHours = int.Parse(tbCreditHours.Text);
+            int CreditHours;
+            try
+            {
+              CreditHours = int.Parse(tbCreditHours.Text);
+            } catch (System.FormatException)
+            {
+                //*******************************************
+                //*                                         *
+                //*          TEMPORARY SOLUTION!!           *
+                //*                                         *
+                //*******************************************
+                CreditHours = 0;
+            }
             Uri ClassWebsite;
             Uri InstEmail;
             try
             {
                 ClassWebsite = new Uri(tbWebsite.Text);
                 InstEmail = new Uri(tbInstEmail.Text);
-            }catch
+            } catch
             {
                 //*******************************************
                 //*                                         *
