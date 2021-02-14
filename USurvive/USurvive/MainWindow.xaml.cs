@@ -87,6 +87,11 @@ namespace USurvive
 
             //Load databases
             DatabaseLoad.LoadClasses();//Load the classes database
+            
+            if(Globals.cwList == null)
+            {
+                Globals.cwList = new ClassworkList();
+            }
 
             //Set up sidebar
             Sidebar sidebar = new Sidebar();

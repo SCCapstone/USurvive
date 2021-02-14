@@ -17,6 +17,12 @@ namespace USurvive
         public static String workingDir;
 
         public static List<Assignment> tempAssignments;
+
+
+        //List objects
+        public static ClassworkList cwList;
+        public static GradeList gradebook;
+        public static ClassList clList;
        
 
         

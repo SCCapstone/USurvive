@@ -10,15 +10,17 @@ namespace USurvive
     {
         
         //We really only need this one class, the others are redundant.
-        string name;
-        DateTime dueDate;
-        int priority;
-        Grade grade;
-        bool autoIncrement;
-        int autoIncrementDays;
-        ClassworkType type;
+        string name { get; set; }
+        DateTime dueDate { get; set; }
+        int priority { get; set; }
+        Grade grade { get; set; }
+        bool autoIncrement { get; set; }
+        int autoIncrementDays { get; set; }
+        ClassworkType type { get; set; }
 
-        public Classwork(string name, DateTime dueDate, int priority, Grade grade, bool autoIncrement, int autoIncrementDays, ClassworkType type)
+        DateTime notificationTime { get; set; }
+
+        public Classwork(string name, DateTime dueDate, int priority, Grade grade, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
         {
             this.name = name;
             this.dueDate = dueDate;
@@ -27,6 +29,7 @@ namespace USurvive
             this.autoIncrement = autoIncrement;
             this.autoIncrementDays = autoIncrementDays;
             this.type = type;
+            this.notificationTime = notificationTime;
         }
         string GetClassworkType()
         {

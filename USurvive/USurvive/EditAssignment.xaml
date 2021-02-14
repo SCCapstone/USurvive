@@ -22,32 +22,34 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
 
         </Grid.RowDefinitions>
         <!-- Labels -->
         <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Assignment Name"/>
         <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class"/>
-        <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Date"/>
+        <!--<Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Date"/> -->
         <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Due Date"/>
         <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Priority"/>
         <Label Grid.Column="0" Grid.Row="5" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Grade"/>
         <Label Grid.Column="0" Grid.Row="6" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Auto Increment"/>
         <Label Grid.Column="0" Grid.Row="7" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Auto Increment Days"/>
-        
+        <Label Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Notification Time"/>
 
 
         <!-- Input Fields -->
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Margin="8,8,10,8" Name="tbAssignmentName"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="8,8,10,8" Name="tbClassName"/> <!--TODO: Make this a ComboBox -->
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="8,8,10,8" Name="tbDate"/>
+        <!-- <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="8,8,10,8" Name="tbDate"/> -->
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="8,8,10,8" Name="tbDueDate"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="8,8,10,8" Name="tbGrade"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="8,8,10,8" Name="tbAutoIncrementDays"/>
         <CheckBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="8,8,10,8" Name="cbAutoIncrement"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="8,8,10,8" Name="tbAutoIncrementDays"/>
+        <DatePicker Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Margin="8,8,10,8" Name="dpNoteTime"/>
 
-        
+
         <!-- Combo Box -->
         <ComboBox Grid.Column="1" Grid.Row="4" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,8,10,8">
             <ComboBoxItem>1 (Highest)</ComboBoxItem>
@@ -57,13 +59,13 @@
             <ComboBoxItem>5 (Lowest)</ComboBoxItem>
         </ComboBox>
         
-        <!-- Radio Buttons -->
-        <RadioButton Grid.Column="1" Grid.Row="8" GroupName="classworkType" IsChecked="True" VerticalAlignment="Center" Margin="8,8,10,8" Name="rbType_Assignment">Assignment</RadioButton>
-        <RadioButton Grid.Column="2" Grid.Row="8" GroupName="classworkType" VerticalAlignment="Center" Margin="8,8,10,8" Name="rbType_Assessment">Assessment/Exam</RadioButton>
-        
+        <!-- CW type combo box -->
+        <ComboBox Grid.Column="1" Grid.Row="8" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,8,10,8">
+            
+        </ComboBox>
         
         <!-- Buttons -->
-        <Button Grid.Column="2" Grid.Row="10" Margin="8,8,10,8" Click="CancelClick">Cancel</Button>
-        <Button Grid.Column="1" Grid.Row="10" Margin="8,8,10,8" Click="SaveClick">Save</Button>
+        <Button Grid.Column="2" Grid.Row="11" Margin="8,8,10,8" Click="CancelClick">Cancel</Button>
+        <Button Grid.Column="1" Grid.Row="11" Margin="8,8,10,8" Click="SaveClick">Save</Button>
     </Grid>
 </Window>
