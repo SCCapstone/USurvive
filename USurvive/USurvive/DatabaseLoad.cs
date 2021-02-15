@@ -126,7 +126,7 @@ namespace USurvive
 
                 foreach (string jsonLine in jsonLines)
                 {
-                    Globals.clList.AddClass(JsonSerializer.Deserialize<Class>(jsonLine));
+                    Globals.cwList.AddClasswork(JsonSerializer.Deserialize<Classwork>(jsonLine));
                 }
             }
         }
@@ -146,7 +146,7 @@ namespace USurvive
                 }
                 catch (FileNotFoundException)
                 {
-                    verifyHash = new byte[] { 0x00 }; ;
+                    verifyHash = new byte[] { 0x00 };
                 }
                 byte[] hash;
 
@@ -181,7 +181,7 @@ namespace USurvive
 
                 foreach (string jsonLine in jsonLines)
                 {
-                    Globals.clList.AddClass(JsonSerializer.Deserialize<Class>(jsonLine));
+                    Globals.gradebook.AddGrade(JsonSerializer.Deserialize<Grade>(jsonLine));
                 }
             }
         }

@@ -11,29 +11,59 @@ namespace USurvive
     {
         
         //We really only need this one class, the others are redundant.
-        public string name { get; set; }
-        public DateTime dueDate { get; set; }
-        public int priority { get; set; }
-        public Grade grade { get; set; }
-        public bool autoIncrement { get; set; }
-        public int autoIncrementDays { get; set; }
-        public ClassworkType type { get; set; }
-        public bool shownNotification { get; set; }
+        public string Name { get; set; }
+        public DateTime DueDate { get; set; }
+        public int Priority { get; set; }
+        public bool AutoIncrement { get; set; }
+        public int AutoIncrementDays { get; set; }
+        public ClassworkType Type { get; set; }
+        public bool ShownNotification { get; set; }
 
-        public DateTime notificationTime { get; set; }
+        public DateTime NotificationTime { get; set; }
+        public Guid CWID1 { get; }
+        public Guid GradeID { get; set; }
+        public Guid CWID { get; set; }
 
-        public Classwork(string name, DateTime dueDate, int priority, Grade grade, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
+        public Classwork(string name, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
         {
-            this.name = name;
-            this.dueDate = dueDate;
-            this.priority = priority;
-            this.grade = grade;
-            this.autoIncrement = autoIncrement;
-            this.autoIncrementDays = autoIncrementDays;
-            this.type = type;
-            this.notificationTime = notificationTime;
-            this.shownNotification = false;
+            //Generate ID
+            this.CWID = System.Guid.NewGuid();
 
+            this.Name = name;
+            this.DueDate = dueDate;
+            this.Priority = priority;
+            this.GradeID = gradeID;
+            this.AutoIncrement = autoIncrement;
+            this.AutoIncrementDays = autoIncrementDays;
+            this.Type = type;
+            this.NotificationTime = notificationTime;
+            this.ShownNotification = false;
+
+
+
+            JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
+        }
+
+        public Classwork(string name, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime, Guid CWID)
+        { 
+
+            this.Name = name;
+            this.DueDate = dueDate;
+            this.Priority = priority;
+            this.GradeID = gradeID;
+            this.AutoIncrement = autoIncrement;
+            this.AutoIncrementDays = autoIncrementDays;
+            this.Type = type;
+            this.NotificationTime = notificationTime;
+            this.CWID = CWID;
+            this.ShownNotification = false;
+
+
+
+            JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
+        }
+        public Classwork()
+        {
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
 
@@ -49,13 +79,13 @@ namespace USurvive
             string dueUnits = "unfinished";
 
             Notification notification = new Notification();
-            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ASSIGNMENT", name);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ASSIGNMENT", Name);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$TIME", dueTimeRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$UNITS", dueUnits);
 
             notification.Show();
 
-            this.shownNotification = true;//Set this to false once snoozed
+            this.ShownNotification = true;//Set this to false once snoozed
         }
 
         public static void showNotification(Classwork classwork)

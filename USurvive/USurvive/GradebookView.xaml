@@ -20,8 +20,8 @@
         </Grid.RowDefinitions>
         <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Class Name"  Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Date"  Binding="{Binding ADate}"/>
+                <DataGridTextColumn Header="Class Name"  Binding="{Binding ClassName}"/>
+                <DataGridTextColumn Header="Date"  Binding="{Binding Date}"/>
                 <DataGridTextColumn Header="Points Earned" Binding="{Binding PointsEarned}" />
                 <DataGridTextColumn Header="Max Points"  Binding="{Binding MaxPoints}"/>
                 <DataGridTextColumn Header="Grade Weight"  Binding="{Binding GradeWeight}"/>

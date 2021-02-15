@@ -20,9 +20,9 @@ namespace USurvive
             {
                 foreach (Classwork classwork in Globals.cwList.classwork)
                 {
-                    if (DateTime.Compare(classwork.notificationTime, DateTime.Now) <= 0)
+                    if (DateTime.Compare(classwork.NotificationTime, DateTime.Now) <= 0)
                     {
-                        if (!classwork.shownNotification)
+                        if (!classwork.ShownNotification)
                         {
                             classwork.ShowNotification();
                         }

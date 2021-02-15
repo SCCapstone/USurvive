@@ -22,12 +22,14 @@ namespace USurvive
         public EditAssignment()
         {
             InitializeComponent();
+
+            cmbClasses.ItemsSource = Globals.clList.classes;
         }
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             string name = tbAssignmentName.Text;
-            string grade = tbGrade.Text;
+            //string grade = tbGrade.Text;
             string autoIncrementDays = tbAutoIncrementDays.Text;
             ClassworkType type = ClassworkType.Assignment;
 
@@ -43,6 +45,8 @@ namespace USurvive
                     type = ClassworkType.ExtraCredit;
                     break;
             }
+            int autoIncDays = 0;
+            try { autoIncDays = int.Parse(tbAutoIncrementDays.Text); } catch (Exception) { }
 
             DateTime? noteTime = dpNoteTime.Value;
             DateTime notifTime;
@@ -51,16 +55,17 @@ namespace USurvive
                 notifTime = new DateTime();
             }
             else notifTime = (DateTime)(noteTime);
-
             DateTime dueDate = dpDueDate.DisplayDate;
 
+            Grade tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
+            Classwork tempClasswork = new Classwork(name, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
+            tempGrade.cwID = tempClasswork.CWID;
 
-            Globals.cwList.AddClasswork(new Classwork(name, dueDate, 0, null, cbAutoIncrement.IsEnabled, int.Parse(autoIncrementDays), type, notifTime));
-            //throw new NotImplementedException();
+            Globals.gradebook.AddGrade(tempGrade);
 
-            //Globals.tempAssignments.Add(new Assignment(name, null, new DateTime(), new DateTime(), 0, null, (bool)cbAutoIncrement.IsChecked, 0));
+            Globals.cwList.AddClasswork(tempClasswork);
+
             this.Close();
-
 
         }
 
