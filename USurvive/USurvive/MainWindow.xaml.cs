@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace USurvive
 {
@@ -22,6 +23,7 @@ namespace USurvive
     /// </summary>
     public partial class MainWindow : Window
     {
+        Thread backWork;
         public MainWindow()
         {
             InitializeComponent();
@@ -97,6 +99,12 @@ namespace USurvive
             Sidebar sidebar = new Sidebar();
             SidebarFrame.Navigate(sidebar);
 
+
+            //Start background work thread
+            backWork = new Thread(BackgroundTasks.backWork);
+            backWork.SetApartmentState(ApartmentState.STA);
+            backWork.Start();
+
             //For now, open to the Classes view.  Eventually this will open to the Today view once that is implemented
             HomeView homeView = new HomeView();
             NavigationFrame.Navigate(homeView);
@@ -138,6 +146,7 @@ namespace USurvive
 
         void DataWindow_Closing(object sender, EventArgs e)
         {
+            backWork.Abort();
             System.Windows.Application.Current.Shutdown();
         }
 

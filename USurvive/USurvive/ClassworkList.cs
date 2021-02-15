@@ -9,7 +9,7 @@ namespace USurvive
 {
     public class ClassworkList
     {
-        System.Collections.ObjectModel.ObservableCollection<Classwork> classwork { get; set; }
+        public System.Collections.ObjectModel.ObservableCollection<Classwork> classwork { get; set; }
 
         public ClassworkList()
         {

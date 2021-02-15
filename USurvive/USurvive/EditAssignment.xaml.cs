@@ -27,16 +27,35 @@ namespace USurvive
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             string name = tbAssignmentName.Text;
-            string dueDate = tbDueDate.Text;
             string grade = tbGrade.Text;
             string autoIncrementDays = tbAutoIncrementDays.Text;
-            
+            ClassworkType type = ClassworkType.Assignment;
+
+            switch (cmbType.SelectedIndex)
+            {
+                case 0:
+                    type = ClassworkType.Assignment;
+                    break;
+                case 1:
+                    type = ClassworkType.Assessment;
+                    break;
+                case 2:
+                    type = ClassworkType.ExtraCredit;
+                    break;
+            }
+
+            DateTime? noteTime = dpNoteTime.Value;
+            DateTime notifTime;
+            if (noteTime == null)
+            {
+                notifTime = new DateTime();
+            }
+            else notifTime = (DateTime)(noteTime);
+
+            DateTime dueDate = dpDueDate.DisplayDate;
 
 
-            DateTime noteTime = dpNoteTime.DisplayDate;
-
-
-            Globals.cwList.AddClasswork(new Classwork(name, dueDate, 0, null, cbAutoIncrement.IsEnabled, int.Parse(autoIncrementDays), ClassworkType.Assignment, noteTime));
+            Globals.cwList.AddClasswork(new Classwork(name, dueDate, 0, null, cbAutoIncrement.IsEnabled, int.Parse(autoIncrementDays), type, notifTime));
             //throw new NotImplementedException();
 
             //Globals.tempAssignments.Add(new Assignment(name, null, new DateTime(), new DateTime(), 0, null, (bool)cbAutoIncrement.IsChecked, 0));

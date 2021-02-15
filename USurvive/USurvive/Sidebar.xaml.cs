@@ -34,12 +34,12 @@ namespace USurvive
             }
             dgClassList.DataContext = classList;
 
-            assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
-            foreach ( Assignment newAssignment in Globals.tempAssignments)
-            {
-                assignmentList.Add(newAssignment);
-            }
-            dgAssignmentList.DataContext = assignmentList;
+            //assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
+            //foreach ( Assignment newAssignment in Globals.tempAssignments)
+            //{
+            //    assignmentList.Add(newAssignment);
+            //}
+            dgAssignmentList.DataContext = Globals.cwList.classwork;
 
             
         }
