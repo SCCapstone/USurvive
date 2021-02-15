@@ -44,7 +44,7 @@ namespace USurvive
         //JSON Save
         private void JSONSaveClick(Object sender, RoutedEventArgs e)
         {
-            DatabaseSave.SaveClasses();
+            DatabaseSave.SaveDatabase();
         }
 
 

@@ -87,8 +87,12 @@ namespace USurvive
                 Directory.CreateDirectory(Globals.workingDir + "syllabus");
             }
 
+            Globals.clList = new ClassList();
+            Globals.cwList = new ClassworkList();
+            Globals.gradebook = new GradeList();
+
             //Load databases
-            DatabaseLoad.LoadClasses();//Load the classes database
+            DatabaseLoad.LoadDatabase();//Load the database
             
             if(Globals.cwList == null)
             {

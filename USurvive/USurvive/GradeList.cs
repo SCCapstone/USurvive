@@ -9,7 +9,7 @@ namespace USurvive
 {
     public class GradeList
     {
-        System.Collections.ObjectModel.ObservableCollection<Grade> grades { get; set; }
+        public System.Collections.ObjectModel.ObservableCollection<Grade> grades { get; set; }
 
         public GradeList()
         {

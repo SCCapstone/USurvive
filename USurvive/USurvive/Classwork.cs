@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace USurvive
@@ -32,8 +33,15 @@ namespace USurvive
             this.type = type;
             this.notificationTime = notificationTime;
             this.shownNotification = false;
+
+            JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
-        
+
+        public String ToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
         public void ShowNotification()
         {
             //TODO: Figure this out

@@ -75,7 +75,7 @@ namespace USurvive
             String notes = tbNotes.Text;
             List<MeetingTime> meetingTimes = null;
 
-            Globals.tempClasses.Add(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes));
+            Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes));
             //Console.WriteLine(Globals.tempClasses[0]);
             this.Close();
         }

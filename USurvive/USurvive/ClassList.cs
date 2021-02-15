@@ -9,7 +9,7 @@ namespace USurvive
 {
     public class ClassList
     {
-        ObservableCollection<Class> classes { get; set; }
+        public ObservableCollection<Class> classes { get; set; }
 
         public ClassList()
         {
@@ -18,6 +18,11 @@ namespace USurvive
         public ClassList(ObservableCollection<Class> classes)
         {
             this.classes = classes;
+        }
+
+        public void AddClass(Class uClass)
+        {
+            classes.Add(uClass);
         }
 
 
