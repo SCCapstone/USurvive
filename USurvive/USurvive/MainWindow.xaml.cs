@@ -109,7 +109,7 @@ namespace USurvive
             backWork.SetApartmentState(ApartmentState.STA);
             backWork.Start();
 
-            //For now, open to the Classes view.  Eventually this will open to the Today view once that is implemented
+            //Now opens to the Home View 
             HomeView homeView = new HomeView();
             NavigationFrame.Navigate(homeView);
         }
