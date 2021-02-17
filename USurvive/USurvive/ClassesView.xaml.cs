@@ -21,15 +21,12 @@ namespace USurvive
     /// </summary>
     public partial class ClassesView : Page
     {
-        System.Collections.ObjectModel.ObservableCollection<Class> classList;
+        ObservableCollection<Class> classList;
 
         public ClassesView()
         {
             InitializeComponent();
-            classList = Globals.tempClasses;
-            //foreach(Class newClass in Globals.tempClasses){
-            //    classList.Add(newClass);
-            //}
+            classList = Globals.clList.classes;
             dgClassList.DataContext = classList;
         }
         private void AddClassClick(object sender, RoutedEventArgs e)
@@ -37,5 +34,22 @@ namespace USurvive
             EditClass editClass = new EditClass();
             editClass.Show();
         }
+
+        private void ViewClick(object sender, RoutedEventArgs e)
+        {
+            ClassOverview overview = new ClassOverview();
+            overview.Show();       
+        }
+
+        private void EditClick(object sender, RoutedEventArgs e)
+        {
+            EditClass edit = new EditClass();
+            edit.Show();
+        }
+
+        //private void DeleteClick(object sender, RoutedEventArgs e)
+        //{
+        //    classList.Remove(sender);
+        //}
     }
 }

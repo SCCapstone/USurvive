@@ -10,24 +10,46 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="297*"/>
+            <ColumnDefinition Width="503*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        
+
         <Label Content="THIS IS THE CLASS VIEW" HorizontalAlignment="Left" Margin="130,135,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dgClassList" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
+        <DataGrid Name="dgClassList" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="False" CanUserDeleteRows="True" CanUserResizeColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
                 <DataGridTextColumn Header="Credit Hours" Binding="{Binding CreditHours}" />
                 <DataGridTextColumn Header="Instructor Email" Binding="{Binding InstructorEmail}" />
                 <DataGridTextColumn Header="Meeting Times" Binding="{Binding MeetingTimes}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ViewClick">View</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="EditClick">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="Delete">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="AddClassClick">Add Class</Button>
+        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="AddClassClick" Margin="0,5,0,10">Add Class</Button>
     </Grid>
 </Page>
