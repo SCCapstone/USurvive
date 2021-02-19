@@ -21,7 +21,7 @@
         <TextBlock x:Name="SelectFile" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" >Select User File</TextBlock>
 
         <!--Buttons-->
-        <Button Grid.Column="0" Grid.Row="1" Click="CloseClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Close</Button>
-        <Button Grid.Column="4" Grid.Row="1" Click="CloseClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Open File</Button>
+        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Close</Button>
+        <Button Grid.Column="4" Grid.Row="1" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Open File</Button>
         </Grid>
 </Window>
