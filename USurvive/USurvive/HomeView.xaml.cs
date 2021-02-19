@@ -20,30 +20,29 @@ namespace USurvive
     /// </summary>
     public partial class HomeView : Page
     {
-        System.Collections.ObjectModel.ObservableCollection<Class> classList;
         public HomeView()
         {
             InitializeComponent();
             showCurrentClasses();
         }
 
-        public string classesList { get; set; }
-
         private void ChooseUser_Click(object sender, RoutedEventArgs e)
         {
-            //HomeView homeView = new HomeView();
-            Window temp = new Window();
-            temp.Show();
+            //UserSelection userSelection = new UserSelection();
+            //userSelection.Show();
+            //Window temp = new Window();
+            //temp.Show();
             //NavigationFrame.Navigate(temp);
         }
 
         private void showCurrentClasses()
         {
             String names = "";
-            foreach(Class newClass in Globals.tempClasses){
-               names += (newClass.Name + "/n");
+            foreach(Class newClass in Globals.clList.classes){
+               names += (newClass.Name + "\n");
             }
-            ;
+            this.class_list.Text = names;
+            
         }
     }
 }
