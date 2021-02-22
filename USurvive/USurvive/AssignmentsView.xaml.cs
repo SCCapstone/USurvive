@@ -23,6 +23,13 @@ namespace USurvive
         public AssignmentsView()
         {
             InitializeComponent();
+            dgAssignmentsList.DataContext = Globals.cwList.classwork;
+        }
+
+        private void btnNewAssignment_Click(object sender, RoutedEventArgs e)
+        {
+            EditAssignment editor = new EditAssignment();
+            editor.Show();
         }
     }
 }

@@ -9,7 +9,23 @@
       Title="AssignmentsView">
 
     <Grid>
-        <Label Content="THIS IS THE ASSIGNMENTS VIEW" HorizontalAlignment="Left" Margin="276,178,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
+        <DataGrid Grid.Row="0" Grid.Column="0" Name="dgAssignmentsList" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}"/>
+                <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="1" Grid.Column="0" Name="btnNewAssignment" Style="{StaticResource buttonStyle}" Click="btnNewAssignment_Click" Margin="8,8,10,8">Add Assignment</Button>
     </Grid>
 </Page>

@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <Label Content="THIS IS THE CLASS VIEW" HorizontalAlignment="Left" Margin="130,135,0,0" VerticalAlignment="Top"/>
@@ -28,6 +28,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="AddClassClick">Add Class</Button>
+        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="AddClassClick" Margin="8,8,10,8">Add Class</Button>
     </Grid>
 </Page>

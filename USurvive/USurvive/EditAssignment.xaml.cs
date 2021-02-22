@@ -24,7 +24,12 @@ namespace USurvive
             InitializeComponent();
 
             cmbClasses.ItemsSource = Globals.clList.classes;
+
+            //By default, don't enable the auto increment
+            tbAutoIncrementDays.Text = "0";
+            tbAutoIncrementDays.IsEnabled = false;
         }
+
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
@@ -55,7 +60,14 @@ namespace USurvive
                 notifTime = new DateTime();
             }
             else notifTime = (DateTime)(noteTime);
-            DateTime dueDate = dpDueDate.DisplayDate;
+
+            //DateTime dueDate = dpDueDate.DisplayDate;
+            DateTime dueDate;
+            if (dpDueDate.Value == null)
+            {
+                dueDate = new DateTime();
+            }
+            else dueDate = (DateTime)(dpDueDate.Value);
 
             Grade tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
             Classwork tempClasswork = new Classwork(name, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
@@ -72,6 +84,16 @@ namespace USurvive
         private void CancelClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void cbAutoIncrement_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!(bool)cbAutoIncrement.IsChecked)
+            {
+                tbAutoIncrementDays.Text = "0";
+                tbAutoIncrementDays.IsEnabled = false;
+            }
+            else tbAutoIncrementDays.IsEnabled = true;
         }
     }
 

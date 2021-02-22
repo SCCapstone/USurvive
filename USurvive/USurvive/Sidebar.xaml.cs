@@ -57,7 +57,7 @@ namespace USurvive
             classList = Globals.clList.GetClassesForDay(SelectedDate);
             dgClassList.DataContext = classList;
 
-            DateTest.Content = SelectedDate;
+            //DateTest.Content = SelectedDate;
         }
     }
 }
