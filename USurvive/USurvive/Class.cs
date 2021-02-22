@@ -56,5 +56,22 @@ namespace USurvive
 
             return ret;
         }
+
+        public bool MeetsToday()
+        {
+            return MeetsOnDate(DateTime.Now);
+        }
+
+        public bool MeetsOnDate(DateTime date)
+        {
+            int DOWInt = (int)date.DayOfWeek;
+            if (MeetingTimes == null) return false;
+            foreach (MeetingTime time in MeetingTimes)
+            {
+                if (time.MeetsOnDay(DOWInt))
+                    return true;
+            }
+            return false;//Doesn't meet on that day, apparently.
+        }
     }
 }

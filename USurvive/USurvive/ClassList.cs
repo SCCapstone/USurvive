@@ -25,6 +25,15 @@ namespace USurvive
             classes.Add(uClass);
         }
 
-
+        public ObservableCollection<Class> GetClassesForDay(DateTime date)
+        {
+            ObservableCollection<Class> ret = new ObservableCollection<Class>();
+            foreach(Class UClass in classes)
+            {
+                if (UClass.MeetsOnDate(date))
+                    ret.Add(UClass);
+            }
+            return ret;
+        }
     }
 }

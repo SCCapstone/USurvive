@@ -16,12 +16,11 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
 
 
-       <Calendar Grid.Row="0" Grid.Column="0"></Calendar>
+        <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
 
         <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>
@@ -30,15 +29,12 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Grid.Row="2" Grid.Column=" 0" Name="dgAssignmentList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
+        <DataGrid Grid.Row="2" Grid.Column="0" Name="dgAssignmentList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
-                <DataGridTextColumn Header="Due Date" Binding="{Binding dueDate}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}" />
             </DataGrid.Columns>
 
         </DataGrid>
-
-
-        <Button Grid.Row="3" Grid.Column="0" Click="RefreshClick" Height="40" Margin="8,8,10,8" VerticalAlignment="Bottom">Refresh</Button>
     </Grid>
 </Page>

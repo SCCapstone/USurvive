@@ -87,6 +87,12 @@ namespace USurvive
             return new DateTime();//Return default value for now, eventually we will write this code
         }
 
+        public bool MeetsOnDay(int day)
+        {
+            if (day < 0 || day >= 7)//Invalid input
+                return false;
+            else return meetingTimes[day];
+        }
         public void setMeetingTime(int[] time, int length, bool[] meetingTimes)
         {
             if (time.Length == 2)
