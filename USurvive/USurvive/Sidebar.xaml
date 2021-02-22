@@ -17,9 +17,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-
-
+        
         <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
 
         <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
