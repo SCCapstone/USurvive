@@ -19,9 +19,12 @@
             <RowDefinition Height="220"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" Name="numerA" Text="Current Classes" />
-        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="ClassList"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" Name="class_list" Text="$Placeholder"/>
-        <Button Grid.Column="2" Grid.Row="2" Name="ChooseUser" Style="{StaticResource buttonStyle}" Content="Choose User" Click="ChooseUser_Click"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" Name="currClasses" Text="Current Classes" Margin="-10,51,10,167.222" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="upcomClasses" Text="Upcoming Classes" Margin="0,38.778,0,30.222" />
+        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="upcomAssigments" Text="Upcoming Assignments" Margin="-10,108.778,10,39.778" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="0" Name="class_list" Text="$Placeholder" Margin="0,68,0,82.222" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Name="upcomingclass_list" Text="$Placeholder" Margin="0,51.778,0,27.778" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Name="upcomingassignment_list" Text="$Placeholder" Margin="0,155.778,0,-76.222" Grid.RowSpan="2"/>
+        <Button Grid.Column="1" Grid.Row="2" Name="ChooseUser" Style="{StaticResource buttonStyle}" Content="Choose User" Click="ChooseUser_Click" Grid.ColumnSpan="2" Margin="0,31.778,150,21.778"/>
     </Grid>
 </Page>

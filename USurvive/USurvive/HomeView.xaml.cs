@@ -28,8 +28,8 @@ namespace USurvive
 
         private void ChooseUser_Click(object sender, RoutedEventArgs e)
         {
-            //UserSelection userSelection = new UserSelection();
-            //userSelection.Show();
+            UserSelection userSelection = new UserSelection();
+            userSelection.Show();
             //Window temp = new Window();
             //temp.Show();
             //NavigationFrame.Navigate(temp);
