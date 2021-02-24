@@ -40,6 +40,7 @@ namespace USurvive
             //2.Create new "Globals.dataDir + "databaseSetting"" file with the name of the new database folder(if user chooses to set new database as default)
             //3.Set Globals.databaseName to the name of the database folder
             //4.Call DatabaseLoad.LoadDatabase to load the new database file
+            //
 
             string userFile = Globals.dataDir + Globals.databaseName + ".usurvive";
             Globals.databaseName = userFile;
