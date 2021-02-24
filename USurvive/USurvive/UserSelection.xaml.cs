@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace USurvive
 {
     /// <summary>
-    /// Interaction logic for AssignmentsView.xaml
+    /// Interaction logic for UserSelection.xaml
     /// </summary>
-    public partial class AssignmentsView : Page
+    public partial class UserSelection : Window
     {
-        public AssignmentsView()
+        public UserSelection()
         {
             InitializeComponent();
-            dgAssignmentsList.DataContext = Globals.cwList.classwork;
-        }
-
-        private void btnNewAssignment_Click(object sender, RoutedEventArgs e)
-        {
-            EditAssignment editor = new EditAssignment();
-            editor.Show();
         }
     }
 }

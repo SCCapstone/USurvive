@@ -35,6 +35,18 @@ namespace USurvive
             throw new NotImplementedException();
         }
 
+        public ObservableCollection<Classwork> GetClassworkForDate(DateTime date)
+        {
+            ObservableCollection<Classwork> ret = new ObservableCollection<Classwork>();
+            foreach(Classwork work in classwork)
+            {
+                if(DateTime.Compare(work.DueDate, date) >= 0)
+                {
+                    ret.Add(work);
+                }
+            }
+            return ret;
+        }
          public int ItemCount()
         {
             return classwork.Count;

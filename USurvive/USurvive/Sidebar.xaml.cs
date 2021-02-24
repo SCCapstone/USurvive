@@ -22,16 +22,18 @@ namespace USurvive
     public partial class Sidebar : Page
     {
         System.Collections.ObjectModel.ObservableCollection<Class> classList;
-        System.Collections.ObjectModel.ObservableCollection<Assignment> assignmentList;
+        System.Collections.ObjectModel.ObservableCollection<Classwork> assignmentList;
+
+        DateTime SelectedDate;
         public Sidebar()
         {
             InitializeComponent();
 
-            classList = new System.Collections.ObjectModel.ObservableCollection<Class>();
-            foreach (Class newClass in Globals.tempClasses)
-            {
-                classList.Add(newClass);
-            }
+            SelectedDate = new DateTime();
+
+            classList = Globals.clList.GetClassesForDay(DateTime.Now);
+            assignmentList = Globals.cwList.GetClassworkForDate(DateTime.Now);
+
             dgClassList.DataContext = classList;
 
             //assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
@@ -39,28 +41,23 @@ namespace USurvive
             //{
             //    assignmentList.Add(newAssignment);
             //}
-            dgAssignmentList.DataContext = Globals.cwList.classwork;
+            dgAssignmentList.DataContext = assignmentList;
 
             
         }
 
-        private void RefreshClick(object sender, RoutedEventArgs e)
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            classList = new System.Collections.ObjectModel.ObservableCollection<Class>();
-            foreach (Class newClass in Globals.tempClasses)
-            {
-                classList.Add(newClass);
-            }
-            dgClassList.DataContext = classList;
+            Calendar calendar = (Calendar)sender;
+            SelectedDate = (DateTime)calendar.SelectedDate;
 
-
-            assignmentList = new System.Collections.ObjectModel.ObservableCollection<Assignment>();
-            foreach (Assignment newAssignment in Globals.tempAssignments)
-            {
-                assignmentList.Add(newAssignment);
-            }
+            assignmentList = Globals.cwList.GetClassworkForDate(SelectedDate);
             dgAssignmentList.DataContext = assignmentList;
 
+            classList = Globals.clList.GetClassesForDay(SelectedDate);
+            dgClassList.DataContext = classList;
+
+            //DateTest.Content = SelectedDate;
         }
     }
 }

@@ -23,6 +23,26 @@ namespace USurvive
         public HomeView()
         {
             InitializeComponent();
+            showCurrentClasses();
+        }
+
+        private void ChooseUser_Click(object sender, RoutedEventArgs e)
+        {
+            //UserSelection userSelection = new UserSelection();
+            //userSelection.Show();
+            //Window temp = new Window();
+            //temp.Show();
+            //NavigationFrame.Navigate(temp);
+        }
+
+        private void showCurrentClasses()
+        {
+            String names = "";
+            foreach(Class newClass in Globals.clList.classes){
+               names += (newClass.Name + "\n");
+            }
+            this.class_list.Text = names;
+            
         }
     }
 }
