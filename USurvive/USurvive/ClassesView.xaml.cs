@@ -46,7 +46,10 @@ namespace USurvive
 
         private void EditClick(object sender, RoutedEventArgs e)
         {
-            EditClass edit = new EditClass();
+            Button button = (Button)sender;
+            Class cl = (Class)button.DataContext;
+            EditClass edit = new EditClass(cl);
+            //classList.Remove(cl);  // Introduces an bug where canceling the edit deletes cl
             edit.Show();
         }
     }

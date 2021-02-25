@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,14 @@ namespace USurvive
             //By default, don't enable the auto increment
             tbAutoIncrementDays.Text = "0";
             tbAutoIncrementDays.IsEnabled = false;
+        }
+
+        public EditAssignment(Class cl)
+        {
+            InitializeComponent();
+            ObservableCollection<Class> singletonClass = new ObservableCollection<Class>();
+            singletonClass.Add(cl);
+            cmbClasses.ItemsSource = singletonClass;
         }
 
 
@@ -69,7 +78,7 @@ namespace USurvive
             }
             else dueDate = (DateTime)(dpDueDate.Value);
 
-            string cl = ((Class)cmbClasses.SelectedItem).Name;
+            string cl = ((Class)cmbClasses.SelectedItem).Name; // Need to prevent null as an option for the comboBox
                 
             Grade tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
             Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);

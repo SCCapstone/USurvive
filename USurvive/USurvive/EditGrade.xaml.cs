@@ -23,5 +23,14 @@ namespace USurvive
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// TODO Generates edit dialouge with only one class option.
+        /// </summary>
+        /// <param name="cl">Class to be presented as only option.</param>
+        public EditGrade(Class cl)
+        {
+            InitializeComponent();
+        }
     }
 }

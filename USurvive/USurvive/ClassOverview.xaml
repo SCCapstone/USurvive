@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="ClassOverview" Height="450" Width="800">
     <Grid>
-        <!--StackPanel: https://stackoverflow.com/questions/20353489/how-to-put-two-different-textboxes-into-same-level/20353570-->
+        <!--StackPanel: https://stackoverflow.com/questions/20353489/how-to-put-two-different-textboxes-into-same-level/20353570 -->
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
             <TextBox Name="classNameText"/>
             <TextBox>Assignments:</TextBox>
-            <DataGrid Name ="dgUncompletedAssignments" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}">
+            <DataGrid Name ="dgUncompletedAssignments" IsReadOnly="False" AutoGenerateColumns="False" ItemsSource="{Binding}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
@@ -19,7 +19,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <TextBox>Assessments:</TextBox>
-            <DataGrid Name ="dgUncompletedAssessments" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource ="{Binding}">
+            <DataGrid Name ="dgUncompletedAssessments" IsReadOnly="False" AutoGenerateColumns="False" ItemsSource ="{Binding}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
@@ -28,6 +28,11 @@
             </DataGrid>
             <TextBox>Current Grade:</TextBox>
             <TextBox Name="gradeText"/>
+            <Button Click="addAssignmentClick">Add assignment</Button>
+            <Button Click="addGradeClick">Add grade</Button>
+            <Button Click="viewSyllabusClick">Syllabus</Button>
+            <!--Meeting times go here-->
+            <Button Click="EmailInstructorClick">Email Instructor</Button>
         </StackPanel>
     </Grid>
 </Window>
