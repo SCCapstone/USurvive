@@ -112,6 +112,7 @@ namespace USurvive
             //Now opens to the Home View 
             HomeView homeView = new HomeView();
             NavigationFrame.Navigate(homeView);
+            DatabaseSave.SaveDatabase();
         }
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
@@ -151,6 +152,7 @@ namespace USurvive
         void DataWindow_Closing(object sender, EventArgs e)
         {
             backWork.Abort();
+            DatabaseSave.SaveDatabase();
             System.Windows.Application.Current.Shutdown();
         }
 
