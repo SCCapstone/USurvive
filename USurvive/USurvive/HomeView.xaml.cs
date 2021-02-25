@@ -38,6 +38,7 @@ namespace USurvive
 
         private void ChooseUser_Click(object sender, RoutedEventArgs e)
         {
+            DatabaseSave.SaveDatabase();
             UserSelection userSelection = new UserSelection();
             userSelection.Show();
         }

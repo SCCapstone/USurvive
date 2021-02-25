@@ -22,7 +22,8 @@
 
         <!--Buttons-->
         <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Name ="close" Click ="CloseClick" Margin="0,49.333,78.889,17.889" Width="60" Height="Auto">Close</Button>
-        <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource buttonStyle}" Name ="createNewUser" Margin="0,49.333,9.556,17.889" Width="129" Height="Auto">Create New User...</Button>
-        <ComboBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Name="userDropdown"></ComboBox>
+        <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource buttonStyle}" Name ="createNewUser" Click="createNewUser_Click" Margin="0,49.333,9.556,17.889" Width="129" Height="Auto">Create New User...</Button>
+        <ComboBox Grid.ColumnSpan="3" Grid.Row="1" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Name="userDropdown" Margin="148,31.333,148.667,32.889"/>
+        <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource buttonStyle}" Name ="OK" Click="OK_Click" Margin="0,34.333,83.667,32.889" Width="55" Height="Auto">OK</Button>
     </Grid>
 </Window>

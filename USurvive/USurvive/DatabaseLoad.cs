@@ -20,6 +20,7 @@ namespace USurvive
 
         public static void LoadClasses()
         {
+            Globals.clList = new ClassList();
             string classFile = Globals.dataDir + Globals.databaseName + "classes.json";
 
             string hashFile = classFile + ".md5";
@@ -76,6 +77,7 @@ namespace USurvive
 
         public static void LoadWork()
         {
+            Globals.cwList = new ClassworkList();
             string workFile = Globals.dataDir + Globals.databaseName + "work.json";
 
             string hashFile = workFile + ".md5";
@@ -133,6 +135,7 @@ namespace USurvive
 
         public static void LoadGrades()
         {
+            Globals.gradebook = new GradeList();
             string gradeFile = Globals.dataDir + Globals.databaseName + "grade.json";
 
             string hashFile = gradeFile + ".md5";

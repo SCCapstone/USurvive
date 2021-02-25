@@ -131,10 +131,6 @@ namespace USurvive
             
             ClassesView classesView = new ClassesView();
             NavigationFrame.Navigate(classesView);
-            /*
-            Classes classesWindow = new Classes();
-            classesWindow.Show();
-            */
         }
     
         private void Gradebook_Click(object sender, RoutedEventArgs e)

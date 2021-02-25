@@ -23,34 +23,44 @@ namespace USurvive
         public UserSelection()
         {
             InitializeComponent();
+            loadDropdown();
+            
+        }
 
+        public void loadDropdown()
+        {
             string[] fileList = Directory.GetDirectories(Globals.dataDir, "*");
-            for(int i = 0; i < fileList.Length; i++){
+            for (int i = 0; i < fileList.Length; i++)
+            {
                 fileList[i] = fileList[i].Replace(Globals.dataDir, "");
             }
             userDropdown.ItemsSource = fileList;
         }
-
-        public void loadUsers()
-        {
-
-            //== Setting the new database==
-            //1.Delete existing "Globals.dataDir + "databaseSetting"" file
-            //2.Create new "Globals.dataDir + "databaseSetting"" file with the name of the new database folder(if user chooses to set new database as default)
-            //3.Set Globals.databaseName to the name of the database folder
-            //4.Call DatabaseLoad.LoadDatabase to load the new database file
-            //
-
-            string userFile = Globals.dataDir + Globals.databaseName + ".usurvive";
-            Globals.databaseName = userFile;
-            DatabaseLoad.LoadDatabase();
-
-
-        }
-
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            string settingfile = Globals.dataDir + "databaseSetting";
+            if (File.Exists(settingfile))
+            {
+                File.Delete(settingfile);
+            }
+            using (StreamWriter fileOutput = new StreamWriter(settingfile, true))
+            {
+                fileOutput.WriteLine(userDropdown.SelectedItem);
+                Globals.databaseName = (string)userDropdown.SelectedItem + "\\";
+            }
+            DatabaseLoad.LoadDatabase();
+            this.Close();
+        }
+
+        private void createNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            CreateUser usercreate = new CreateUser(this);
+            usercreate.Show();
         }
     }
 }
