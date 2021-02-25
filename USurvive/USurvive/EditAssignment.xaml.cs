@@ -69,8 +69,10 @@ namespace USurvive
             }
             else dueDate = (DateTime)(dpDueDate.Value);
 
+            string cl = ((Class)cmbClasses.SelectedItem).Name;
+                
             Grade tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
-            Classwork tempClasswork = new Classwork(name, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
+            Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
             tempGrade.cwID = tempClasswork.CWID;
 
             Globals.gradebook.AddGrade(tempGrade);

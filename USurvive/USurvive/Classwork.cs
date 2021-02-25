@@ -12,6 +12,8 @@ namespace USurvive
         
         //We really only need this one class, the others are redundant.
         public string Name { get; set; }
+        public bool Completed { get; set; }
+        public string Cl { get; set; }
         public DateTime DueDate { get; set; }
         public int Priority { get; set; }
         public bool AutoIncrement { get; set; }
@@ -24,12 +26,14 @@ namespace USurvive
         public Guid GradeID { get; set; }
         public Guid CWID { get; set; }
 
-        public Classwork(string name, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
+        public Classwork(string name, string cl, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
         {
             //Generate ID
             this.CWID = System.Guid.NewGuid();
 
             this.Name = name;
+            this.Completed = false;
+            this.Cl = cl;
             this.DueDate = dueDate;
             this.Priority = priority;
             this.GradeID = gradeID;
@@ -44,10 +48,12 @@ namespace USurvive
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
 
-        public Classwork(string name, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime, Guid CWID)
+        public Classwork(string name, string cl, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime, Guid CWID)
         { 
 
             this.Name = name;
+            this.Completed = false;
+            this.Cl = cl;
             this.DueDate = dueDate;
             this.Priority = priority;
             this.GradeID = gradeID;

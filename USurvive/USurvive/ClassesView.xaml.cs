@@ -37,7 +37,10 @@ namespace USurvive
 
         private void ViewClick(object sender, RoutedEventArgs e)
         {
-            ClassOverview overview = new ClassOverview();
+            Button button = (Button)sender;
+            Class cl = (Class)button.DataContext;
+            ClassOverview overview = new ClassOverview(cl);
+            //MessageBox.Show("Class is" + cl.ToString()); // proof that above code get's respective row's Class object
             overview.Show();       
         }
 
@@ -46,10 +49,5 @@ namespace USurvive
             EditClass edit = new EditClass();
             edit.Show();
         }
-
-        //private void DeleteClick(object sender, RoutedEventArgs e)
-        //{
-        //    classList.Remove(sender);
-        //}
     }
 }
