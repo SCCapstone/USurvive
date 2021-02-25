@@ -20,11 +20,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" Name="currClasses" Text="Current Classes" Margin="-10,51,10,167.222" Grid.RowSpan="2" />
-        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="upcomClasses" Text="Upcoming Classes" Margin="0,38.778,0,30.222" />
-        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="upcomAssigments" Text="Upcoming Assignments" Margin="-10,108.778,10,39.778" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Center" Name="upcomClasses" Text="Upcoming Classes" Margin="0,80.778,0,30.222" />
+        <TextBlock Grid.Column="1" TextAlignment="Center" Name="upcomAssigments" Text="Upcoming Assignments" Margin="5,51,244.778,167.222" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="1" Grid.Row="1" TextAlignment="Center" Name="overAssignments" Text="Overdue Assignments" Margin="0,111.778,249.778,34.778" Grid.RowSpan="2" />
         <TextBlock Grid.Column="0" Name="class_list" Text="$Placeholder" Margin="0,68,0,82.222" Grid.RowSpan="2"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" Name="upcomingclass_list" Text="$Placeholder" Margin="0,51.778,0,27.778" Grid.RowSpan="2"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" Name="upcomingassignment_list" Text="$Placeholder" Margin="0,155.778,0,-76.222" Grid.RowSpan="2"/>
-        <Button Grid.Column="1" Grid.Row="2" Name="ChooseUser" Style="{StaticResource buttonStyle}" Content="Choose User" Click="ChooseUser_Click" Grid.ColumnSpan="2" Margin="0,31.778,150,21.778"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Name="upcomingclass_list" Text="$Placeholder" Margin="0,124.778,0,-45.222" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="1" Name="upcomingassignment_list" Text="$Placeholder" Margin="10,68,239.778,82.222" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Name="overdueassignment_list" Text="$Placeholder" Margin="5,124.778,244.778,-45.222" Grid.RowSpan="2"/>
+        <Button Grid.Column="1" Grid.Row="2" Name="ChooseUser" Style="{StaticResource buttonStyle}" Content="Choose User" Click="ChooseUser_Click" Grid.ColumnSpan="2" Margin="0,22.778,87,31.778"/>
     </Grid>
 </Page>

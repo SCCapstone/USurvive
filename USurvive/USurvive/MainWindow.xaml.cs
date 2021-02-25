@@ -152,6 +152,7 @@ namespace USurvive
         void DataWindow_Closing(object sender, EventArgs e)
         {
             backWork.Abort();
+            DatabaseSave.SaveDatabase();
             System.Windows.Application.Current.Shutdown();
         }
 

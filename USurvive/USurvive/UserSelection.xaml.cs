@@ -29,7 +29,6 @@ namespace USurvive
                 fileList[i] = fileList[i].Replace(Globals.dataDir, "");
             }
             userDropdown.ItemsSource = fileList;
-            //userDropdown.ItemsSource = Globals.dataDir;
         }
 
         public void loadUsers()
@@ -46,6 +45,12 @@ namespace USurvive
             Globals.databaseName = userFile;
             DatabaseLoad.LoadDatabase();
 
+
+        }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
