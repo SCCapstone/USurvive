@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +21,25 @@ namespace USurvive
     /// </summary>
     public partial class HomeView : Page
     {
+        private int timeframe = 7;
         public HomeView()
         {
             InitializeComponent();
             showCurrentClasses();
+            //showUpcomingClasses();
+            showUpcomingAssignments();
+            showOverdueAssignments();
+        }
+
+        public void setTimeframe(int t)
+        {
+            timeframe = t;
         }
 
         private void ChooseUser_Click(object sender, RoutedEventArgs e)
         {
-            //UserSelection userSelection = new UserSelection();
-            //userSelection.Show();
-            //Window temp = new Window();
-            //temp.Show();
-            //NavigationFrame.Navigate(temp);
+            UserSelection userSelection = new UserSelection();
+            userSelection.Show();
         }
 
         private void showCurrentClasses()
@@ -42,7 +49,52 @@ namespace USurvive
                names += (newClass.Name + "\n");
             }
             this.class_list.Text = names;
+        }
+
+        private void showUpcomingClasses() //ClassList method for obtaining all classes of the day. Iterate through observable collection and convert to string
+        {
+            String names = "";
+            ObservableCollection<Class> upcomingList = Globals.clList.GetClassesForDay(DateTime.Now);
+            foreach (Class newClass in upcomingList)
+            {
+                names += newClass.Name + " @ " + "$Next Meeting Variable" + "\n";
+            }
+            this.upcomClasses.Text = names;
+        }
+
+        private void showUpcomingAssignments()
+        {
+            String names = "";
             
+            foreach (Classwork newAssignment in Globals.cwList.classwork)
+            {
+                if (DateTime.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0 && DateTime.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
+                {
+                    //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n"); // Add class name
+                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: "+ newAssignment.Priority + "\n" + "\n");
+                }
+            }
+
+            this.upcomingassignment_list.Text = names;
+
+        }
+
+        private void showOverdueAssignments()
+        {
+            String names = "";
+
+            foreach (Classwork newAssignment in Globals.cwList.classwork)
+            {
+                if (DateTime.Compare(newAssignment.DueDate, DateTime.Now) < 0)
+                {
+                    newAssignment.Priority = 1;
+                    //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n");
+                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
+                    
+                }
+            }
+
+            this.overdueassignment_list.Text = names;
         }
     }
 }
