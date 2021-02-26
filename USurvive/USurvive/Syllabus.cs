@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace USurvive
@@ -35,6 +36,8 @@ namespace USurvive
 
                 File.Copy(fileName, Globals.workingDir + "syllabus\\" + fileNameSplit[fileNameSplit.Length - 1]);
                 this.fileName = Globals.workingDir + "syllabus\\" + fileNameSplit[fileNameSplit.Length - 1];
+
+                JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
             }
 
             else
@@ -75,6 +78,7 @@ namespace USurvive
 
                 File.Copy(fileName, Globals.workingDir + "syllabus\\" + fileNameSplit[fileNameSplit.Length - 1]);
                 this.fileName = Globals.workingDir + "syllabus\\" + fileNameSplit[fileNameSplit.Length - 1];
+                JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
             }
             else
             {
@@ -105,6 +109,10 @@ namespace USurvive
                 error.Show();
                 return;
             }
+        }
+        public String ToJson()
+        {
+            return JsonSerializer.Serialize(this);
         }
     }
 }
