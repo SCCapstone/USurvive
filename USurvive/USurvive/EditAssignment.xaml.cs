@@ -37,6 +37,7 @@ namespace USurvive
             ObservableCollection<Class> singletonClass = new ObservableCollection<Class>();
             singletonClass.Add(cl);
             cmbClasses.ItemsSource = singletonClass;
+            cmbClasses.SelectedItem = cl;
         }
 
 

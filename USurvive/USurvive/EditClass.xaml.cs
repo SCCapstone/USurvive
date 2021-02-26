@@ -42,11 +42,12 @@ namespace USurvive
             }
             try {
                 tbWebsite.Text = cl.ClassWebsite.ToString();
-            } catch(NullReferenceException e) {
+            } catch(NullReferenceException) {
                 tbWebsite.Text = "";
             }
             tbNotes.Text = cl.Notes;
             tempSyllabus = cl.Syllabus;
+            
         }
 
 
@@ -91,6 +92,8 @@ namespace USurvive
             {
                 ClassWebsite = new Uri("http://" + tbWebsite.Text + "/");
                 InstEmail = new Uri("mailto:" + tbInstEmail.Text);
+                // the 2 preceding lines should be storing as string because editing currently appends "mailto:" ect. an additional time
+                // this could be parsed away, but this is a far more complex solution than only converting to URI when the URI is used.
             } catch
             {
                 //*******************************************
@@ -105,11 +108,31 @@ namespace USurvive
                 ClassWebsite = null;
                 InstEmail = null;
             }
+
+            String scaleSelected;
+            GradeScale gradeScale;
+            try
+            {
+                scaleSelected = cmbGradeScale.SelectedItem.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                Error noScaleErr = new Error();
+                noScaleErr.tb_ErrorText.Text = "Select a grade scale.";
+                noScaleErr.Show();
+                return; // Quit saving so user can select a grade scale.
+            }
+            if (scaleSelected.Equals("10 point"))
+                gradeScale = new GradeScale(10, 0); // what is rounding type zero?
+            else
+                gradeScale = new GradeScale(7, 0);
+            // Custom gradescales not supported.
+
             Syllabus syllabus = tempSyllabus;
             int classType = 0;
             String notes = tbNotes.Text;
             List<MeetingTime> meetingTimes = null;
-            Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes));
+            Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes, gradeScale));
             //Console.WriteLine(Globals.tempClasses[0]);
             this.Close();
         }

@@ -20,9 +20,10 @@ namespace USurvive
         public string Notes { get; set; }        
         public List<MeetingTime> MeetingTimes { get; set; }
         public DateTime NotificationTime { get; set; }
+        public GradeScale GradeScale { get; set; }
 
 
-        public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, List<MeetingTime> meetingTimes){
+        public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, List<MeetingTime> meetingTimes, GradeScale gradeScale){
             this.Name = name;
             this.Instructor = instructor;
             this.CreditHours = creditHours;
@@ -33,6 +34,7 @@ namespace USurvive
             this.Notes = notes;
             this.MeetingTimes = meetingTimes;
             this.NotificationTime = NotificationTime;
+            this.GradeScale = gradeScale;
 
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
