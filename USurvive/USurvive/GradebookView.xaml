@@ -17,6 +17,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -24,13 +26,20 @@
                 <DataGridTextColumn Header="Date"  Binding="{Binding Date}"/>
                 <DataGridTextColumn Header="Points Earned" Binding="{Binding PointsEarned}" />
                 <DataGridTextColumn Header="Max Points"  Binding="{Binding MaxPoints}"/>
-                <DataGridTextColumn Header="Grade Weight"  Binding="{Binding GradeWeight}"/>
+                <DataGridTextColumn Header="Grade Weight"  Binding="{Binding Hours}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button
             Grid.Column="0" Grid.Row="1" Click="DisplayGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
             Display GPA
         </Button>
-       
+        <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="3" FontSize="20">
+            Semester GPA
+        </TextBlock>
+        <Button
+            Grid.Column="0" Grid.Row="2" Click="UpdateGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
+            Update Semester GPA
+        </Button>
     </Grid>
+
 </Page>
