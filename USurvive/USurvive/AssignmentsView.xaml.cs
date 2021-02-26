@@ -31,5 +31,12 @@ namespace USurvive
             EditAssignment editor = new EditAssignment();
             editor.Show();
         }
+
+
+        private void btnEditAssignment_Click(object sender, RoutedEventArgs e)
+        {
+            EditAssignment editor = new EditAssignment();
+            editor.Show();
+        }
     }
 }
