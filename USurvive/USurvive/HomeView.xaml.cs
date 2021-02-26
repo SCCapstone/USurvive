@@ -26,7 +26,7 @@ namespace USurvive
         {
             InitializeComponent();
             showCurrentClasses();
-            //showUpcomingClasses();
+            showUpcomingClasses();
             showUpcomingAssignments();
             showOverdueAssignments();
         }
@@ -60,7 +60,7 @@ namespace USurvive
             {
                 names += newClass.Name + " @ " + "$Next Meeting Variable" + "\n";
             }
-            this.upcomClasses.Text = names;
+            this.upcomingclass_list.Text = names;
         }
 
         private void showUpcomingAssignments()
@@ -72,7 +72,7 @@ namespace USurvive
                 if (DateTime.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0 && DateTime.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
                 {
                     //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n"); // Add class name
-                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: "+ newAssignment.Priority + "\n" + "\n");
+                    names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + "Priority: "+ newAssignment.Priority + "\n" + "\n");
                 }
             }
 
@@ -90,7 +90,7 @@ namespace USurvive
                 {
                     newAssignment.Priority = 1;
                     //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n");
-                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
+                    names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
                     
                 }
             }
