@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="CreateUser" Height="300" Width="300">
+        Title="CreateUser" Height="250" Width="250">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock TextAlignment="Center" Name="NewName" Text="Enter New Username" Margin="95,86,96,194"/>
-        <TextBox x:Name="enterField" Grid.Row="1" Grid.Column="1" Text="Enter name here" Height ="Auto" Width="150" VerticalAlignment="Center"/>
-        <Button x:Name="OK" VerticalAlignment="Center" Height ="Auto" Width="75" Click="OK_Click" Margin="112,199,112,82">OK</Button>
+        <TextBlock TextAlignment="Center" Name="NewName" Text="Enter New Username" FontSize="18" FontWeight="Bold" Margin="0,50,0,0"/>
+        <TextBox x:Name="enterField" Grid.Row="1" Grid.Column="1" Text="Enter name here" Height ="Auto" Width="200" VerticalAlignment="Center"/>
+        <Button x:Name="OK" VerticalAlignment="Center" Height ="Auto" Width="75" Click="OK_Click" Margin="0,110,0,0">OK</Button>
     </Grid>
 </Window>
