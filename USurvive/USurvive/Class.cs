@@ -20,6 +20,23 @@ namespace USurvive
         public int ClassType { get; set; } //In person, online live, online async, etc.        
         public string Notes { get; set; }        
         public ObservableCollection<MeetingTime> MeetingTimes { get; set; }
+        public string MtsDisp  // Property for binding pretty printed meeting times to datagrid
+        {
+            get
+            {
+                string ret = "";
+                foreach (MeetingTime mt in MeetingTimes)
+                {
+                    ret += mt.GetMeetingTime() + "\n";
+                }
+                ret = ret.TrimEnd('\n');
+                return ret;
+            }
+            set
+            {
+                return;
+            }
+        }
         public DateTime NotificationTime { get; set; }
         public GradeScale GradeScale { get; set; }
 

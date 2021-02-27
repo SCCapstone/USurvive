@@ -25,7 +25,7 @@
                 <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
                 <DataGridTextColumn Header="Credit Hours" Binding="{Binding CreditHours}" />
                 <DataGridTextColumn Header="Instructor Email" Binding="{Binding InstructorEmail}" />
-                <DataGridTextColumn Header="Meeting Times" Binding="{Binding MeetingTimes}" />
+                <DataGridTextColumn Header="Meeting Times" Binding="{Binding MtsDisp}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
