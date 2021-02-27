@@ -152,10 +152,7 @@ namespace USurvive
             }
             catch (NullReferenceException)
             {
-                Error mtErr = new Error();
-                mtErr.tb_ErrorText.Text = "Please select a meeting time";
-                mtErr.Show();
-                return; // allow user to select a meeting time by quitting save. 
+                meetingTimes = new ObservableCollection<MeetingTime>(); // empty collection 
             }
             Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes, gradeScale));
             //Console.WriteLine(Globals.tempClasses[0]);
