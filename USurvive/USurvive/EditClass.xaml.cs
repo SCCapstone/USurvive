@@ -27,6 +27,7 @@ namespace USurvive
         public EditClass()
         {
             InitializeComponent();
+            cmbGradeScale.SelectedIndex = 0;
         }
 
         public EditClass(Class cl)
@@ -46,6 +47,10 @@ namespace USurvive
             } catch(NullReferenceException) {
                 tbWebsite.Text = "";
             }
+            if (cl.GradeScale.pointIncrement == 7)
+                cmbGradeScale.SelectedIndex = 1;
+            else if (cl.GradeScale.pointIncrement == 10)
+                cmbGradeScale.SelectedIndex = 0;
             tbNotes.Text = cl.Notes;
             tempSyllabus = cl.Syllabus;
             clas.MeetingTimes = cl.MeetingTimes;
