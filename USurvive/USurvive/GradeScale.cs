@@ -8,9 +8,9 @@ namespace USurvive
 {
     public class GradeScale
     {
-        int pointIncrement { get; set; }
-        int roundingType { get; set; }
-        char specialGrade { get; set; }//Used for unique grades, such as 'W' and 'I'
+        public int pointIncrement { get; set; }
+        public int roundingType { get; set; }
+        public char specialGrade { get; set; }//Used for unique grades, such as 'W' and 'I'
 
         public GradeScale(int pointIncrement, int roundingType)
         {

@@ -9,8 +9,10 @@ namespace USurvive
 {
     public class Syllabus
     {
-        string fileName { get; set; }
-        string uiName { get; set; }
+        public string fileName { get; set; }
+        public string uiName { get; set; }
+        
+        /** Deserialization only allows one constructor when there is no constructor with zero arguments!
         public Syllabus(string fileName, string uiName)
         {
             //Verify that the file exists
@@ -49,6 +51,7 @@ namespace USurvive
 
             this.uiName = uiName;
         }
+        */
 
         public Syllabus(string fileName)
         {
