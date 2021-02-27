@@ -70,7 +70,7 @@ namespace USurvive
                 {
                     Error nameErr = new Error();
                     nameErr.tb_ErrorText.Text = "Class with that name already exists!";
-                    nameErr.Show();
+                    nameErr.ShowDialog();
                     return; // Stop saving so user can change name.
                 }
             }
@@ -81,13 +81,18 @@ namespace USurvive
               CreditHours = int.Parse(tbCreditHours.Text);
             } catch (System.FormatException)
             {
-                //*******************************************
-                //*                                         *
-                //*          TEMPORARY SOLUTION!!           *
-                //*                                         *
-                //*******************************************
-                CreditHours = 0;
+                Error nameErr = new Error();
+                nameErr.tb_ErrorText.Text = "Please enter a valid number of credit hours.";
+                nameErr.ShowDialog();
+                return; // Stop saving so user can change credit hours.
+            } catch (System.OverflowException)
+            {
+                Error nameErr = new Error();
+                nameErr.tb_ErrorText.Text = "Too many credit hours, enter a valid number";
+                nameErr.ShowDialog();
+                return; // Stop saving so user can change credit hours.
             }
+
             Uri ClassWebsite;
             Uri InstEmail;
             try
