@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 namespace USurvive
 {
@@ -47,6 +48,7 @@ namespace USurvive
             }
             tbNotes.Text = cl.Notes;
             tempSyllabus = cl.Syllabus;
+            clas.MeetingTimes = cl.MeetingTimes;
             
         }
 
@@ -126,12 +128,25 @@ namespace USurvive
                 gradeScale = new GradeScale(10, 0); // what is rounding type zero?
             else
                 gradeScale = new GradeScale(7, 0);
-            // Custom gradescales not supported.
+            // Custom gradescales not supported (yet?).
 
             Syllabus syllabus = tempSyllabus;
             int classType = 0;
             String notes = tbNotes.Text;
-            List<MeetingTime> meetingTimes = null;
+
+            ObservableCollection<MeetingTime> meetingTimes;
+            //Two cases Case 1: class is null (no meeting time object) Case 2: 
+            try
+            {
+                 meetingTimes = clas.MeetingTimes;
+            }
+            catch (NullReferenceException)
+            {
+                Error mtErr = new Error();
+                mtErr.tb_ErrorText.Text = "Please select a meeting time";
+                mtErr.Show();
+                return; // allow user to select a meeting time by quitting save. 
+            }
             Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes, gradeScale));
             //Console.WriteLine(Globals.tempClasses[0]);
             this.Close();
@@ -149,7 +164,21 @@ namespace USurvive
             bool? result = openDialog.ShowDialog();
             if (result == true)
             {
-                tempSyllabus     = new Syllabus(openDialog.FileName);
+                tempSyllabus = new Syllabus(openDialog.FileName);
+            }
+        }
+
+        private void EditMeetingsClick(object sender, RoutedEventArgs e)
+        {
+            if (clas == null)
+            {
+                clas = new Class(null,null,0,null,null,null,0,null,null,null);
+                clas.MeetingTimes = new System.Collections.ObjectModel.ObservableCollection<MeetingTime>();
+            }
+            EditMeetingTime mt = new EditMeetingTime(clas);
+            if (mt.ShowDialog() == true)
+            {
+                clas.MeetingTimes = mt.clas.MeetingTimes;
             }
         }
     }

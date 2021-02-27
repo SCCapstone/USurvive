@@ -45,7 +45,8 @@
         <TextBox Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Margin="8,8,200,8" Name="tbCreditHours" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Margin="8,8,10,8" Name="tbInstEmail"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="8,8,10,8" Name="tbWebsite"/>
-        <ComboBox Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="8"  Margin="8,8,150,8" Name ="cmbGradeScale" IsEditable="True">
+        <Button Grid.Column="1" Grid.Row="6" Margin="8,8,10,8" Click="EditMeetingsClick">Edit Meeting Times</Button>
+            <ComboBox Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="8"  Margin="8,8,150,8" Name ="cmbGradeScale" IsEditable="False">
             <ComboBoxItem >10 point</ComboBoxItem>
             <ComboBoxItem>7 point</ComboBoxItem>
         </ComboBox>

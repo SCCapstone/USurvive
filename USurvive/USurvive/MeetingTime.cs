@@ -8,11 +8,25 @@ namespace USurvive
 {
     public class MeetingTime
     {
-        int[] time { get; set;  }//Starting time in the format [HH,mm].  24 hour time is used here to make implementation easier.
-        int length { get; set; }//Length of the meeting in minutes
-        bool[] meetingTimes { get; set; }//One for each day of the week
-        string name {get; set; }//Name.  Pretty self explanitory.  May end up not being used.
+        public int[] time { get; set; }  // Starting time in the format [HH,mm].  24 hour time is used here to make implementation easier.
+        public int length { get; set; }  // Length of the meeting in minutes
+        public bool[] meetingTimes { get; set; }  // One for each day of the week
+        public string name { get; set; } //  Name.  Pretty self explanitory.  May end up not being used.
 
+        // public properties for binding
+        public string MtDisp
+        { 
+            get
+            {
+                return GetMeetingTime();
+            }
+            set
+            {
+                return;
+            }
+        }
+
+        // constructor and Methods
         public MeetingTime(int[] time, int length, bool[] meetingTimes)
         {
             if(time.Length == 2)

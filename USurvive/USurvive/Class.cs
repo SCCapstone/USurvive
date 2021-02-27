@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -18,12 +19,12 @@ namespace USurvive
         public Syllabus Syllabus { get; set; }        
         public int ClassType { get; set; } //In person, online live, online async, etc.        
         public string Notes { get; set; }        
-        public List<MeetingTime> MeetingTimes { get; set; }
+        public ObservableCollection<MeetingTime> MeetingTimes { get; set; }
         public DateTime NotificationTime { get; set; }
         public GradeScale GradeScale { get; set; }
 
 
-        public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, List<MeetingTime> meetingTimes, GradeScale gradeScale){
+        public Class(string name, string instructor, int creditHours, Uri instructorEmail, Uri classWebsite, Syllabus syllabus, int classType, string notes, ObservableCollection<MeetingTime> meetingTimes, GradeScale gradeScale){
             this.Name = name;
             this.Instructor = instructor;
             this.CreditHours = creditHours;
@@ -53,7 +54,7 @@ namespace USurvive
             ret += ",";
             ret += this.CreditHours;
             ret += ",";
-            //ret += MeetingTimes.ToString();
+            ret += MeetingTimes.ToString();
             ret += "";
 
             return ret;
@@ -73,7 +74,7 @@ namespace USurvive
                 if (time.MeetsOnDay(DOWInt))
                     return true;
             }
-            return false;//Doesn't meet on that day, apparently.
+            return false;  // Doesn't meet on that day, apparently.
         }
     }
 }

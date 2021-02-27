@@ -11,7 +11,6 @@ namespace USurvive
     {
         string fileName { get; set; }
         string uiName { get; set; }
-
         public Syllabus(string fileName, string uiName)
         {
             //Verify that the file exists

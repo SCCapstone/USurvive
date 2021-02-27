@@ -1,0 +1,31 @@
+﻿<Window x:Class="USurvive.EditMeetingTime"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:USurvive" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Edit Meeting Time" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <xctk:TimePicker Name="tpTime"></xctk:TimePicker>
+            <TextBox Name="tbLengthInMin"></TextBox>    
+            <CheckBox IsThreeState="False" Name="Sun">Sun</CheckBox>
+            <CheckBox IsThreeState="False" Name="Mon">Mon</CheckBox>
+            <CheckBox IsThreeState="False" Name="Tu">Tu</CheckBox>
+            <CheckBox IsThreeState="False" Name="Wed">Wed</CheckBox>
+            <CheckBox IsThreeState="False" Name="Th">Th</CheckBox>
+            <CheckBox IsThreeState="False" Name="Fri">Fri</CheckBox>
+            <CheckBox IsThreeState="False" Name="Sat">Sat</CheckBox>
+            <Button Click="AddMeetingClick">Add Meeting</Button>
+            <Button Click="RemoveMeetingTimeClick">Remove Meeting</Button>
+            <DataGrid Name="dgMeetingTimes" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Meeting Times" Binding="{Binding MtDisp}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Click="SaveClick">Save</Button>
+            <Button Click="CancelClick">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
