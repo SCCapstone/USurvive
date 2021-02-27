@@ -51,5 +51,12 @@ namespace USurvive
             EditClass edit = new EditClass(cl);
             edit.Show();
         }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Class cl = (Class)button.DataContext;
+            classList.Remove(cl);
+        }
     }
 }

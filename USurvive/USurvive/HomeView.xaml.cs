@@ -26,7 +26,7 @@ namespace USurvive
         {
             InitializeComponent();
             showCurrentClasses();
-            //showUpcomingClasses();
+            showUpcomingClasses();
             showUpcomingAssignments();
             showOverdueAssignments();
         }
@@ -58,9 +58,20 @@ namespace USurvive
             ObservableCollection<Class> upcomingList = Globals.clList.GetClassesForDay(DateTime.Now);
             foreach (Class newClass in upcomingList)
             {
-                names += newClass.Name + " @ " + "$Next Meeting Variable" + "\n";
+                string fullTime = "";
+                int[] hoursMinutes;
+                foreach (MeetingTime time in newClass.MeetingTimes)
+                {
+                    if (time.MeetsOnDay((int)DateTime.Now.DayOfWeek)){
+                        hoursMinutes = time.time;
+                        fullTime = hoursMinutes[0] + ":";
+                        if(hoursMinutes[1] < 10) { fullTime += "0";}
+                        fullTime += hoursMinutes[1];
+                    }
+                    names += newClass.Name + " @ " + fullTime + "\n";
+                }
             }
-            this.upcomClasses.Text = names;
+            this.upcomingclass_list.Text = names;
         }
 
         private void showUpcomingAssignments()
@@ -71,8 +82,8 @@ namespace USurvive
             {
                 if (DateTime.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0 && DateTime.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
                 {
-                    //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n"); // Add class name
-                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: "+ newAssignment.Priority + "\n" + "\n");
+                    
+                    names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + newAssignment.DueDate + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n");
                 }
             }
 
@@ -89,8 +100,8 @@ namespace USurvive
                 if (DateTime.Compare(newAssignment.DueDate, DateTime.Now) < 0)
                 {
                     newAssignment.Priority = 1;
-                    //names += (newAssignment.Name + " - - -  Priority:" + newAssignment.Priority + "\n");
-                    names += (newAssignment.Name + "\n" + "$Class" + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
+                    
+                    names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + newAssignment.DueDate + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
                     
                 }
             }
