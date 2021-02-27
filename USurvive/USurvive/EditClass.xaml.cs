@@ -27,6 +27,8 @@ namespace USurvive
         public EditClass()
         {
             InitializeComponent();
+            cmbClassType.SelectedIndex = 0; 
+
         }
 
         public EditClass(Class cl)
@@ -49,6 +51,7 @@ namespace USurvive
             tbNotes.Text = cl.Notes;
             tempSyllabus = cl.Syllabus;
             clas.MeetingTimes = cl.MeetingTimes;
+            cmbClassType.SelectedIndex = cl.ClassType;
             
         }
 
@@ -136,7 +139,7 @@ namespace USurvive
             // Custom gradescales not supported (yet?).
 
             Syllabus syllabus = tempSyllabus;
-            int classType = 0;
+            int classType = cmbClassType.SelectedIndex;
             String notes = tbNotes.Text;
 
             ObservableCollection<MeetingTime> meetingTimes;
