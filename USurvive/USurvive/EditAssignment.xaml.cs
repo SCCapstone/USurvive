@@ -23,12 +23,10 @@ namespace USurvive
         public EditAssignment()
         {
             InitializeComponent();
-
-            cmbClasses.ItemsSource = Globals.clList.classes;
-
             //By default, don't enable the auto increment
             tbAutoIncrementDays.Text = "0";
             tbAutoIncrementDays.IsEnabled = false;
+            cmbClasses.ItemsSource = Globals.clList.classes;
         }
 
         public EditAssignment(Class cl)
@@ -79,9 +77,19 @@ namespace USurvive
             }
             else dueDate = (DateTime)(dpDueDate.Value);
 
-            string cl = ((Class)cmbClasses.SelectedItem).Name; // Need to prevent null as an option for the comboBox
-                
-            Grade tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
+            string cl;
+            Grade tempGrade;
+            try
+            {
+                cl = ((Class)cmbClasses.SelectedItem).Name;
+                tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
+
+            }
+            catch (NullReferenceException)
+            {
+                cl = null;
+                tempGrade = new Grade(null, dueDate);
+            }
             Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
             tempGrade.cwID = tempClasswork.CWID;
 
