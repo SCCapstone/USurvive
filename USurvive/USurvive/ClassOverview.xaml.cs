@@ -36,7 +36,7 @@ namespace USurvive
 
             foreach (Classwork work in classworkList)
             {
-                if (work.Cl.Equals(source.Name))
+                if (work.Cl != null && work.Cl.Equals(source.Name))
                 {
                     if (work.Completed == false && work.Type == ClassworkType.Assignment)
                         uncompletedClasswork.Add(work);
@@ -49,7 +49,7 @@ namespace USurvive
             foreach (Grade grade in grades)
             {
                 // don't grade assignments worth zero points or not in this class
-                if (grade.ClassName.Equals(source.Name) && grade.MaxPoints != 0)  
+                if ( grade.ClassName != null && grade.ClassName.Equals(source.Name) && grade.MaxPoints != 0)  
                 {
                     if (totGrade == -1)    
                         totGrade = grade.GradeWeight * (grade.PointsEarned/grade.MaxPoints);
@@ -64,6 +64,8 @@ namespace USurvive
                 gradeText.Text = "" + totGrade; 
             dgUncompletedAssignments.DataContext = uncompletedClasswork;
             dgUncompletedAssessments.DataContext = uncompletedAssessments;
+
+            tbMeetingTimes.Text = clas.MtsDisp;
         }
 
         private void addAssignmentClick(object sender, RoutedEventArgs e)
@@ -94,6 +96,13 @@ namespace USurvive
 
         private void EmailInstructorClick(object sender, RoutedEventArgs e)
         {
+            if (clas.InstructorEmail == null)
+            {
+                Error noEmailErr = new Error();
+                noEmailErr.tb_ErrorText.Text = "No associated email.";
+                noEmailErr.ShowDialog();
+                return;
+            }
             var uri = clas.InstructorEmail.ToString();
             Process.Start(uri);
         }

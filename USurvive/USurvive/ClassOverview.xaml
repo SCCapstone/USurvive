@@ -5,34 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive"
         mc:Ignorable="d"
-        Title="ClassOverview" Height="450" Width="800">
+        Title="ClassOverview" Height="500" Width="800">
     <Grid>
-        <!--StackPanel: https://stackoverflow.com/questions/20353489/how-to-put-two-different-textboxes-into-same-level/20353570 -->
-        <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-            <TextBox Name="classNameText"/>
-            <TextBox>Assignments:</TextBox>
-            <DataGrid Name ="dgUncompletedAssignments" IsReadOnly="False" AutoGenerateColumns="False" ItemsSource="{Binding}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
-                    <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <TextBox>Assessments:</TextBox>
-            <DataGrid Name ="dgUncompletedAssessments" IsReadOnly="False" AutoGenerateColumns="False" ItemsSource ="{Binding}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
-                    <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <TextBox>Current Grade:</TextBox>
-            <TextBox Name="gradeText"/>
-            <Button Click="addAssignmentClick">Add assignment</Button>
-            <Button Click="addGradeClick">Add grade</Button>
-            <Button Click="viewSyllabusClick">Syllabus</Button>
-            <!--Meeting times go here-->
-            <Button Click="EmailInstructorClick">Email Instructor</Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".15*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width=".15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".25*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height=".75*"/>
+            <RowDefinition Height=".75*"/>
+            <RowDefinition Height=".75*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height=".75*"/>
+            <RowDefinition Height=".25*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="classNameText"/>
+        <TextBlock Grid.Row="2" Grid.Column="1">Assignments:</TextBlock>
+        <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Name ="dgUncompletedAssignments" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
+                <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="4" Grid.Column="1">Assessments:</TextBlock>
+        <DataGrid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Name ="dgUncompletedAssessments" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource ="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Due" Binding="{Binding DueDate}"/>
+                <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="6" Grid.Column="1">Current Grade:</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Name="gradeText"/>
+        <Button Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Click="addAssignmentClick" Margin="10,5,10,0">Add assignment</Button>
+        <Button Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" Click="addGradeClick" Margin="10,5,10,0">Add grade</Button>
+        <Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Click="viewSyllabusClick" Margin="10,5,10,0">Syllabus</Button>
+        <ScrollViewer Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,5,10,0">
+            <TextBlock Name="tbMeetingTimes" />
+        </ScrollViewer>
+        <Button Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2" Click="EmailInstructorClick" Margin="10,5,10,0">Email Instructor</Button>
     </Grid>
 </Window>

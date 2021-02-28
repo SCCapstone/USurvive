@@ -7,25 +7,52 @@
         mc:Ignorable="d"
         Title="Edit Meeting Time" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <xctk:TimePicker Name="tpTime"></xctk:TimePicker>
-            <TextBox Name="tbLengthInMin"></TextBox>    
-            <CheckBox IsThreeState="False" Name="Sun">Sun</CheckBox>
-            <CheckBox IsThreeState="False" Name="Mon">Mon</CheckBox>
-            <CheckBox IsThreeState="False" Name="Tu">Tu</CheckBox>
-            <CheckBox IsThreeState="False" Name="Wed">Wed</CheckBox>
-            <CheckBox IsThreeState="False" Name="Th">Th</CheckBox>
-            <CheckBox IsThreeState="False" Name="Fri">Fri</CheckBox>
-            <CheckBox IsThreeState="False" Name="Sat">Sat</CheckBox>
-            <Button Click="AddMeetingClick">Add Meeting</Button>
-            <Button Click="RemoveMeetingTimeClick">Remove Meeting</Button>
-            <DataGrid Name="dgMeetingTimes" ItemsSource="{Binding}" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Meeting Times" Binding="{Binding MtDisp}" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <Button Click="SaveClick">Save</Button>
-            <Button Click="CancelClick">Cancel</Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Labels-->
+        <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Meeting Time"/>
+        <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Duration (minutes)"/>
+        <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Days of Week"/>
+        <!--Inputs-->
+        <xctk:TimePicker Name="tpTime" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="260" Margin="5,5,5,5"/>
+        <TextBox Name="tbLengthInMin"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="260" Margin="5,5,5,5"></TextBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Sun">Sun</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Mon" >Mon</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Tu">Tu</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Wed">Wed</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Th">Th</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Fri">Fri</CheckBox>
+        <CheckBox FlowDirection="RightToLeft" Grid.Column="7" Grid.Row="3" HorizontalAlignment="Center" Margin="5,5,5,5" IsThreeState="False" Name="Sat">Sat</CheckBox>
+        <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Click="AddMeetingClick" Margin="5,10,5,5">Add Meeting</Button>
+        <Button Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Click="RemoveMeetingTimeClick" Margin="5,10,5,5">Remove Meeting</Button>
+        <DataGrid Grid.Row="5" Grid.RowSpan="5" Grid.ColumnSpan="9" Name="dgMeetingTimes" Margin="10,0,10,0" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Meeting Times" Binding="{Binding MtDisp}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="10" Click="SaveClick" Margin="5,5,5,10">Save</Button>
+        <Button Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="10" Click="CancelClick" Margin="5,5,5,10">Cancel</Button>
     </Grid>
 </Window>
