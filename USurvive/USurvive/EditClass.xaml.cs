@@ -27,8 +27,8 @@ namespace USurvive
         public EditClass()
         {
             InitializeComponent();
+            cmbGradeScale.SelectedIndex = 0;
             cmbClassType.SelectedIndex = 0; 
-
         }
 
         public EditClass(Class cl)
@@ -48,6 +48,10 @@ namespace USurvive
             } catch(NullReferenceException) {
                 tbWebsite.Text = "";
             }
+            if (cl.GradeScale.pointIncrement == 7)
+                cmbGradeScale.SelectedIndex = 1;
+            else if (cl.GradeScale.pointIncrement == 10)
+                cmbGradeScale.SelectedIndex = 0;
             tbNotes.Text = cl.Notes;
             tempSyllabus = cl.Syllabus;
             clas.MeetingTimes = cl.MeetingTimes;
@@ -150,10 +154,7 @@ namespace USurvive
             }
             catch (NullReferenceException)
             {
-                Error mtErr = new Error();
-                mtErr.tb_ErrorText.Text = "Please select a meeting time";
-                mtErr.Show();
-                return; // allow user to select a meeting time by quitting save. 
+                meetingTimes = new ObservableCollection<MeetingTime>(); // empty collection 
             }
             Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes, gradeScale));
             //Console.WriteLine(Globals.tempClasses[0]);
