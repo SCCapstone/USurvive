@@ -16,7 +16,8 @@ namespace USurviveTests
             {
                 Console.SetOut(sw);
                 int creditHours = 3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null);
+                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0,
+                                                         "", null, null);
 
                 Assert.IsTrue(test.CreditHours == creditHours);
             }
@@ -29,7 +30,7 @@ namespace USurviveTests
             {
                 Console.SetOut(sw);
                 int creditHours = 3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null);
+                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null, null);
 
                 Assert.IsFalse(test.CreditHours == 4);
             }
@@ -42,7 +43,7 @@ namespace USurviveTests
             {
                 Console.SetOut(sw);
                 int creditHours = -3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null);
+                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null, null); ;
 
                 Assert.IsTrue(test.CreditHours == creditHours);
             }

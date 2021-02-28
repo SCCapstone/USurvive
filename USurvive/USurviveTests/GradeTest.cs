@@ -22,9 +22,10 @@ namespace USurviveTests
                 DateTime aDate = new DateTime(2021, 1, 31);
                 int pointsEarned = 90;
                 int maxPoints = 100;
-                int gradeWeight = 10; 
+                int gradeWeight = 10;
+                Guid guid = Guid.NewGuid(); 
 
-                USurvive.Grade grade = new USurvive.Grade(aClass, aGrade, creditHours, aName, aDate, pointsEarned, maxPoints, gradeWeight);
+                USurvive.Grade grade = new USurvive.Grade(aClass, aGrade, creditHours, aName, aDate, pointsEarned, maxPoints, gradeWeight, guid);
                
 
                 Assert.IsTrue(grade.Name.Equals(aName));
