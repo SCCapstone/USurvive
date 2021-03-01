@@ -20,6 +20,8 @@ namespace USurvive
     /// </summary>
     public partial class EditAssignment : Window
     {
+        public Classwork createdCW { get; set; } = null; // property to expose to other windows
+
         public EditAssignment()
         {
             InitializeComponent();
@@ -94,7 +96,7 @@ namespace USurvive
             tempGrade.cwID = tempClasswork.CWID;
 
             Globals.gradebook.AddGrade(tempGrade);
-
+            createdCW = tempClasswork;
             Globals.cwList.AddClasswork(tempClasswork);
 
             this.Close();

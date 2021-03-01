@@ -19,13 +19,14 @@ namespace USurvive
     /// </summary>
     public partial class EditGrade : Window
     {
+        public Grade createdGrade { get; set; } = null; // property to expose to other windows
         public EditGrade()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// TODO Generates edit dialouge with only one class option.
+        /// TODO: Generates edit dialouge with only one class option.
         /// </summary>
         /// <param name="cl">Class to be presented as only option.</param>
         public EditGrade(Class cl)

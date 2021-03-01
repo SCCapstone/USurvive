@@ -24,6 +24,8 @@ namespace USurvive
         ObservableCollection<Classwork> classworkList;
         ObservableCollection<Grade> grades;
         Class clas;
+        ObservableCollection<Classwork> uncompletedClasswork;
+        ObservableCollection<Classwork> uncompletedAssessments;
         public ClassOverview(Class source)
         {
             InitializeComponent();
@@ -31,8 +33,8 @@ namespace USurvive
             classNameText.Text = source.Name;
             classworkList = Globals.cwList.classwork;
             grades = Globals.gradebook.grades;
-            List <Classwork> uncompletedClasswork = new List<Classwork>();
-            List<Classwork> uncompletedAssessments = new List<Classwork>();
+            uncompletedClasswork = new ObservableCollection<Classwork>();
+            uncompletedAssessments = new ObservableCollection<Classwork>();
 
             foreach (Classwork work in classworkList)
             {
@@ -71,13 +73,19 @@ namespace USurvive
         private void addAssignmentClick(object sender, RoutedEventArgs e)
         {
             EditAssignment editWin = new EditAssignment(clas);
-            editWin.Show();
+            editWin.ShowDialog();
+            if (editWin.createdCW != null)
+                uncompletedClasswork.Add(editWin.createdCW);
         }
 
         private void addGradeClick(object sender, RoutedEventArgs e)
         {
             EditGrade editWin = new EditGrade(clas);
-            editWin.Show();
+            editWin.ShowDialog();
+            // TODO: UNCOMMENT THIS CODE ONCE EDITGRADE IS IMPLEMENTED AND STORES createdGrade ON SAVE See addAssignmentClick
+            // TODO: if (editWin
+            // TODO: uncompletedAssessments.Add(editWin.createdGrade);
+
         }
 
         private void viewSyllabusClick(object sender, RoutedEventArgs e)
