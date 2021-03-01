@@ -33,5 +33,10 @@ namespace USurvive
         {
             InitializeComponent();
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            //TODO: Save user input to a Grade object and add to Globals.gradebook
+        }
     }
 }

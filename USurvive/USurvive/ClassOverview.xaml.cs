@@ -82,10 +82,6 @@ namespace USurvive
         {
             EditGrade editWin = new EditGrade(clas);
             editWin.ShowDialog();
-            // TODO: UNCOMMENT THIS CODE ONCE EDITGRADE IS IMPLEMENTED AND STORES createdGrade ON SAVE See addAssignmentClick
-            // TODO: if (editWin
-            // TODO: uncompletedAssessments.Add(editWin.createdGrade);
-
         }
 
         private void viewSyllabusClick(object sender, RoutedEventArgs e)
