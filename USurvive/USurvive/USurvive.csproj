@@ -135,7 +135,6 @@
     </ApplicationDefinition>
     <Compile Include="Assessment.cs" />
     <Compile Include="Assignment.cs" />
-    <Compile Include="BackgroundTasks.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="AssignmentTestRunner.cs" />
     <Compile Include="ClassType.cs" />
