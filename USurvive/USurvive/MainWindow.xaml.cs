@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace USurvive
 {
@@ -23,7 +24,7 @@ namespace USurvive
     /// </summary>
     public partial class MainWindow : Window
     {
-        Thread backWork;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -104,16 +105,33 @@ namespace USurvive
             SidebarFrame.Navigate(sidebar);
 
 
-            //Start background work thread
-            backWork = new Thread(BackgroundTasks.backWork);
-            backWork.SetApartmentState(ApartmentState.STA);
-            backWork.Start();
+            //Timer that calls tick every 200ms 
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            dispatcherTimer.Start();
+            
 
             //Now opens to the Home View 
             HomeView homeView = new HomeView();
             NavigationFrame.Navigate(homeView);
             DatabaseSave.SaveDatabase();
         }
+
+        /// <summary>
+        /// checks if every classwork has passed its notification time and if it has and needs to notify it generates the notification. 
+        /// </summary>
+        void tick(object sender, EventArgs e)
+        {
+            foreach (Classwork cw in Globals.cwList.classwork)
+            {
+                if (!cw.ShownNotification && cw.NotificationTime <= DateTime.Now)
+                {
+                    cw.ShowNotification();
+                }
+            }
+        }
+
         private void DebugClick(Object sender, RoutedEventArgs e)
         {
             DebugPanel debugPanel = new DebugPanel();
@@ -147,7 +165,7 @@ namespace USurvive
 
         void DataWindow_Closing(object sender, EventArgs e)
         {
-            backWork.Abort();
+            //backWork.Abort();
             DatabaseSave.SaveDatabase();
             System.Windows.Application.Current.Shutdown();
         }
