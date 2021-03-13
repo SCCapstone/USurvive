@@ -123,20 +123,20 @@ namespace USurvive
                 InstEmail = null;
             }
 
-            String scaleSelected;
+            int scaleIdxSelected;
             GradeScale gradeScale;
             try
             {
-                scaleSelected = cmbGradeScale.SelectedItem.ToString();
+                scaleIdxSelected = cmbGradeScale.SelectedIndex;
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException)  // shouldn't happen as combobox defaults to 10 point
             {
                 Error noScaleErr = new Error();
                 noScaleErr.tb_ErrorText.Text = "Select a grade scale.";
                 noScaleErr.Show();
-                return; // Quit saving so user can select a grade scale.
+                return;  // Quit saving so user can select a grade scale.
             }
-            if (scaleSelected.Equals("10 point"))
+            if (scaleIdxSelected == 0)
                 gradeScale = new GradeScale(10, 0); // what is rounding type zero?
             else
                 gradeScale = new GradeScale(7, 0);
@@ -157,7 +157,6 @@ namespace USurvive
                 meetingTimes = new ObservableCollection<MeetingTime>(); // empty collection 
             }
             Globals.clList.AddClass(new Class(name, instructor, CreditHours, InstEmail, ClassWebsite, syllabus, classType, notes, meetingTimes, gradeScale));
-            //Console.WriteLine(Globals.tempClasses[0]);
             this.Close();
         }
 
