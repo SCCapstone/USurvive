@@ -22,8 +22,7 @@ namespace USurvive
         public Notification()
         {
             InitializeComponent();
-            //cbSnooze.SelectedItem = "15 minutes";
-            cbSnooze.SelectedIndex = 0;
+            cbSnooze.SelectedIndex = 0; // 15 minutes
         }
 
         private void CloseClick(Object sender, RoutedEventArgs e)
@@ -32,7 +31,7 @@ namespace USurvive
         }
         private void SnoozeClick(Object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(cbSnooze.SelectedItem);
+            Console.WriteLine(cbSnooze.SelectedItem);  // TODO: renotify at current time plus snooze time
         }
         
     }

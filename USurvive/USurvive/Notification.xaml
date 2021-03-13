@@ -19,7 +19,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--Message Text-->
-        <TextBlock x:Name="tb_NoteText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" >$ASSIGNMENT is due in $TIME $UNITS</TextBlock>
+        <TextBlock x:Name="tb_NoteText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" >$ASSIGNMENT is due in $DAYS$HRS$MIN</TextBlock>
 
         <!--Buttons-->
         <Button Grid.Column="0" Grid.Row="1" Click="CloseClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Close</Button>

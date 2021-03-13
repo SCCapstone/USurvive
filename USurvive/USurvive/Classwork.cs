@@ -80,14 +80,31 @@ namespace USurvive
 
         public void ShowNotification()
         {
-            //TODO: Figure this out
-            string dueTimeRemaining = "unfinshed";
-            string dueUnits = "unfinished";
+            TimeSpan dueTimeRemaining = DueDate - NotificationTime;
+            string dueMinRemaining = "";
+            string dueHrsRemaining = "";
+            string dueDaysRemaining = "";
+            // find maximal units to represent remaining time
+            if (dueTimeRemaining.TotalDays >= 1)
+            {
+                dueDaysRemaining = dueTimeRemaining.Days.ToString() + " days";
+            }
+            else if (dueTimeRemaining.TotalHours >= 1)
+            {
+                dueHrsRemaining = dueTimeRemaining.Hours.ToString() + " hours ";
+                dueMinRemaining = dueTimeRemaining.Minutes.ToString() + " min";
+            }
+            else
+            {
+                dueMinRemaining = dueTimeRemaining.Minutes.ToString() + " min";
+            }
 
             Notification notification = new Notification();
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ASSIGNMENT", Name);
-            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$TIME", dueTimeRemaining);
-            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$UNITS", dueUnits);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$DAYS", dueDaysRemaining);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$HRS", dueHrsRemaining);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$MIN", dueMinRemaining);
+
 
             notification.Show();
 
