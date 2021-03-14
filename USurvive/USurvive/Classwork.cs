@@ -114,21 +114,17 @@ namespace USurvive
                 dueMinRemaining = dueTimeRemaining.Minutes.ToString() + " min";
             }
 
-            Notification notification = new Notification();
+            Notification notification = new Notification(this);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ASSIGNMENT", Name);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$DAYS", dueDaysRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$HRS", dueHrsRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$MIN", dueMinRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$IN", inTxt);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$AGO", agoTxt);
-            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ISWAS", agoTxt);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ISWAS", isWasTxt);
 
-
-
-
+            this.ShownNotification = true; //Set this to false once snoozed
             notification.Show();
-
-            this.ShownNotification = true;//Set this to false once snoozed
         }
 
         public static void showNotification(Classwork classwork)

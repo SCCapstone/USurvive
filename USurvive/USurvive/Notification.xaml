@@ -29,7 +29,7 @@
             <ComboBoxItem>1 hour</ComboBoxItem>
 
         </ComboBox>
-        <Button Grid.Column="3" Grid.Row="1" Click="SnoozeClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Snooze</Button>
+        <Button Name="btnSnooze"  Grid.Column="3" Grid.Row="1" Click="SnoozeClick" Style="{StaticResource buttonStyle}" Margin="0,18,10,0">Snooze</Button>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">Snooze for:</TextBlock>
 
     </Grid>

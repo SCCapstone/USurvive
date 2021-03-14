@@ -64,12 +64,12 @@ namespace USurvive
 
 
             //Reusable part of the code
-            Notification notification = new Notification();
+            Notification notification = new Notification(new Classwork(name,"dummyClass",DateTime.Now,1,Guid.NewGuid(),false,0,0,DateTime.Now + new TimeSpan(time, 0, 0, 0, 0)));
             string notificationText = notification.tb_NoteText.Text;
-            notificationText = notificationText.Replace("$ASSIGNMENT", name);
-            notificationText = notificationText.Replace("$TIME", time.ToString());
-            notificationText = notificationText.Replace("$UNITS", notificationUnit[2]);
-            notification.tb_NoteText.Text = notificationText;
+            //notificationText = notificationText.Replace("$ASSIGNMENT", name);
+            //notificationText = notificationText.Replace("$TIME", time.ToString());
+            //notificationText = notificationText.Replace("$UNITS", notificationUnit[2]);
+            //notification.tb_NoteText.Text = notificationText;
             //Play notification sound
             SystemSounds.Exclamation.Play();
             //Show window

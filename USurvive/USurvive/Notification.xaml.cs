@@ -17,12 +17,17 @@ namespace USurvive
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
+    /// 
     public partial class Notification : Window
     {
-        public Notification()
+        private Classwork classwork;
+
+        public Notification(Classwork cw)
         {
             InitializeComponent();
-            cbSnooze.SelectedIndex = 0; // 15 minutes
+            cbSnooze.SelectedIndex = 0; // 15 minutes by default
+            TimeSpan snooze = new TimeSpan(0); // no time at all unless snooze is hit
+            classwork = cw;
         }
 
         private void CloseClick(Object sender, RoutedEventArgs e)
@@ -31,7 +36,18 @@ namespace USurvive
         }
         private void SnoozeClick(Object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(cbSnooze.SelectedItem);  // TODO: renotify at current time plus snooze time
+            
+            int idx = cbSnooze.SelectedIndex;
+            TimeSpan snooze;
+            if (idx == 0)
+                snooze = new TimeSpan(0, 15, 0);  // 15 min 
+            else if (idx == 1)
+                snooze = new TimeSpan(0, 30, 0);  // 30 min
+            else  // idx should equal 2
+                snooze = new TimeSpan(1, 0, 0);  // 1 hr
+            classwork.NotificationTime = DateTime.Now + snooze;
+            classwork.ShownNotification = false;
+            this.Close();
         }
         
     }
