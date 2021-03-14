@@ -80,18 +80,33 @@ namespace USurvive
 
         public void ShowNotification()
         {
-            TimeSpan dueTimeRemaining = DueDate - NotificationTime;
+            TimeSpan dueTimeRemaining = DueDate - DateTime.Now;
             string dueMinRemaining = "";
             string dueHrsRemaining = "";
             string dueDaysRemaining = "";
+            string inTxt = "in ";
+            string agoTxt = "";
+            string isWasTxt = "is";
+            // when dueTimeRemaining is negative switch langauge to refect "was due ... ago" instead of "is due ... in"
+            if (dueTimeRemaining.TotalMilliseconds < 0)
+            {
+                inTxt = "";
+                agoTxt = " ago";
+                isWasTxt = "was";
+                dueTimeRemaining = dueTimeRemaining.Duration();
+            }
             // find maximal units to represent remaining time
-            if (dueTimeRemaining.TotalDays >= 1)
+            if (Math.Floor(dueTimeRemaining.TotalDays) == 1)
+            {
+                dueDaysRemaining = dueTimeRemaining.Days.ToString() + " day";
+            }
+            else if (dueTimeRemaining.TotalDays > 1)
             {
                 dueDaysRemaining = dueTimeRemaining.Days.ToString() + " days";
             }
             else if (dueTimeRemaining.TotalHours >= 1)
             {
-                dueHrsRemaining = dueTimeRemaining.Hours.ToString() + " hours ";
+                dueHrsRemaining = dueTimeRemaining.Hours.ToString() + " hr ";
                 dueMinRemaining = dueTimeRemaining.Minutes.ToString() + " min";
             }
             else
@@ -104,6 +119,11 @@ namespace USurvive
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$DAYS", dueDaysRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$HRS", dueHrsRemaining);
             notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$MIN", dueMinRemaining);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$IN", inTxt);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$AGO", agoTxt);
+            notification.tb_NoteText.Text = notification.tb_NoteText.Text.Replace("$ISWAS", agoTxt);
+
+
 
 
             notification.Show();
