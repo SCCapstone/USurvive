@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskDialogInterop;
 
 namespace USurvive
 {
@@ -61,6 +62,41 @@ namespace USurvive
         {
             CreateUser usercreate = new CreateUser(this);
             usercreate.Show();
+        }
+
+        private void databaseClick(object sender, RoutedEventArgs e)
+        {
+            //Adapted from https://stackoverflow.com/a/6872106
+            TaskDialogOptions databaseWindow = new TaskDialogOptions();
+
+            databaseWindow.Owner = this;
+            databaseWindow.Title = "Database Management";
+            databaseWindow.MainInstruction = "What would you like to do with this database?";
+            databaseWindow.Content = "Working on " + Globals.databaseName.Replace("\\","") + "'s database";
+            databaseWindow.CommandButtons = new string[]
+            {
+                "Export the database for the current user\nThis will allow you to copy the database onto another computer",
+                "Import a new database\nWarning: This will overwrite the database for " + Globals.databaseName.Replace("\\",""),
+                "Do nothing"
+            };
+            TaskDialogResult res = TaskDialog.Show(databaseWindow);
+
+            switch (res.CommandButtonResult)
+            {
+                case 0:
+                    //Export the database
+                    DatabaseExport.ExportDatabase();
+                    break;
+                case 1:
+                    //Import the database
+                    //Should we ask if this is okay?  On one hand, we already warn them in text.  On the other, this is a potentially destructive operation.
+                    DatabaseExport.ImportDatabase();
+                    break;
+                case 2:
+                    //Do nothing.
+                    break;
+
+            }
         }
     }
 }
