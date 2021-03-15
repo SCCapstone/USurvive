@@ -37,6 +37,19 @@ namespace USurvive
                 return;
             }
         }
+
+        public string TimeDisp
+        {
+            get
+            {
+                //For right now, just use the first meeting time.  Eventually we will try to read from the calendar to get the proper date.  Code for this is already implemented in this class
+                if(MeetingTimes == null)
+                {
+                    return null;
+                }
+                return MeetingTimes[0].GetMeetingTime().Split('-')[1];
+            }
+        }
         public DateTime NotificationTime { get; set; }
         public GradeScale GradeScale { get; set; }
 
@@ -61,6 +74,13 @@ namespace USurvive
         {
             return JsonSerializer.Serialize(this);
         }
+
+        //public DateTime GetCurrentMeeting()
+        //{
+        //    DateTime ret;
+
+        //    return ret;
+        //}
 
         public override string ToString()
         {
@@ -93,5 +113,17 @@ namespace USurvive
             }
             return false;  // Doesn't meet on that day, apparently.
         }
+
+        public MeetingTime GetDayMeeting(DateTime date) {
+            int DOWInt = (int)date.DayOfWeek;
+            if (MeetingTimes == null) return null;
+            foreach (MeetingTime time in MeetingTimes)
+            {
+                if (time.MeetsOnDay(DOWInt))
+                    return time;
+            }
+            return null;  // Doesn't meet on that day, apparently.
+        }
+
     }
 }

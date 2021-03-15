@@ -23,7 +23,8 @@ namespace USurvive
         public static ClassworkList cwList;
         public static GradeList gradebook;
         public static ClassList clList;
-       
+
+        public static int SidebarWidth;
 
         
     }

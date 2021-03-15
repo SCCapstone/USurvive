@@ -31,8 +31,8 @@ namespace USurvive
             Globals.tempClasses = new ObservableCollection<Class>();
             Globals.tempAssignments = new List<Assignment>();
             //NavigationService service = NavigationService.GetNavigationService(NavigationFrame);
-            
-            
+
+
             //Set up dataDir varaiable
             Globals.dataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             Globals.dataDir += "\\USurvive";
@@ -101,6 +101,8 @@ namespace USurvive
             }
 
             //Set up sidebar
+            Globals.SidebarWidth = 200;
+            SidebarColumn.Width = new GridLength(Globals.SidebarWidth);
             Sidebar sidebar = new Sidebar();
             SidebarFrame.Navigate(sidebar);
 

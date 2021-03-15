@@ -26,6 +26,14 @@ namespace USurvive
         public Guid GradeID { get; set; }
         public Guid CWID { get; set; }
 
+        public string PrettyDate
+        {
+            get
+            {
+                return DueDate.ToString("m/d hh:mm tt");
+            }
+        }
+
         public Classwork(string name, string cl, DateTime dueDate, int priority, Guid gradeID, bool autoIncrement, int autoIncrementDays, ClassworkType type, DateTime notificationTime)
         {
             //Generate ID

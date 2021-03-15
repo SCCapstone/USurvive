@@ -107,6 +107,15 @@ namespace USurvive
                 return false;
             else return meetingTimes[day];
         }
+
+        //public DateTime? GetTodayMeeting()
+        //{
+        //    if (!MeetsOnDay((int)DateTime.Now.DayOfWeek))
+        //    {
+        //        return null;
+        //    }
+        //    DateTime meetDate = new DateTime()
+        //}
         public void setMeetingTime(int[] time, int length, bool[] meetingTimes)
         {
             if (time.Length == 2)

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:USurvive"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="300"
+      d:DesignHeight="768" d:DesignWidth="200"
       Title="Sidebar">
 
     <Grid>
@@ -20,17 +20,17 @@
         
         <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
 
-        <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
+        <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="130" />
+                <DataGridTextColumn Header="Date" Binding="{Binding TimeDisp}" Width="60"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <DataGrid Grid.Row="2" Grid.Column="0" Name="dgAssignmentList" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100" />
+                <DataGridTextColumn Header="Due Date" Binding="{Binding PrettyDate}" Width="90"/>
             </DataGrid.Columns>
 
         </DataGrid>
