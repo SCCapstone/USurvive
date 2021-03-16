@@ -43,7 +43,7 @@ namespace USurvive
             get
             {
                 //For right now, just use the first meeting time.  Eventually we will try to read from the calendar to get the proper date.  Code for this is already implemented in this class
-                if(MeetingTimes == null)
+                if(MeetingTimes == null || MeetingTimes.Count == 0)
                 {
                     return null;
                 }
