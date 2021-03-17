@@ -30,7 +30,7 @@ namespace USurvive
         {
             get
             {
-                return DueDate.ToString("m/d hh:mm tt");
+                return DueDate.ToString("M/d hh:mm tt");
             }
         }
 
