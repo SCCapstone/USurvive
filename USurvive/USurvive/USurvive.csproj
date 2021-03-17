@@ -335,5 +335,11 @@
   <ItemGroup>
     <Resource Include="USurvive.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Assignments.png" />
+    <Resource Include="images\Classes.png" />
+    <Resource Include="images\Gradebook.png" />
+    <Resource Include="images\Home.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

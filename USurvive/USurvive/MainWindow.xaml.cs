@@ -172,6 +172,12 @@ namespace USurvive
             System.Windows.Application.Current.Shutdown();
         }
 
+        //private void MainWindow_Resize(object sender, EventArgs e)
+        //{
+        //    Control control = (Control)sender;
+
+        //    MainColumn.Width = new GridLength(control.RenderSize.Width - Globals.SidebarWidth);
+        //}
 
     }
 
