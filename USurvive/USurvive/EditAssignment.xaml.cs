@@ -95,6 +95,11 @@ namespace USurvive
             Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
             tempGrade.cwID = tempClasswork.CWID;
 
+            if ((bool)cbComplete.IsChecked)
+            {
+                tempClasswork.Completed = true;
+            }
+
             Globals.gradebook.AddGrade(tempGrade);
             createdCW = tempClasswork;
             Globals.cwList.AddClasswork(tempClasswork);

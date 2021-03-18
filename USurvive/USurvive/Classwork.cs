@@ -20,6 +20,7 @@ namespace USurvive
         public int AutoIncrementDays { get; set; }
         public ClassworkType Type { get; set; }
         public bool ShownNotification { get; set; }
+        public bool Done { get; set; }
 
         public DateTime NotificationTime { get; set; }
         public Guid CWID1 { get; }
@@ -51,6 +52,7 @@ namespace USurvive
             this.NotificationTime = notificationTime;
             this.ShownNotification = false;
 
+            this.Completed = false;
 
 
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
@@ -72,7 +74,7 @@ namespace USurvive
             this.CWID = CWID;
             this.ShownNotification = false;
 
-
+            this.Completed = false;
 
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
