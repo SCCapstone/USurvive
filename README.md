@@ -13,7 +13,7 @@
 
 There should be no setup necessary, once cloning the repo the program should work perfectly upon building in Visual Studio.
 
-An example database is located in the root of the repository [[Example Database.usurvive]]
+An example database is located in the root of the repository [Example Database.usurvive](Example Database.usurvive)
 
 
 ## Running
