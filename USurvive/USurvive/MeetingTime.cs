@@ -38,11 +38,7 @@ namespace USurvive
             }
             if(this.time == null)
             {
-                //Show error dialog
-                Error error = new Error();
-                error.tb_ErrorText.Text = "Time is invalid!";
-                error.Show();
-                return;
+                throw new InvalidOperationException("Time is invalid");
             }
 
             this.length = length;
@@ -51,11 +47,7 @@ namespace USurvive
                 this.meetingTimes = meetingTimes;
             else
             {//This should never happen, just a sanity check
-                //Show error dialog
-                Error error = new Error();
-                error.tb_ErrorText.Text = "Meeting Times array is invalid!";
-                error.Show();
-                return;
+                throw new InvalidOperationException("meetingTimes is invalid");
             }
         }
 
@@ -127,11 +119,7 @@ namespace USurvive
             }
             if (this.time == null)
             {
-                //Show error dialog
-                Error error = new Error();
-                error.tb_ErrorText.Text = "Time is invalid!";
-                error.Show();
-                return;
+                throw new InvalidOperationException("Time is invalid");
             }
 
             this.length = length;
@@ -140,11 +128,7 @@ namespace USurvive
                 this.meetingTimes = meetingTimes;
             else
             {//This should never happen, just a sanity check
-                //Show error dialog
-                Error error = new Error();
-                error.tb_ErrorText.Text = "Meeting Times array is invalid!";
-                error.Show();
-                return;
+                throw new InvalidOperationException("meetingTimes is invalid");
             }
         }
     }
