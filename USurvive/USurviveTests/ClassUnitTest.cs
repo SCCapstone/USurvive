@@ -79,6 +79,7 @@ namespace USurviveTests
             }
         }
 
+        [TestMethod]
         public void TestInvalidMeetingDate()
         {
             using (var sw = new StringWriter())
@@ -174,5 +175,71 @@ namespace USurviveTests
                 Assert.IsTrue(test.CreditHours == creditHours);
             }
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
+                Console.WriteLine(test.ToString());
+                string output = "className, class instructor, 3, MWF-4:30 PM";
+
+                Assert.IsTrue(test.ToString().Equals(output));
+
+                test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, null, gradeScale);
+                Console.WriteLine(test.ToString());
+                output = "className, class instructor, 3, No meeting times set";
+
+                Assert.IsTrue(test.ToString().Equals(output));
+            }
+        }
+
+        [TestMethod]
+        public void TestTimeDisp()
+        {
+            USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
+            string output = "4:30 PM";
+
+            Assert.IsTrue(test.TimeDisp.Equals(output));
+        }
+
+        [TestMethod]
+        public void TestNullTimeDisp()
+        {
+            USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, null, gradeScale);
+            Assert.IsNull(test.TimeDisp);
+
+        }
+
+        [TestMethod]
+        public void TestGetDayMeeting()
+        {
+            USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
+            DateTime date = new DateTime(2021, 3, 31);//Wednesday
+            MeetingTime time = new MeetingTime(
+                new int[] { 16, 30 },
+                70,
+                new bool[] { false, true, false, true, false, true, false }
+            );
+
+            Assert.IsTrue(test.GetDayMeeting(date).ToString().Equals(time.ToString()));
+
+            date = new DateTime(2021, 3, 30);//Tuesday
+            Assert.IsNull(test.GetDayMeeting(date));
+
+        }
+
+        [TestMethod]
+        public void TestInvalidDayMeeting()
+        {
+            Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, null, gradeScale);
+            DateTime date = new DateTime(2021, 3, 31);//Wednesday
+            Assert.IsNull(test.GetDayMeeting(date));
+
+        }
     }
+
+    
 }

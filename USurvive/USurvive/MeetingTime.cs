@@ -77,7 +77,11 @@ namespace USurvive
             bool PM = false;
             if (this.time[0] >= 13)
                 PM = true;
-            ret += this.time[0];
+
+            if (PM)
+                ret += this.time[0] - 12;
+            else
+                ret += this.time[0];
             ret += ":";
             ret += this.time[1];
             ret += " ";
@@ -85,6 +89,11 @@ namespace USurvive
 
             return ret;
 
+        }
+
+        public override string ToString()
+        {
+            return this.GetMeetingTime();
         }
 
         public DateTime GetNextMeeting()

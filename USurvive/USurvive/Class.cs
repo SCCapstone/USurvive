@@ -86,13 +86,15 @@ namespace USurvive
         {
             string ret = "";
             ret += this.Name;
-            ret += ",";
+            ret += ", ";
             ret += this.Instructor;
-            ret += ",";
+            ret += ", ";
             ret += this.CreditHours;
-            ret += ",";
-            ret += MeetingTimes.ToString();
-            ret += "";
+            ret += ", ";
+            if (MeetingTimes == null || MeetingTimes.Count() == 0)
+                ret += "No meeting times set";
+            else
+                ret += MeetingTimes[0].ToString();
 
             return ret;
         }
