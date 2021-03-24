@@ -15,11 +15,11 @@ namespace USurviveTests
         int creditHours = 3;
         Uri email = new Uri("mailto:a@a.com");
         Uri website = new Uri("https://www.sc.edu");
-        USurvive.Syllabus syllabus = null;
+        Syllabus syllabus = null;
         int classType = 1;
         string notes = "These are some notes for the class";
-        ObservableCollection<USurvive.MeetingTime> meetingTimes = new ObservableCollection<USurvive.MeetingTime>();
-        USurvive.GradeScale gradeScale = null;//We don't use this
+        ObservableCollection<MeetingTime> meetingTimes = new ObservableCollection<USurvive.MeetingTime>();
+        GradeScale gradeScale = null;//We don't use this
 
         [TestInitialize]
         public void TestInitialize()
@@ -35,7 +35,7 @@ namespace USurviveTests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                USurvive.Class test = new USurvive.Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
+                Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
 
                 //Verify everything is correct
                 Assert.IsTrue(test.Name.Equals(name));
@@ -55,19 +55,97 @@ namespace USurviveTests
         [TestMethod]
         public void TestCreditHoursTrue()
         {
-
-
-
-
-
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
                 int creditHours = 3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0,
+                USurvive.Class test = new Class("name", "instructor", creditHours, null, null, null, 0,
                                                          "", null, null);
 
                 Assert.IsTrue(test.CreditHours == creditHours);
+            }
+        }
+
+        [TestMethod]
+        public void TestMeetsOnDate()
+        {
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
+
+                Assert.IsTrue(test.MeetsOnDate(new DateTime(2021, 3, 31)));//A Wednesday
+                Assert.IsFalse(test.MeetsOnDate(new DateTime(2021, 3, 30)));//A Tuesday
+            }
+        }
+
+        public void TestInvalidMeetingDate()
+        {
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                MeetingTime badMeetingTimes = null;
+                try {
+                    badMeetingTimes = new MeetingTime(
+                        new int[] { 50, 80 },
+                        70,
+                        new bool[] { true, true, true, true, true, true, true });
+
+                    //After this, nothing should happen
+                    Assert.Fail();
+                }
+                catch (InvalidOperationException)
+                {
+                    Assert.IsTrue(true);
+                }
+                Assert.IsNull(badMeetingTimes);
+
+                //Oversized array
+                try
+                {
+                    badMeetingTimes = new MeetingTime(
+                        new int[] { 14, 30 },
+                        70,
+                        new bool[] { true, true, true, true, true, true, true, true });//Oversized array
+
+                    //After this, nothing should happen
+                    Assert.Fail();
+                }
+                catch (InvalidOperationException)
+                {
+                    Assert.IsTrue(true);
+                }
+                Assert.IsNull(badMeetingTimes);
+
+                //Undersized array
+                try
+                {
+                    badMeetingTimes = new MeetingTime(
+                        new int[] { 14, 30 },
+                        70,
+                        new bool[] { true, true, true, true, true, true });//Undersized array
+
+                    //After this, nothing should happen
+                    Assert.Fail();
+                }
+                catch (InvalidOperationException)
+                {
+                    Assert.IsTrue(true);
+                }
+                Assert.IsNull(badMeetingTimes);
+            }
+        }
+
+        [TestMethod]
+        public void TestNullMeetingTime()
+        {
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, null, gradeScale);
+
+                Assert.IsFalse(test.MeetsOnDate(new DateTime(2021, 3, 31)));//A Wednesday
+                Assert.IsFalse(test.MeetsOnDate(new DateTime(2021, 3, 30)));//A Tuesday
             }
         }
 
@@ -78,7 +156,7 @@ namespace USurviveTests
             {
                 Console.SetOut(sw);
                 int creditHours = 3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null, null);
+                Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null, null);
 
                 Assert.IsFalse(test.CreditHours == 4);
             }
@@ -91,7 +169,7 @@ namespace USurviveTests
             {
                 Console.SetOut(sw);
                 int creditHours = -3;
-                USurvive.Class test = new USurvive.Class("name", "instructor", creditHours, null, null, null, 0, "", null, null); ;
+                Class test = new Class("name", "instructor", creditHours, null, null, null, 0, "", null, null); ;
 
                 Assert.IsTrue(test.CreditHours == creditHours);
             }
