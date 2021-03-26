@@ -14,8 +14,28 @@ namespace USurvive
         public string Name { get; set; }
         public string Instructor { get; set; }
         public int CreditHours { get; set; }
-        public Uri InstructorEmail { get; set; }        
-        public Uri ClassWebsite { get; set; }        
+        public String InstructorEmailContent { 
+            get
+            {
+                return InstructorEmail.ToString().Replace("mailto:","");
+            }
+            set
+            {
+                return;
+            }
+        }
+        public Uri InstructorEmail { get; set; }
+        public String ClassWebsiteContent { 
+            get
+            {
+                return InstructorEmail.Host.ToString();
+            }
+            set 
+            {
+                return;
+            }
+        }
+        public Uri ClassWebsite { get; set; }       
         public Syllabus Syllabus { get; set; }        
         public int ClassType { get; set; } //In person, online live, online async, etc.        
         public string Notes { get; set; }        
@@ -94,7 +114,7 @@ namespace USurvive
             if (MeetingTimes == null || MeetingTimes.Count() == 0)
                 ret += "No meeting times set";
             else
-                ret += MeetingTimes[0].ToString();
+                ret += MeetingTimes[0].GetMeetingTime();
 
             return ret;
         }
