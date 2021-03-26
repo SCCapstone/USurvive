@@ -39,12 +39,12 @@ namespace USurvive
             tbInstructor.Text = cl.Instructor;
             tbCreditHours.Text = cl.CreditHours.ToString();
             try {
-                tbInstEmail.Text = cl.InstructorEmail.ToString();
+                tbInstEmail.Text = cl.InstructorEmailContent;
             } catch(NullReferenceException) {
                 tbInstEmail.Text = "";
             }
             try {
-                tbWebsite.Text = cl.ClassWebsite.ToString();
+                tbWebsite.Text = cl.ClassWebsiteContent;
             } catch(NullReferenceException) {
                 tbWebsite.Text = "";
             }
@@ -105,7 +105,15 @@ namespace USurvive
             try
             {
                 ClassWebsite = new Uri("http://" + tbWebsite.Text + "/");
+                if (ClassWebsite.Scheme != Uri.UriSchemeHttp)
+                {
+                    throw new Exception("Not a valid web adress.");
+                }
                 InstEmail = new Uri("mailto:" + tbInstEmail.Text);
+                if (InstEmail.Scheme != Uri.UriSchemeMailto)
+                {
+                    throw new Exception("Not a valid email adress");
+                }
                 // the 2 preceding lines should be storing as string because editing currently appends "mailto:" ect. an additional time
                 // this could be parsed away, but this is a far more complex solution than only converting to URI when the URI is used.
             } catch
