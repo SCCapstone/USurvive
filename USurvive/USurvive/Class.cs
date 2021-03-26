@@ -114,7 +114,7 @@ namespace USurvive
             if (MeetingTimes == null || MeetingTimes.Count() == 0)
                 ret += "No meeting times set";
             else
-                ret += MeetingTimes[0].GetMeetingTime();
+                ret += MeetingTimes[0].GetMeetingTime();  // Show first Meeting Time
 
             return ret;
         }
