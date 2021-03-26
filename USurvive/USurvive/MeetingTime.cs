@@ -83,7 +83,7 @@ namespace USurvive
             else
                 ret += this.time[0];
             ret += ":";
-            ret += this.time[1];
+            ret += this.time[1].ToString().PadLeft(2, '0');
             ret += " ";
             ret += (PM ? "PM" : "AM");//Ternary conditional operator
 
