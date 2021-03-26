@@ -28,7 +28,7 @@ namespace USurvive
         public String ClassWebsiteContent { 
             get
             {
-                return InstructorEmail.Host.ToString();
+                return ClassWebsite.Host.ToString();
             }
             set 
             {
