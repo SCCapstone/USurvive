@@ -53,6 +53,7 @@ namespace USurvive
                 parent.userDropdown.SelectedItem = newUsername;
                 this.Close();
             }
+
         }
     }
 }

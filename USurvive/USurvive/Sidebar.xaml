@@ -17,6 +17,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Name="greeting" Text="$Placeholder" Margin="10,176,10,50" FontWeight="Bold"></TextBlock>
         
         <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
 

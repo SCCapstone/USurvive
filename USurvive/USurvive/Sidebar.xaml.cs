@@ -42,7 +42,7 @@ namespace USurvive
             //    assignmentList.Add(newAssignment);
             //}
             dgAssignmentList.DataContext = assignmentList;
-
+            displayGreeting();
             
         }
 
@@ -58,6 +58,11 @@ namespace USurvive
             dgClassList.DataContext = classList;
 
             //DateTest.Content = SelectedDate;
+        }
+
+        public void displayGreeting()
+        {
+            greeting.Text = "Welcome: " + Globals.databaseName.Substring(0,Globals.databaseName.Length-1);
         }
     }
 }
