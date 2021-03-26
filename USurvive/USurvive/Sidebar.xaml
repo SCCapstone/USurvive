@@ -17,8 +17,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Name="greeting" Text="$Placeholder" FontSize="18" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,15,0,0"></TextBlock>
         
-        <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
+        <Calendar Grid.Row="0" Grid.Column="0" SelectedDatesChanged="Calendar_SelectedDatesChanged" Margin="0,55,0,0" HorizontalAlignment="Center"></Calendar>
 
         <DataGrid Grid.Row="1" Grid.Column=" 0" Name="dgClassList" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False">
             <DataGrid.Columns>

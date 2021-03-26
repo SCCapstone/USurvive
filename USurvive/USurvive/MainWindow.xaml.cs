@@ -24,7 +24,7 @@ namespace USurvive
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        Sidebar sidebar;
         public MainWindow()
         {
             InitializeComponent();
@@ -103,7 +103,7 @@ namespace USurvive
             //Set up sidebar
             Globals.SidebarWidth = 200;
             SidebarColumn.Width = new GridLength(Globals.SidebarWidth);
-            Sidebar sidebar = new Sidebar();
+            sidebar = new Sidebar();
             SidebarFrame.Navigate(sidebar);
 
 
@@ -132,6 +132,7 @@ namespace USurvive
                     cw.ShowNotification();
                 }
             }
+            sidebar.displayGreeting();
         }
 
         private void DebugClick(Object sender, RoutedEventArgs e)
