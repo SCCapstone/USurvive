@@ -104,6 +104,7 @@ namespace USurvive
 
         public override string ToString()
         {
+            /*
             string ret = "";
             ret += this.Name;
             ret += ", ";
@@ -117,6 +118,8 @@ namespace USurvive
                 ret += MeetingTimes[0].GetMeetingTime();  // Show first Meeting Time
 
             return ret;
+            */
+            return this.Name;
         }
 
         public bool MeetsToday()
