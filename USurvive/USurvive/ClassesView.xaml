@@ -21,29 +21,30 @@
         <Label Content="THIS IS THE CLASS VIEW" HorizontalAlignment="Left" Margin="130,135,0,0" VerticalAlignment="Top"/>
         <DataGrid Name="dgClassList" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" ColumnWidth="150" IsReadOnly="True" CanUserDeleteRows="True" CanUserResizeColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Instructor" Binding="{Binding Instructor}" />
-                <DataGridTextColumn Header="Credit Hours" Binding="{Binding CreditHours}" />
-                <DataGridTextColumn Header="Instructor Email" Binding="{Binding InstructorEmail}" />
-                <DataGridTextColumn Header="Meeting Times" Binding="{Binding MtsDisp}" />
-                <DataGridTemplateColumn>
+                <DataGridTextColumn Width ="1*" Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Width ="1*" Header="Instructor" Binding="{Binding Instructor}" />
+                <DataGridTextColumn Width =".5*" Header="Credit Hours" Binding="{Binding CreditHours}" />
+                <DataGridTextColumn Width ="1*" Header="Instructor Email" Binding="{Binding InstructorEmailContent}" />
+                <DataGridTextColumn Width ="1*" Header="Website" Binding="{Binding ClassWebsiteContent}"/>
+                <DataGridTextColumn Width ="1*" Header="Meeting Times" Binding="{Binding MtsDisp}" />
+                <DataGridTemplateColumn Width="55">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="ViewClick">View</Button>
+                            <Button Click="ViewClick" Width="50">View</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="55">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="EditClick">Edit</Button>
+                            <Button Click="EditClick" Width="50">Edit</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="55">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="DeleteClick">Delete</Button>
+                            <Button Click="DeleteClick" Width="50">Delete</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
