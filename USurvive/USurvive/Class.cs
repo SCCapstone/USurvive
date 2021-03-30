@@ -17,7 +17,10 @@ namespace USurvive
         public String InstructorEmailContent { 
             get
             {
-                return InstructorEmail.ToString().Replace("mailto:","");
+                if (InstructorEmail == null)
+                    return "";
+                else
+                    return InstructorEmail.ToString().Replace("mailto:", "");
             }
             set
             {
@@ -28,7 +31,10 @@ namespace USurvive
         public String ClassWebsiteContent { 
             get
             {
-                return ClassWebsite.Host.ToString();
+                if (ClassWebsite == null)
+                    return "";
+                else 
+                    return ClassWebsite.Host.ToString();
             }
             set 
             {
