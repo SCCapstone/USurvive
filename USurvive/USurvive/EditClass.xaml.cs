@@ -102,33 +102,53 @@ namespace USurvive
 
             Uri ClassWebsite;
             Uri InstEmail;
-            try
+
+            if (tbWebsite.Text == "")
+                ClassWebsite = null;
+            else
             {
-                ClassWebsite = new Uri("http://" + tbWebsite.Text + "/");
+                try
+                {
+                    ClassWebsite = new Uri("http://" + tbWebsite.Text + "/");
+                }
+                catch (UriFormatException)
+                {
+                    Error error = new Error();
+                    error.tb_ErrorText.Text = "Please enter a vaild web address.";
+                    error.ShowDialog();
+                    return; // Stop saving so user can fix input
+                }
                 if (ClassWebsite.Scheme != Uri.UriSchemeHttp)
                 {
-                    throw new Exception("Not a valid web adress.");
+                    Error error = new Error();
+                    error.tb_ErrorText.Text = "Please enter a vaild web address.";
+                    error.ShowDialog();
+                    return; // Stop saving so user can fix input
                 }
-                InstEmail = new Uri("mailto:" + tbInstEmail.Text);
+            }
+
+            if (tbInstEmail.Text == "")
+                InstEmail = null;
+            else
+            {
+                try
+                {
+                    InstEmail = new Uri("mailto:" + tbInstEmail.Text);
+                }
+                catch (UriFormatException)
+                {
+                    Error error = new Error();
+                    error.tb_ErrorText.Text = "Please enter a vaild email adress.";
+                    error.ShowDialog();
+                    return; // Stop saving so user can fix input
+                }
                 if (InstEmail.Scheme != Uri.UriSchemeMailto)
                 {
-                    throw new Exception("Not a valid email adress");
+                    Error error = new Error();
+                    error.tb_ErrorText.Text = "Please enter a vaild email adress.";
+                    error.ShowDialog();
+                    return; // Stop saving so user can fix input
                 }
-                // the 2 preceding lines should be storing as string because editing currently appends "mailto:" ect. an additional time
-                // this could be parsed away, but this is a far more complex solution than only converting to URI when the URI is used.
-            } catch
-            {
-                //*******************************************
-                //*                                         *
-                //*          TEMPORARY SOLUTION!!           *
-                //*                                         *
-                //*******************************************
-
-                Error error = new Error();
-                error.tb_ErrorText.Text = "Website or email URI was invalid!  Setting to null.";
-                error.Show();
-                ClassWebsite = null;
-                InstEmail = null;
             }
 
             int scaleIdxSelected;
