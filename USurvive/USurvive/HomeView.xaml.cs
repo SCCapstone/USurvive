@@ -114,9 +114,9 @@ namespace USurvive
 
         private void upcomingSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-                this.Weeks.Text = (int)this.upcomingSlider.Value + " Weeks ahead";
-                timeframe = (int)this.upcomingSlider.Value * 7;
-                showUpcomingAssignments();
+            this.Weeks.Text = (int)this.upcomingSlider.Value + ((int)this.upcomingSlider.Value == 1 ? " week ahead" : " weeks ahead");
+            timeframe = (int)this.upcomingSlider.Value * 7;
+            showUpcomingAssignments();
         }
     }
 }

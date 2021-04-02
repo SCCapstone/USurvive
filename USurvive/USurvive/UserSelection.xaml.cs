@@ -111,6 +111,9 @@ namespace USurvive
         private void aboutButton_Click(object sender, RoutedEventArgs e)
         {
             //TODO Add about screen with our names and stuff
+            About about = new About();
+            about.Show();
+            
         }
     }
 }
