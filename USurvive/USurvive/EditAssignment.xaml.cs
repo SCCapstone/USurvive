@@ -113,6 +113,8 @@ namespace USurvive
             this.Close();
         }
 
+      
+
         private void cbAutoIncrement_Checked(object sender, RoutedEventArgs e)
         {
             if (!(bool)cbAutoIncrement.IsChecked)
