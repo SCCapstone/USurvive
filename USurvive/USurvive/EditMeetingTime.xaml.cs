@@ -30,13 +30,21 @@ namespace USurvive
         }
 
         private void AddMeetingClick(object sender, RoutedEventArgs e)
-        {
-            String strTime = tpTime.Value.ToString();
-            strTime = strTime.Split(' ')[1];
-            string[] hrMinStrs = strTime.Split(':');
+        { 
+            DateTime? hrsMins = tpTime.Value;
             int[] time = new int[2];
-            time[0] = int.Parse(hrMinStrs[0]);
-            time[1] = int.Parse(hrMinStrs[1]);
+            if (hrsMins.HasValue)
+            {
+                time[0] = hrsMins.Value.Hour;
+                time[1] = hrsMins.Value.Minute;
+            }
+            else
+            {
+                Error err = new Error();
+                err.tb_ErrorText.Text = "Please select a valid time.";
+                err.ShowDialog();
+                return;
+            }
 
             int length;
             if (!string.IsNullOrEmpty(tbLengthInMin.Text))

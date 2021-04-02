@@ -127,7 +127,7 @@ namespace USurvive
         {
             foreach (Classwork cw in Globals.cwList.classwork)
             {
-                if (!cw.ShownNotification && cw.NotificationTime <= DateTime.Now)
+                if (!cw.ShownNotification && cw.NotificationTime != null && cw.NotificationTime <= DateTime.Now) 
                 {
                     cw.ShowNotification();
                 }

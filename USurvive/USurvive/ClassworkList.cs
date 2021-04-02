@@ -40,7 +40,7 @@ namespace USurvive
             ObservableCollection<Classwork> ret = new ObservableCollection<Classwork>();
             foreach(Classwork work in classwork)
             {
-                if(DateTime.Compare(work.DueDate, date) >= 0)
+                if(Nullable.Compare(work.DueDate, date) >= 0)
                 {
                     ret.Add(work);
                 }

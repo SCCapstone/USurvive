@@ -13,7 +13,7 @@ namespace USurvive
         public int UGrade { get; set; }
         public int Hours { get; set; }
         public String Name { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }  // No references outside the two constructors. Should this exist? -David
         public int PointsEarned { get; set; }
         public int MaxPoints { get; set; }
         public int GradeWeight { get; set; }
@@ -21,7 +21,7 @@ namespace USurvive
         public Guid cwID { get; set; }
         public Guid gradeID { get; set; }
 
-        public Grade(string className, int uGrade, int hours, string name, DateTime date, int pointsEarned, int maxPoints, int gradeWeight, Guid cwID)
+        public Grade(string className, int uGrade, int hours, string name, DateTime? date, int pointsEarned, int maxPoints, int gradeWeight, Guid cwID)
         {
             this.ClassName = className;
             this.UGrade = uGrade;
@@ -36,7 +36,7 @@ namespace USurvive
             JsonSerializerOptions options = new JsonSerializerOptions() { IncludeFields = true, };
         }
 
-        public Grade(string className, DateTime date)
+        public Grade(string className, DateTime? date)
         {
             //Generate ID
             this.gradeID = System.Guid.NewGuid();

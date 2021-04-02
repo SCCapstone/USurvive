@@ -83,7 +83,8 @@ namespace USurvive
             
             foreach (Classwork newAssignment in Globals.cwList.classwork)
             {
-                if (DateTime.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0 && DateTime.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
+                if (newAssignment.DueDate != null && Nullable.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0
+                    && Nullable.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
                 {
                     
                     names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + newAssignment.DueDate + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n");
@@ -100,7 +101,7 @@ namespace USurvive
 
             foreach (Classwork newAssignment in Globals.cwList.classwork)
             {
-                if (DateTime.Compare(newAssignment.DueDate, DateTime.Now) < 0)
+                if (newAssignment.DueDate != null && Nullable.Compare(newAssignment.DueDate, DateTime.Now) < 0)
                 {
                     newAssignment.Priority = 1;
                     

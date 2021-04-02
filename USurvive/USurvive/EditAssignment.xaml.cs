@@ -63,22 +63,9 @@ namespace USurvive
             int autoIncDays = 0;
             try { autoIncDays = int.Parse(tbAutoIncrementDays.Text); } catch (Exception) { }
 
-            DateTime? noteTime = dpNoteTime.Value;
-            DateTime notifTime;
-            if (noteTime == null)
-            {
-                notifTime = new DateTime();
-            }
-            else notifTime = (DateTime)(noteTime);
-
-            //DateTime dueDate = dpDueDate.DisplayDate;
-            DateTime dueDate;
-            if (dpDueDate.Value == null)
-            {
-                dueDate = new DateTime();
-            }
-            else dueDate = (DateTime)(dpDueDate.Value);
-
+            DateTime? notifTime = dpNoteTime.Value;
+            DateTime? dueDate = dpDueDate.Value;
+            
             string cl;
             Grade tempGrade;
             try
