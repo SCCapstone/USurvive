@@ -35,7 +35,10 @@ namespace USurvive
             {
                 fileList[i] = fileList[i].Replace(Globals.dataDir, "");
             }
+            Array.Resize(ref fileList, fileList.Length + 1);
+            fileList[fileList.Length - 1] = "<Create new user...>";
             userDropdown.ItemsSource = fileList;
+            
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
@@ -44,6 +47,7 @@ namespace USurvive
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
+            
             string settingfile = Globals.dataDir + "databaseSetting";
             if (File.Exists(settingfile))
             {
@@ -56,12 +60,6 @@ namespace USurvive
             }
             DatabaseLoad.LoadDatabase();
             this.Close();
-        }
-
-        private void createNewUser_Click(object sender, RoutedEventArgs e)
-        {
-            CreateUser usercreate = new CreateUser(this);
-            usercreate.Show();
         }
 
         private void databaseClick(object sender, RoutedEventArgs e)
@@ -97,6 +95,22 @@ namespace USurvive
                     break;
 
             }
+        }
+
+        private void userDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if((String)userDropdown.SelectedItem == "<Create new user...>")
+            {
+                userDropdown.SelectedIndex = 0;
+                CreateUser usercreate = new CreateUser(this);
+                usercreate.Show();
+
+            }
+        }
+        
+        private void aboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO Add about screen with our names and stuff
         }
     }
 }

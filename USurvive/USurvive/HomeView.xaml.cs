@@ -21,12 +21,13 @@ namespace USurvive
     /// </summary>
     public partial class HomeView : Page
     {
-        private int timeframe = 7;
+        public int timeframe;
         public HomeView()
         {
+            setTimeframe(7);
             InitializeComponent();
             showCurrentClasses();
-            showUpcomingClasses();
+            //showUpcomingClasses();
             showUpcomingAssignments();
             showOverdueAssignments();
         }
@@ -47,11 +48,12 @@ namespace USurvive
         {
             String names = "";
             foreach(Class newClass in Globals.clList.classes){
-               names += (newClass.Name + "\n");
+               names += (newClass.Name + " ( " + "insert grade" + " ) " + "\n");
             }
             this.class_list.Text = names;
         }
 
+        /*
         private void showUpcomingClasses() //ClassList method for obtaining all classes of the day. Iterate through observable collection and convert to string
         {
             String names = "";
@@ -73,6 +75,7 @@ namespace USurvive
             }
             this.upcomingclass_list.Text = names;
         }
+        */
 
         private void showUpcomingAssignments()
         {
@@ -107,6 +110,13 @@ namespace USurvive
             }
 
             this.overdueassignment_list.Text = names;
+        }
+
+        private void upcomingSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+                this.Weeks.Text = (int)this.upcomingSlider.Value + " Weeks ahead";
+                timeframe = (int)this.upcomingSlider.Value * 7;
+                showUpcomingAssignments();
         }
     }
 }
