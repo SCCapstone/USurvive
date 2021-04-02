@@ -22,6 +22,7 @@
         </Grid.RowDefinitions>
         <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Assignment Name"  Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Class Name"  Binding="{Binding ClassName}"/>
                 <DataGridTextColumn Header="Date"  Binding="{Binding Date}"/>
                 <DataGridTextColumn Header="Points Earned" Binding="{Binding PointsEarned}" />
