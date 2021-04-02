@@ -62,11 +62,6 @@ namespace USurvive
             this.Close();
         }
 
-        private void createNewUser_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void databaseClick(object sender, RoutedEventArgs e)
         {
             //Adapted from https://stackoverflow.com/a/6872106
@@ -104,13 +99,18 @@ namespace USurvive
 
         private void userDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(userDropdown.SelectedItem == "<Create new user...>")
+            if((String)userDropdown.SelectedItem == "<Create new user...>")
             {
                 userDropdown.SelectedIndex = 0;
                 CreateUser usercreate = new CreateUser(this);
                 usercreate.Show();
 
             }
+        }
+        
+        private void aboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO Add about screen with our names and stuff
         }
     }
 }
