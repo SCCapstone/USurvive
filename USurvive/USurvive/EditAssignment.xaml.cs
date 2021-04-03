@@ -77,19 +77,30 @@ namespace USurvive
             catch (NullReferenceException)
             {
                 cl = null;
-                tempGrade = new Grade(null, dueDate);
+                tempGrade = null;
                
             }
-            tempGrade.Name = tbAssignmentName.Text;
-            Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
-            tempGrade.cwID = tempClasswork.CWID;
-            tempGrade.Hours = ((Class)cmbClasses.SelectedItem).CreditHours;
+
+            Classwork tempClasswork;
+            if (tempGrade != null) {
+                tempClasswork = new Classwork(
+                    name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
+                tempGrade.Name = tbAssignmentName.Text;
+                tempGrade.cwID = tempClasswork.CWID;
+                tempGrade.Hours = ((Class)cmbClasses.SelectedItem).CreditHours;
+                Globals.gradebook.AddGrade(tempGrade);
+            }
+            else
+            {
+                tempClasswork = new Classwork(
+                    name, cl, dueDate, cmbPriority.SelectedIndex + 1, Guid.Empty, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
+            }
+
             if ((bool)cbComplete.IsChecked)
             {
                 tempClasswork.Completed = true;
             }
 
-            Globals.gradebook.AddGrade(tempGrade);
             createdCW = tempClasswork;
             Globals.cwList.AddClasswork(tempClasswork);
 
