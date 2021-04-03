@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <!-- TODO: Error symbol, play sound when box appears-->
         <TextBlock x:Name="tb_ErrorText" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
-        
-        
+        <Button Style="{StaticResource buttonStyle}" Name ="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" Margin="112.4,103,156.6,42.4" Grid.Column="1" Grid.RowSpan="2">OK</Button>
+
     </Grid>
 </Window>
