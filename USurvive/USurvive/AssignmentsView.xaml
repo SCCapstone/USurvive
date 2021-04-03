@@ -19,10 +19,11 @@
 
         <DataGrid Grid.Row="0" Grid.Column="0" Name="dgAssignmentsList" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Width ="1*" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Width ="1*" Header="Due Date" Binding="{Binding DueDate}"/>
-                <DataGridTextColumn Width ="1*" Header="Priority" Binding="{Binding Priority}"/>
-                <DataGridTextColumn Width ="1*" Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Width ="0.75*" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width ="0.75*" Header="Class" Binding="{Binding Class}" SortDirection ="Ascending"/>
+                <DataGridTextColumn Width ="0.75*" Header="Due Date" Binding="{Binding DueDate}"/>
+                <DataGridTextColumn Width ="0.75" Header="Priority" Binding="{Binding Priority}"/>
+                <DataGridTextColumn Width ="0.75*" Header="Type" Binding="{Binding Type}"/>
             </DataGrid.Columns>
         </DataGrid>
 
