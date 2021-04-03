@@ -48,34 +48,10 @@ namespace USurvive
         {
             String names = "";
             foreach(Class newClass in Globals.clList.classes){
-               names += (newClass.Name + " ( " + "insert grade" + " ) " + "\n");
+               names += (newClass.Name + " ( " + "insert grade" + " ) " + "     ");
             }
             this.class_list.Text = names;
         }
-
-        /*
-        private void showUpcomingClasses() //ClassList method for obtaining all classes of the day. Iterate through observable collection and convert to string
-        {
-            String names = "";
-            ObservableCollection<Class> upcomingList = Globals.clList.GetClassesForDay(DateTime.Now);
-            foreach (Class newClass in upcomingList)
-            {
-                string fullTime = "";
-                int[] hoursMinutes;
-                foreach (MeetingTime time in newClass.MeetingTimes)
-                {
-                    if (time.MeetsOnDay((int)DateTime.Now.DayOfWeek)){
-                        hoursMinutes = time.time;
-                        fullTime = hoursMinutes[0] + ":";
-                        if(hoursMinutes[1] < 10) { fullTime += "0";}
-                        fullTime += hoursMinutes[1];
-                    }
-                    names += newClass.Name + " @ " + fullTime + "\n";
-                }
-            }
-            this.upcomingclass_list.Text = names;
-        }
-        */
 
         private void showUpcomingAssignments()
         {
@@ -108,6 +84,12 @@ namespace USurvive
                     names += (newAssignment.Name + "\n" + newAssignment.Cl + "\n" + newAssignment.DueDate + "\n" + "Priority: " + newAssignment.Priority + "\n" + "\n"); // Add class name
                     
                 }
+            }
+
+            if(names == "")
+            {
+                names = "No assignments are overdue";
+                overdueassignment_list.Foreground = Brushes.Green;
             }
 
             this.overdueassignment_list.Text = names;
