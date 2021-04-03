@@ -12,32 +12,43 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-
+            <ColumnDefinition/>
+           
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <ComboBox Grid.Column="1" MinWidth="200" Grid.Row="0" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbGrades" SelectionChanged="cmbGrades_SelectionChanged" VerticalAlignment="Center"></ComboBox>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="500" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Class Name"  Binding="{Binding ClassName}"/>
-                <DataGridTextColumn Header="Date"  Binding="{Binding Date}"/>
-                <DataGridTextColumn Header="Points Earned" Binding="{Binding PointsEarned}" />
-                <DataGridTextColumn Header="Max Points"  Binding="{Binding MaxPoints}"/>
-                <DataGridTextColumn Header="Grade Weight"  Binding="{Binding Hours}"/>
+                <DataGridTextColumn Header="Assignment Name" DataGridColumn.Width ="135"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Class Name"  DataGridColumn.Width ="135" Binding="{Binding ClassName}"/>
+                <DataGridTextColumn Header="Date" DataGridColumn.Width ="135"  Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Points Earned" DataGridColumn.Width ="135"  Binding="{Binding PointsEarned}" />
+                <DataGridTextColumn Header="Max Points" DataGridColumn.Width ="135"  Binding="{Binding MaxPoints}"/>
+                <DataGridTextColumn Header="Hours" DataGridColumn.Width ="135"  Binding="{Binding Hours}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock Name="label" Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center">
+            Filter
+        </TextBlock>
+        <TextBlock Name="Warning" Grid.Column="2" Grid.Row="0" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center>
+            To edit grades, double click on what you want to edit. 
+        </TextBlock>
         <Button
-            Grid.Column="0" Grid.Row="1" Click="DisplayGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
+            Grid.Column="0" Grid.Row="3" Click="DisplayGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
             Display GPA
         </Button>
-        <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="3" FontSize="20">
+        <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="4" FontSize="20">
             Semester GPA
         </TextBlock>
         <Button
-            Grid.Column="0" Grid.Row="2" Click="UpdateGPA" Style="{StaticResource buttonStyle}" Width="135" Margin="0,18,10,0" Height="Auto">
+            Grid.Column="0" Grid.Row="5" Click="UpdateGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135"  Height="Auto">
             Update Semester GPA
         </Button>
     </Grid>
