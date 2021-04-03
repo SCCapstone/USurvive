@@ -131,6 +131,22 @@ namespace USurvive
                 {
                     cw.ShowNotification();
                 }
+
+                if(cw.DueDate != null && DateTime.Now.AddDays(1) >= cw.DueDate && cw.AutoIncrement == true)
+                {
+                    cw.Priority = 1;
+                }
+
+                if(cw.DueDate != null && cw.AutoIncrement == true && cw.Priority >= 2)
+                {
+                    int lookAheadDays = cw.AutoIncrementDays * (cw.Priority - 1);
+                    if(DateTime.Today.AddDays(lookAheadDays) >= cw.DueDate)
+                    {
+                        cw.Priority--;
+                    }
+                }
+               
+                
             }
             sidebar.displayGreeting();
         }
@@ -159,7 +175,7 @@ namespace USurvive
             GradebookView gradebookView = new GradebookView();
             NavigationFrame.Navigate(gradebookView);
         }
-
+        
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             HomeView homeView = new HomeView();

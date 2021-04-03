@@ -84,11 +84,15 @@ namespace USurvive
                 case 0:
                     //Export the database
                     DatabaseExport.ExportDatabase();
+                    Done doneExport = new Done(Globals.databaseName.Replace("\\", ""), "export");
+                    doneExport.Show();
                     break;
                 case 1:
                     //Import the database
                     //Should we ask if this is okay?  On one hand, we already warn them in text.  On the other, this is a potentially destructive operation.
                     DatabaseExport.ImportDatabase();
+                    Done doneImport = new Done(Globals.databaseName.Replace("\\", ""), "import");
+                    doneImport.Show();
                     break;
                 case 2:
                     //Do nothing.
