@@ -96,7 +96,7 @@ namespace USurvive
             tempGrade.Name = tbAssignmentName.Text;
             Classwork tempClasswork = new Classwork(name, cl, dueDate, cmbPriority.SelectedIndex + 1, tempGrade.gradeID, (bool)cbAutoIncrement.IsChecked, autoIncDays, type, notifTime);
             tempGrade.cwID = tempClasswork.CWID;
-
+            tempGrade.Hours = ((Class)cmbClasses.SelectedItem).CreditHours;
             if ((bool)cbComplete.IsChecked)
             {
                 tempClasswork.Completed = true;
