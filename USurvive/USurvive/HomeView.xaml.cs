@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -48,9 +49,42 @@ namespace USurvive
         {
             String names = "";
             foreach(Class newClass in Globals.clList.classes){
-               names += (newClass.Name + " ( " + "insert grade" + " ) " + "     ");
+                names += (newClass.Name + " (");
+                if (getClassGrade(newClass) == -1)
+                {
+                    names += "N/A";
+                }
+                else
+                {
+                    names += getClassGrade(newClass);
+                }
+                names += ") " + "   "; ;
             }
             this.class_list.Text = names;
+        }
+
+        private double getClassGrade(Class newClass)
+        {
+            ArrayList gradeList = new ArrayList();
+            foreach (Grade grade in Globals.gradebook.grades)
+            {
+                if(grade.ClassName == newClass.Name && grade.MaxPoints > 0)
+                {
+                    gradeList.Add((double)grade.PointsEarned/(double)grade.MaxPoints);
+                }
+            }
+            double sum = 0;
+            foreach (double score in gradeList)
+            {
+                sum += score;
+            }
+
+            if(gradeList.Count < 1)
+            {
+                return -1;
+            }
+            
+            return (sum / gradeList.Count)*100;
         }
 
         private void showUpcomingAssignments()
