@@ -21,7 +21,7 @@ namespace USurvive
     public partial class EditAssignment : Window
     {
         public Classwork createdCW { get; set; } = null; // property to expose to other windows
-
+        Classwork classwrk;
         public EditAssignment()
         {
             InitializeComponent();
@@ -29,6 +29,22 @@ namespace USurvive
             tbAutoIncrementDays.Text = "0";
             tbAutoIncrementDays.IsEnabled = false;
             cmbClasses.ItemsSource = Globals.clList.classes;
+        }
+
+        public EditAssignment(Classwork cw)
+        {
+            InitializeComponent();
+            this.classwrk = cw;
+            tbAssignmentName.Text = cw.Name;
+            cmbClasses.ItemsSource = Globals.clList.classes;
+            cmbClasses.SelectedItem = cw.Cl;
+            dpDueDate.DefaultValue = cw.DueDate;
+            dpNoteTime.DefaultValue = cw.NotificationTime;
+            cmbPriority.SelectedIndex = cw.Priority - 1;
+            cbAutoIncrement.IsChecked = cw.AutoIncrement;
+            tbAutoIncrementDays.Text = cw.AutoIncrementDays.ToString();
+            cmbType.SelectedIndex = (int)cw.Type;
+            cbComplete.IsChecked = cw.Completed;
         }
 
         public EditAssignment(Class cl)
@@ -40,9 +56,10 @@ namespace USurvive
             cmbClasses.SelectedItem = cl;
         }
 
-
         private void SaveClick(object sender, RoutedEventArgs e)
         {
+            Globals.cwList.DeleteClasswork(classwrk);
+
             string name = tbAssignmentName.Text;
             //string grade = tbGrade.Text;
             string autoIncrementDays = tbAutoIncrementDays.Text;

@@ -9,13 +9,13 @@ namespace USurvive
 {
     public class ClassworkList
     {
-        public System.Collections.ObjectModel.ObservableCollection<Classwork> classwork { get; set; }
+        public ObservableCollection<Classwork> classwork { get; set; }
 
         public ClassworkList()
         {
-            this.classwork = new System.Collections.ObjectModel.ObservableCollection<Classwork>();
+            this.classwork = new ObservableCollection<Classwork>();
         }
-        public ClassworkList(System.Collections.ObjectModel.ObservableCollection<Classwork> classwork)
+        public ClassworkList(ObservableCollection<Classwork> classwork)
         {
             this.classwork = classwork;
         }
@@ -27,7 +27,7 @@ namespace USurvive
 
         public bool DeleteClasswork(Classwork work)
         {
-            return false;
+            return this.classwork.Remove(work);
         }
 
         public ObservableCollection<Classwork> GetClassworkForClass(Class uClass)

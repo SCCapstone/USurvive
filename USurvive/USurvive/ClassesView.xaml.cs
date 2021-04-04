@@ -40,7 +40,6 @@ namespace USurvive
             Button button = (Button)sender;
             Class cl = (Class)button.DataContext;
             ClassOverview overview = new ClassOverview(cl);
-            //MessageBox.Show("Class is" + cl.ToString()); // proof that above code get's respective row's Class object
             overview.Show();       
         }
 

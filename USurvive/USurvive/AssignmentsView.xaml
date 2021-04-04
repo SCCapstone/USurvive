@@ -26,13 +26,6 @@
                 <DataGridTextColumn Width ="1*" Header="Type" Binding="{Binding Type}"/>
                 <DataGridTemplateColumn Width="50">
                     <DataGridTemplateColumn.CellTemplate>
-                            <Button Click="ViewClick" Width="45">View</Button>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="50">
-                    <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Click="EditClick" Width="45">Edit</Button>
                         </DataTemplate>
