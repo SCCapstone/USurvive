@@ -37,7 +37,7 @@ namespace USurvive
             this.classwrk = cw;
             tbAssignmentName.Text = cw.Name;
             cmbClasses.ItemsSource = Globals.clList.classes;
-            cmbClasses.SelectedItem = cw.Cl;
+            cmbClasses.SelectedItem = Globals.clList.classes.FirstOrDefault(x => x.Name == cw.Cl);
             dpDueDate.DefaultValue = cw.DueDate;
             dpNoteTime.DefaultValue = cw.NotificationTime;
             cmbPriority.SelectedIndex = cw.Priority - 1;
