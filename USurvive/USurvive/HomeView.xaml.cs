@@ -93,7 +93,7 @@ namespace USurvive
             
             foreach (Classwork newAssignment in Globals.cwList.classwork)
             {
-                if (newAssignment.DueDate != null && Nullable.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0
+                if (newAssignment.DueDate != null && newAssignment.Completed == false && Nullable.Compare(newAssignment.DueDate, DateTime.Now.AddDays(timeframe)) < 0
                     && Nullable.Compare(newAssignment.DueDate, DateTime.Now) >= 0)
                 {
                     
