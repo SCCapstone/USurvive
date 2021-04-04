@@ -48,7 +48,7 @@ namespace USurvive
         {
             Button button = (Button)sender;
             Classwork cw = (Classwork)button.DataContext;
-            Globals.cwList.classwork.Remove(cw);
+            Globals.cwList.DeleteClasswork(cw);
         }
     }
 }

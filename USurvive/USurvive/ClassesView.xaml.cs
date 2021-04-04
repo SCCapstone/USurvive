@@ -56,6 +56,7 @@ namespace USurvive
             Button button = (Button)sender;
             Class cl = (Class)button.DataContext;
             classList.Remove(cl);
+            Globals.cwList.RemoveAll(x => x.Cl == cl.Name);
         }
     }
 }

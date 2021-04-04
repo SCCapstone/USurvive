@@ -9,19 +9,19 @@ namespace USurvive
 {
     public class GradeList
     {
-        public System.Collections.ObjectModel.ObservableCollection<Grade> grades { get; set; }
+        public ObservableCollection<Grade> grades { get; set; }
 
         public GradeList()
         {
-            this.grades = new System.Collections.ObjectModel.ObservableCollection<Grade>();
+            this.grades = new ObservableCollection<Grade>();
         }
 
-        public GradeList(System.Collections.ObjectModel.ObservableCollection<Grade> grades) //Will likely be used when reading JSON
+        public GradeList(ObservableCollection<Grade> grades) //Will likely be used when reading JSON
         {
             this.grades = grades;
         }
 
-        public System.Collections.ObjectModel.ObservableCollection<Grade> GetGrades()
+        public ObservableCollection<Grade> GetGrades()
         {
             return this.grades;
         }
@@ -30,7 +30,7 @@ namespace USurvive
             this.grades.Add(grade);
         }
 
-        public System.Collections.ObjectModel.ObservableCollection<Grade> GetGradesForClass(Class UClass)
+        public ObservableCollection<Grade> GetGradesForClass(Class UClass)
         {
             //Not implemented
             return null;
@@ -45,5 +45,21 @@ namespace USurvive
         {
             return grades.Count;
         }
+
+        /// <summary>
+        /// Removes all items meeting condition. Returns the number of items removed.
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public int RemoveAll(Func<Grade, bool> condition)
+        {
+            List<Grade> itemsToRemove = grades.Where(condition).ToList();
+            foreach (var item in itemsToRemove)
+            {
+                grades.Remove(item);
+            }
+            return itemsToRemove.Count;
+        }
+
     }
 }

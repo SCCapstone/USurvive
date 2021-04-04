@@ -27,6 +27,10 @@ namespace USurvive
 
         public bool DeleteClasswork(Classwork work)
         {
+            if (work != null)
+            {
+                Globals.gradebook.RemoveAll(x => x.gradeID == work.GradeID);
+            }
             return this.classwork.Remove(work);
         }
 
@@ -50,6 +54,21 @@ namespace USurvive
          public int ItemCount()
         {
             return classwork.Count;
+        }
+
+        /// <summary>
+        /// Removes all items meeting condition. Returns the number of items removed.
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public int RemoveAll(Func<Classwork, bool> condition)
+        {
+            List<Classwork> itemsToRemove = classwork.Where(condition).ToList();
+            foreach (var item in itemsToRemove)
+            {
+                this.DeleteClasswork(item);
+            }
+            return itemsToRemove.Count;
         }
     }
 }
