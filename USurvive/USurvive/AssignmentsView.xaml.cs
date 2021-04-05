@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,11 @@ namespace USurvive
     /// </summary>
     public partial class AssignmentsView : Page
     {
-        //ObservableCollection<Classwork> cwList;
-
         public AssignmentsView()
         {
             InitializeComponent();
-            //classList = Globals.clList.classes;
-            dgAssignmentsList.DataContext = Globals.cwList.classwork;
+             dgAssignmentsList.ItemsSource = Globals.cwList.classwork;
+             dgAssignmentsList.Items.SortDescriptions.Add(new SortDescription("Cl", ListSortDirection.Ascending));
         }
 
         private void btnNewAssignment_Click(object sender, RoutedEventArgs e)
