@@ -22,33 +22,48 @@
         <RowDefinition Height="auto"/>
         <RowDefinition Height="auto"/>
         <RowDefinition Height="auto"/>
+        <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
     <ComboBox Grid.Column="1" MinWidth="200" Grid.Row="0" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbGrades" SelectionChanged="cmbGrades_SelectionChanged" VerticalAlignment="Center"></ComboBox>
-    <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="500" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False">
+    <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False">
         <DataGrid.Columns>
-            <DataGridTextColumn Header="Assignment Name" DataGridColumn.Width ="135"  Binding="{Binding Name}"/>
-            <DataGridTextColumn Header="Class Name"  DataGridColumn.Width ="135" Binding="{Binding ClassName}"/>
-            <DataGridTextColumn Header="Date" DataGridColumn.Width ="135"  Binding="{Binding Date}"/>
-            <DataGridTextColumn Header="Points Earned" DataGridColumn.Width ="135"  Binding="{Binding PointsEarned}" />
-            <DataGridTextColumn Header="Max Points" DataGridColumn.Width ="135"  Binding="{Binding MaxPoints}"/>
-            <DataGridTextColumn Header="Hours" DataGridColumn.Width ="135"  Binding="{Binding Hours}"/>
-        </DataGrid.Columns>
+            <DataGridTextColumn Header="Assignment Name" DataGridColumn.Width ="115"  Binding="{Binding Name}"/>
+            <DataGridTextColumn Header="Class Name"  DataGridColumn.Width ="115" Binding="{Binding ClassName}"/>
+            <DataGridTextColumn Header="Date" DataGridColumn.Width ="115"  Binding="{Binding Date}"/>
+            <DataGridTextColumn Header="Points Earned" DataGridColumn.Width ="115"  Binding="{Binding PointsEarned}" />
+            <DataGridTextColumn Header="Max Points" DataGridColumn.Width ="115"  Binding="{Binding MaxPoints}"/>
+            <DataGridTextColumn Header="Hours" DataGridColumn.Width ="115"  Binding="{Binding Hours}"/>
+         
+            </DataGrid.Columns>
     </DataGrid>
     <TextBlock Name="label" Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center">
             Filter
     </TextBlock>
+        
     <TextBlock Name="Warning" Grid.Column="2" Grid.Row="0" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center">
             To edit grades, double click on what you want to edit. 
         </TextBlock>
+        <TextBlock Name="Current" Grid.Column="0" Grid.Row="2" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center">
+            Current Grades:
+            
+        </TextBlock>
+        <TextBox Name="oldgpa" Grid.Row="3" >
+`           Enter your current gpa
+        </TextBox>
         <Button
-            Grid.Column="0" Grid.Row="3" Click="DisplayGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
+            Grid.Column="1" Grid.Row="2" Click="RefreshGrade" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
+            Refresh current grades
+        </Button>
+  
+        <Button
+            Grid.Column="0" Grid.Row="4" Click="DisplayGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
             Display GPA
         </Button>
-        <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="4" FontSize="20">
-            Semester GPA
+        <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="5" FontSize="20">
+            Semester GPA: 
         </TextBlock>
         <Button
-            Grid.Column="0" Grid.Row="5" Click="UpdateGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135"  Height="Auto">
+            Grid.Column="0" Grid.Row="6" Click="UpdateGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135"  Height="Auto">
             Update Semester GPA
         </Button>
     </Grid>
