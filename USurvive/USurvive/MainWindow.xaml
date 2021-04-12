@@ -51,7 +51,17 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Image Source="images/Home.png" Grid.Row="0"></Image>
+                <Image Name="Img_Home" Source="images/Home.png" Grid.Row="0"></Image>
+                <!-- https://stackoverflow.com/a/42794551 -->
+                <Rectangle Name="Rect_Home" Height="64" Width="64" Grid.Column="0" Grid.Row="0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Black"/>
+                    </Rectangle.Fill>
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="images/Home.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                
                 <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18">Home</Label>
             </Grid>
 
@@ -65,7 +75,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Image Source="images/Classes.png" Grid.Row="0"></Image>
+                <Image Name="Img_Classes" Source="images/Classes.png" Grid.Row="0"></Image>
+                <!-- https://stackoverflow.com/a/42794551 -->
+                <Rectangle Name="Rect_Classes" Height="64" Width="64" Grid.Column="0" Grid.Row="0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Black"/>
+                    </Rectangle.Fill>
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="images/Classes.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
                 <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18">Classes</Label>
             </Grid>
 
@@ -79,7 +98,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Image Source="images/Assignments.png" Grid.Row="0"></Image>
+                <Image Name="Img_Assignments" Source="images/Assignments.png" Grid.Row="0"></Image>
+                <!-- https://stackoverflow.com/a/42794551 -->
+                <Rectangle Name="Rect_Assignments" Height="64" Width="64" Grid.Column="0" Grid.Row="0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Black"/>
+                    </Rectangle.Fill>
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="images/Assignments.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
                 <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18">Assignments</Label>
             </Grid>
 
@@ -93,7 +121,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Image Source="images/Gradebook.png" Grid.Row="0"></Image>
+                <Image Name="Img_Gradebook" Source="images/Gradebook.png" Grid.Row="0"/>
+                <!-- https://stackoverflow.com/a/42794551 -->
+                <Rectangle Name="Rect_Gradebook" Height="64" Width="64" Grid.Column="0" Grid.Row="0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Black"/>
+                    </Rectangle.Fill>
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="images/Gradebook.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
                 <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18">Gradebook</Label>
             </Grid>
 

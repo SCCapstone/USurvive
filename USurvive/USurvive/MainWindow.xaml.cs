@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows.Threading;
+using Windows.UI.ViewManagement;
 
 namespace USurvive
 {
@@ -24,7 +26,15 @@ namespace USurvive
     /// </summary>
     public partial class MainWindow : Window
     {
+        private enum Selection
+        {
+            Home,
+            Classes,
+            Assignments,
+            Gradebook
+        }
         Sidebar sidebar;
+        private Brush accent;
         public MainWindow()
         {
             InitializeComponent();
@@ -112,10 +122,21 @@ namespace USurvive
             dispatcherTimer.Tick += new EventHandler(tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);
             dispatcherTimer.Start();
-            
+
+            //Determine what color to paint the buttons
+            var uiSettings = new UISettings();
+            var accentColor = uiSettings.GetColorValue(UIColorType.Accent);
+            accent = new SolidColorBrush(Color.FromArgb(accentColor.A, accentColor.R, accentColor.G, accentColor.B));
+
+            //Check if accent color is dark.  If it is, we don't want to use it since it won't be easy to see
+            if(accentColor.R <= 50 && accentColor.G <= 50 && accentColor.B <= 50)
+            {
+                accent = new SolidColorBrush(Color.FromArgb(accentColor.A, 0, 120, 215));
+            }
 
             //Now opens to the Home View 
             HomeView homeView = new HomeView();
+            Select(Selection.Home);
             NavigationFrame.Navigate(homeView);
             DatabaseSave.SaveDatabase();
         }
@@ -160,6 +181,7 @@ namespace USurvive
         private void Assignments_Click(object sender, RoutedEventArgs e)
         {
             AssignmentsView assignmentsView = new AssignmentsView();
+            Select(Selection.Assignments);
             NavigationFrame.Navigate(assignmentsView);
         }
 
@@ -167,19 +189,56 @@ namespace USurvive
         {
             
             ClassesView classesView = new ClassesView();
+            Select(Selection.Classes);
             NavigationFrame.Navigate(classesView);
         }
     
         private void Gradebook_Click(object sender, RoutedEventArgs e)
         {
             GradebookView gradebookView = new GradebookView();
+            Select(Selection.Gradebook);
             NavigationFrame.Navigate(gradebookView);
         }
         
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             HomeView homeView = new HomeView();
+            Select(Selection.Home);
             NavigationFrame.Navigate(homeView);
+        }
+
+        private void Select(Selection select)
+        {
+            /*Change colors of the buttons.
+             * Unselected buttons are black
+             * The selected button uses the Windows accent color.  If the color is dark (all RGB values below 60), use the default blue color
+             */
+
+            //Paint everything black
+            Rect_Home.Fill = Brushes.Black;
+            Rect_Classes.Fill = Brushes.Black;
+            Rect_Assignments.Fill = Brushes.Black;
+            Rect_Gradebook.Fill = Brushes.Black;
+
+            switch (select)
+            {
+                case Selection.Home:
+                    Rect_Home.Fill = accent;
+                    break;
+
+                case Selection.Classes:
+                    Rect_Classes.Fill = accent;
+                    break;
+
+                case Selection.Assignments:
+                    Rect_Assignments.Fill = accent;
+                    break;
+
+                case Selection.Gradebook:
+                    Rect_Gradebook.Fill = accent;
+                    break;
+            }
+            //Img_Assignments.
         }
 
         void DataWindow_Closing(object sender, EventArgs e)
