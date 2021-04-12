@@ -124,12 +124,14 @@ namespace USurvive
             dispatcherTimer.Start();
 
             //Determine what color to paint the buttons
+
+            //https://stackoverflow.com/a/58528170
             var uiSettings = new UISettings();
             var accentColor = uiSettings.GetColorValue(UIColorType.Accent);
             accent = new SolidColorBrush(Color.FromArgb(accentColor.A, accentColor.R, accentColor.G, accentColor.B));
 
             //Check if accent color is dark.  If it is, we don't want to use it since it won't be easy to see
-            if(accentColor.R <= 50 && accentColor.G <= 50 && accentColor.B <= 50)
+            if(accentColor.R <= 100 && accentColor.G <= 100 && accentColor.B <= 100)
             {
                 accent = new SolidColorBrush(Color.FromArgb(accentColor.A, 0, 120, 215));
             }
