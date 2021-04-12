@@ -169,7 +169,7 @@ namespace USurvive
                
                 
             }
-            sidebar.displayGreeting();
+            sidebar.refresh();
         }
 
         private void DebugClick(Object sender, RoutedEventArgs e)

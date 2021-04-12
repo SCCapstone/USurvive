@@ -29,7 +29,7 @@ namespace USurvive
         {
             InitializeComponent();
 
-            SelectedDate = new DateTime();
+            SelectedDate = DateTime.Now;
 
             classList = Globals.clList.GetClassesForDay(DateTime.Now);
             assignmentList = Globals.cwList.GetClassworkForDate(DateTime.Now);
@@ -58,6 +58,17 @@ namespace USurvive
             dgClassList.DataContext = classList;
 
             //DateTest.Content = SelectedDate;
+        }
+
+        public void refresh()
+        {
+            this.displayGreeting();
+
+            assignmentList = Globals.cwList.GetClassworkForDate(SelectedDate);
+            dgAssignmentList.DataContext = assignmentList;
+
+            classList = Globals.clList.GetClassesForDay(SelectedDate);
+            dgClassList.DataContext = classList;
         }
 
         public void displayGreeting()
