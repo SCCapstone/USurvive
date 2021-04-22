@@ -9,3 +9,7 @@ Matthew McKee: mmmckee@email.sc.edu
 Javon Gooseby: jgooseby@email.sc.edu
 
 David Schmitt: davidcschmitt@outlook.com
+
+## Link to Github Repo
+
+https://github.com/SCCapstone/USurvive
