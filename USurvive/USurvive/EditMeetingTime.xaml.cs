@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -75,6 +76,20 @@ namespace USurvive
 
             MeetingTime mt = new MeetingTime(time, length, daysOfWeek);
             clas.MeetingTimes.Add(mt);
+        }
+
+        /// <summary>
+        /// When this is set for the PreviewTextInput event handler,
+        /// only integral numbers greater than zero may be entered in the textbox.
+        /// </summary>
+        /// <remarks>
+        /// <param name="sender">Control the action is for. i.e: a textbox</param>
+        /// <param name="e"/>TextCompositionEvent args. Used to get the text.</param>
+        /// </remarks>
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^1-9][0-9]*");
+            e.Handled = regex.IsMatch(((TextBox)sender).Text + e.Text);
         }
 
         private void RemoveMeetingTimeClick(object sender, RoutedEventArgs e)
