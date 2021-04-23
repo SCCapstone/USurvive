@@ -8,7 +8,7 @@ USurvive is a time management desktop application for university students. Busy 
 # Final Demo
 ## This is a placeholder
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 # App Images
 
