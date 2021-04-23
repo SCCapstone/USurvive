@@ -22,7 +22,7 @@ https://user-images.githubusercontent.com/47221430/115805011-16fb3480-a3b2-11eb-
 
 Joseph Still: thetechconspiracy@outlook.com 
 
-Tyler Van Cott: tvancott@email.sc.edu @tvancott
+Tyler Van Cott: tvancott@email.sc.edu
 
 Matthew McKee: mmmckee@email.sc.edu
 
