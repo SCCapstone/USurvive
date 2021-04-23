@@ -78,20 +78,6 @@ namespace USurvive
             clas.MeetingTimes.Add(mt);
         }
 
-        /// <summary>
-        /// When this is set for the PreviewTextInput event handler,
-        /// only integral numbers greater than zero may be entered in the textbox.
-        /// </summary>
-        /// <remarks>
-        /// <param name="sender">Control the action is for. i.e: a textbox</param>
-        /// <param name="e"/>TextCompositionEvent args. Used to get the text.</param>
-        /// </remarks>
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^1-9][0-9]*");
-            e.Handled = regex.IsMatch(((TextBox)sender).Text + e.Text);
-        }
-
         private void RemoveMeetingTimeClick(object sender, RoutedEventArgs e)
         {
            clas.MeetingTimes.Remove((MeetingTime)dgMeetingTimes.SelectedItem);
