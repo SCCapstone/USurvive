@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:USurvive" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Edit Assignment" Height="550" Width="800">
+        Title="Edit Assignment" Height="550" Width="800" MinHeight="550" MinWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -33,7 +33,7 @@
         <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Class"/>
         <!--<Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Date"/> -->
         <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Due Date"/>
-        <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Priority" Margin="0,6,0,8"/>
+        <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Priority"/>
         <!--<Label Grid.Column="0" Grid.Row="5" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Grade"/>-->
         <Label Grid.Column="0" Grid.Row="6" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Auto Increment"/>
         <Label Grid.Column="0" Grid.Row="7" Style="{StaticResource labelStyle}" VerticalAlignment="Center" Content="Auto Increment Days"/>
