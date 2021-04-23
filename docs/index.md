@@ -1,4 +1,4 @@
-# About
+## About
 
 
 ## Homescreen
@@ -14,7 +14,7 @@
 ![app gradebook page](https://user-images.githubusercontent.com/47221430/115796959-c4654c80-a3a0-11eb-9d5f-683771ad2409.PNG)
 
 
-## Authors
+## About
 
 Joseph Still: thetechconspiracy@outlook.com
 
