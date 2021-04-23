@@ -71,9 +71,32 @@ namespace USurvive
         {
             String name = tbName.Text;
             Globals.clList.classes.Remove(clas);
-            foreach (Class clas in Globals.clList.classes)
+
+            if (clas != null) // this block runs only when editing an existing class
             {
-                if (clas.Name.Equals(name))
+                // Change class name (Cl) of classwork from old to new name
+                foreach (var cw in Globals.cwList.classwork)
+                {
+                    if (cw.Cl != null && cw.Cl.Equals(clas.Name))
+                    {
+                        cw.Cl = name;
+                    }
+                }
+
+                // Change ClassName of grades from old to new name
+                foreach (var g in Globals.gradebook.grades)
+                {
+                    if (g.ClassName.Equals(clas.Name))
+                    {
+                        g.ClassName = name;
+                    }
+                }
+            }
+
+            // Ensure name is unique
+            foreach (Class c in Globals.clList.classes)
+            {
+                if (c.Name.Equals(name))
                 {
                     Error nameErr = new Error();
                     nameErr.tb_ErrorText.Text = "Class with that name already exists!";
@@ -81,6 +104,7 @@ namespace USurvive
                     return; // Stop saving so user can change name.
                 }
             }
+
             String instructor = tbInstructor.Text;
             int CreditHours;
             try
@@ -98,6 +122,14 @@ namespace USurvive
                 nameErr.tb_ErrorText.Text = "Too many credit hours, enter a valid number";
                 nameErr.ShowDialog();
                 return; // Stop saving so user can change credit hours.
+            }
+
+            foreach (var g in Globals.gradebook.grades)
+            {
+                if (g.ClassName.Equals(name))
+                {
+                    g.Hours = CreditHours;
+                }
             }
 
             Uri ClassWebsite;

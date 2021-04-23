@@ -22,6 +22,7 @@ namespace USurvive
     {
         public Classwork createdCW { get; set; } = null; // property to expose to other windows
         Classwork classwrk;
+        Grade tempGrade = null;
         public EditAssignment()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace USurvive
 
         public EditAssignment(Classwork cw)
         {
+            tempGrade = Globals.gradebook.grades.FirstOrDefault(g => g.gradeID == cw.GradeID);
             InitializeComponent();
             this.classwrk = cw;
             tbAssignmentName.Text = cw.Name;
@@ -84,11 +86,13 @@ namespace USurvive
             DateTime? dueDate = dpDueDate.Value;
             
             string cl;
-            Grade tempGrade;
             try
             {
                 cl = ((Class)cmbClasses.SelectedItem).Name;
-                tempGrade = new Grade(((Class)cmbClasses.SelectedItem).Name, dueDate);
+                if (tempGrade == null)
+                {
+                    tempGrade = new Grade(cl, dueDate);
+                }
 
             }
             catch (NullReferenceException)
