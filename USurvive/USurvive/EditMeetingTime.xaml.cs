@@ -31,7 +31,7 @@ namespace USurvive
         }
 
         private void AddMeetingClick(object sender, RoutedEventArgs e)
-        { 
+        {
             DateTime? hrsMins = tpTime.Value;
             int[] time = new int[2];
             if (hrsMins.HasValue)
@@ -52,27 +52,57 @@ namespace USurvive
                 length = int.Parse(tbLengthInMin.Text);
             else
                 length = 0;
-            
+
             bool[] daysOfWeek = new bool[7];
-            //function to set null to false
+            bool meetsOnADay = false;
+            // function to set null to false
             bool nBoolToBool(bool? nb)
             {
                 return nb.HasValue ? nb.Value : false;
             }
-            if (nBoolToBool(Sun.IsChecked))
+            if (nBoolToBool(Sun.IsChecked)) 
+            { 
                 daysOfWeek[0] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Mon.IsChecked))
+            {
                 daysOfWeek[1] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Tu.IsChecked))
+            {
                 daysOfWeek[2] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Wed.IsChecked))
+            {
                 daysOfWeek[3] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Th.IsChecked))
+            {
                 daysOfWeek[4] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Fri.IsChecked))
+            {
                 daysOfWeek[5] = true;
+                meetsOnADay = true;
+            }
             if (nBoolToBool(Sat.IsChecked))
+            {
                 daysOfWeek[6] = true;
+                meetsOnADay = true;
+            }
+
+            if (!meetsOnADay)
+            {
+                Error err = new Error();
+                err.tb_ErrorText.Text = "Please select a day to meet.";
+                err.ShowDialog();
+                return;
+            }
 
             MeetingTime mt = new MeetingTime(time, length, daysOfWeek);
             clas.MeetingTimes.Add(mt);
