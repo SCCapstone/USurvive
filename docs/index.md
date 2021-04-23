@@ -2,7 +2,7 @@
 ## This is a placeholder
 https://user-images.githubusercontent.com/47221430/115805011-16fb3480-a3b2-11eb-98dc-93be4ee8d85e.mp4
 
-# About
+# App Images
 
 ## Homescreen
 ![a_Homeview](https://user-images.githubusercontent.com/47221430/115805168-6a6d8280-a3b2-11eb-90cd-ab43c19c0212.png)
