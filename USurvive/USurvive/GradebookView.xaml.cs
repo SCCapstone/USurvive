@@ -52,7 +52,7 @@ namespace USurvive
             double totalgradeweight = 0;
             double globalestimated;
             ArrayList classes = new ArrayList();
-
+            double semestergpa = 0.0;
             foreach (Grade grade in Globals.gradebook.grades)
             {
                 bool stop = false;
@@ -154,7 +154,14 @@ namespace USurvive
                 totalcredits += uclass.hours;
                
             }
-            double semestergpa = totalgradeweight / totalcredits;
+            if (totalgradeweight == 0.0)
+            {
+                semestergpa = 0.0;
+            }
+            else
+            {
+                semestergpa = totalgradeweight / totalcredits;
+            }
             tbSGPA.Text = "Semester GPA: " + semestergpa.ToString();
 
 
@@ -264,7 +271,14 @@ namespace USurvive
                 }
                 totalcredits += uclass.hours;
             }
-            semestergpa = totalgradeweight / (double)totalcredits;
+            if (totalgradeweight == 0.0)
+            {
+                semestergpa = 0.0;
+            }
+            else
+            {
+                semestergpa = totalgradeweight / totalcredits;
+            }
             tbSGPA.Text = "Semester GPA: " + semestergpa;
             double numgpa = 0.0;
             gpa = totalgradeweight / (double)totalcredits;
@@ -384,7 +398,15 @@ namespace USurvive
 
 
             }
-            semestergpa = totalgradeweight / totalcredits;
+            if (totalgradeweight == 0.0)
+            {
+                semestergpa = 0.0;
+            }
+            else
+            {
+                semestergpa = totalgradeweight / totalcredits;
+            }
+            
             tbSGPA.Text = "Semester GPA: " +semestergpa.ToString();
         }
 
@@ -412,7 +434,7 @@ namespace USurvive
             double totalgradeweight = 0;
             double globalestimated;
             ArrayList classes = new ArrayList();
-
+            double semestergpa = 0.0;
             foreach (Grade grade in Globals.gradebook.grades)
             {
                 bool stop = false;
@@ -521,7 +543,15 @@ namespace USurvive
                 totalcredits += uclass.hours;
                 tbSGPA.Text = globalestimated.ToString();
             }
-            double semestergpa = totalgradeweight / totalcredits;
+            
+            if (totalgradeweight == 0.0)
+            {
+                semestergpa = 0.0;
+            }
+            else
+            {
+                semestergpa = totalgradeweight / totalcredits;
+            }
             tbSGPA.Text = "Semester GPA: " + semestergpa.ToString();
 
 
