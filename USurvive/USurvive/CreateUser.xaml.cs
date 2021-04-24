@@ -30,6 +30,11 @@ namespace USurvive
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             string newUsername = enterField.Text;
+            if(newUsername.Length > 29)
+            {
+                newUsername = newUsername.Substring(0, 28);
+            }
+
             newUsername.Replace("\"", "");
             newUsername.Replace("*", "");
             newUsername.Replace("\\", "");
