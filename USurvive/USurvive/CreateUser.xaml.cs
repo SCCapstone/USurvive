@@ -37,7 +37,7 @@ namespace USurvive
             Regex words = new Regex(@"^(\w+ *\w+)+$");
             if (!words.IsMatch(newUsername))
             { 
-                error.tb_ErrorText.Text = "Invalid username: please only use alphanumeric characters or spaces," +
+                error.tb_ErrorText.Text = "Invalid username: only use alphanumeric characters\nor spaces," +
                     "and don't end with spaces.";
                 error.ShowDialog();
                 return;
