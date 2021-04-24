@@ -116,7 +116,6 @@ namespace USurvive
         {
             About about = new About();
             about.Show();
-            
         }
     }
 }
