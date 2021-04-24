@@ -111,7 +111,7 @@ namespace USurvive
 
             foreach (Classwork newAssignment in Globals.cwList.classwork)
             {
-                if (newAssignment.DueDate != null && Nullable.Compare(newAssignment.DueDate, DateTime.Now) < 0)
+                if (newAssignment.DueDate != null && Nullable.Compare(newAssignment.DueDate, DateTime.Now) < 0 && !newAssignment.Completed)
                 {
                     newAssignment.Priority = 1;
                     
