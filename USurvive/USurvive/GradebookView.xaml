@@ -47,9 +47,7 @@
             Current Grades:
             
         </TextBlock>
-        <TextBox Name="oldgpa" Grid.Row="3" >
-`           Enter your current gpa
-        </TextBox>
+        <TextBox Name="oldgpa" Grid.Row="3">Enter your current gpa</TextBox>
         <Button
             Grid.Column="1" Grid.Row="2" Click="RefreshGrade" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
             Refresh current grades
