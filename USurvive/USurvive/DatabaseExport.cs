@@ -47,8 +47,17 @@ namespace USurvive
             if(result == true)
             {
                 //Windows won't let us open a file that doesn't exist, so assume it exists.
-                string filename = openDialog.FileName;
-                ZipFile.ExtractToDirectory(filename, Globals.dataDir + "tempDir");//Extract to a working directory.  This will be deleted when we are done.
+                string filename;
+                try
+                {
+                    filename = openDialog.FileName;
+                    ZipFile.ExtractToDirectory(filename, Globals.dataDir + "tempDir");//Extract to a working directory.  This will be deleted when we are done.
+                }
+                catch
+                {
+                    Directory.Delete(Globals.dataDir + "tempDir", true);
+                    return false;
+                }
 
                 if (!File.Exists(Globals.dataDir + "tempDir\\dbname"))
                 {

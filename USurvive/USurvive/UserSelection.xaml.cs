@@ -126,7 +126,7 @@ namespace USurvive
             databaseWindow.CommandButtons = new string[]
             {
                 "Export the database for the current user\nThis will allow you to copy the database onto another computer",
-                "Import a new database\nWarning: This will overwrite the database for " + Globals.databaseName.Replace("\\",""),
+                "Import a new database\nAdd a new database to USurvive",
                 "Do nothing"
             };
             TaskDialogResult res = TaskDialog.Show(databaseWindow);
@@ -142,10 +142,16 @@ namespace USurvive
                 case 1:
                     //Import the database
                     //Should we ask if this is okay?  On one hand, we already warn them in text.  On the other, this is a potentially destructive operation.
-                    DatabaseExport.ImportDatabase();
-                    Done doneImport = new Done(Globals.databaseName.Replace("\\", ""), "import");
-                    loadDropdown();
-                    doneImport.Show();
+
+                    //Make sure the database is valid
+                    if (DatabaseExport.ImportDatabase())
+                    {
+                        Done doneImport = new Done(Globals.databaseName.Replace("\\", ""), "import");
+                        loadDropdown();
+                        doneImport.Show();
+                    }
+
+                    
                     break;
                 case 2:
                     //Do nothing.
