@@ -184,13 +184,13 @@ namespace USurviveTests
                 Console.SetOut(sw);
                 USurvive.Class test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, meetingTimes, gradeScale);
                 Console.WriteLine(test.ToString());
-                string output = "className, class instructor, 3, MWF-4:30 PM";
+                string output = "className";
 
                 Assert.IsTrue(test.ToString().Equals(output));
 
                 test = new Class(name, instructor, creditHours, email, website, syllabus, classType, notes, null, gradeScale);
                 Console.WriteLine(test.ToString());
-                output = "className, class instructor, 3, No meeting times set";
+                output = "className";
 
                 Assert.IsTrue(test.ToString().Equals(output));
             }
