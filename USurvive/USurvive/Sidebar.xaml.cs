@@ -74,11 +74,14 @@ namespace USurvive
         public void displayGreeting()
         {
             greeting.Text = "Welcome, ";
-            if(Globals.databaseName.Substring(0, Globals.databaseName.Length - 1).Length > 13)
+            if (Globals.databaseName.Length > 16)
+            {
+                greeting.Text += "\n" + Globals.databaseName.Substring(0, 16) + "...";
+            }
+            else if(Globals.databaseName.Length > 13)
             {
                 greeting.Text += "\n" + Globals.databaseName.Substring(0, Globals.databaseName.Length - 1);
                 greeting.Margin = new Thickness(0,5,0,0);
-                    //"0,15,0,0"
             }
             else
             {
