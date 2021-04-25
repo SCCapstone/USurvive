@@ -44,7 +44,7 @@ namespace USurvive
             }
             if (newUsername.Length > 28)
             {
-                error.tb_ErrorText.Text = "Invalid username: max length username is 32 characters.";
+                error.tb_ErrorText.Text = "Invalid username: max length username is 28 characters.";
                 error.ShowDialog();
                 return;
             }

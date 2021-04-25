@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows.Threading;
 using Windows.UI.ViewManagement;
+using System.Diagnostics;
 
 namespace USurvive
 {
@@ -37,6 +38,15 @@ namespace USurvive
         private Brush accent;
         public MainWindow()
         {
+            // Ensure only one USurvive is running
+            Process proc = Process.GetCurrentProcess();
+            int count = Process.GetProcesses().Where(p => p.ProcessName == proc.ProcessName).Count();
+            if (count > 1)
+            {
+                MessageBox.Show("Only one instance of USurvive can run at a time.");
+                App.Current.Shutdown();
+            }
+
             InitializeComponent();
             Globals.tempClasses = new ObservableCollection<Class>();
             Globals.tempAssignments = new List<Assignment>();
