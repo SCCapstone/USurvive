@@ -19,7 +19,7 @@ namespace USurviveTests
         int classType = 1;
         string notes = "These are some notes for the class";
         ObservableCollection<MeetingTime> meetingTimes = new ObservableCollection<USurvive.MeetingTime>();
-        GradeScale gradeScale = null;//We don't use this
+        GradeScale gradeScale = null; //We don't use this
 
         [TestInitialize]
         public void TestInitialize()

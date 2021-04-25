@@ -99,7 +99,6 @@
     <Compile Include="Assessment.cs" />
     <Compile Include="Assignment.cs" />
     <Compile Include="Class.cs" />
-    <Compile Include="AssignmentTestRunner.cs" />
     <Compile Include="ClassType.cs" />
     <Compile Include="ClassList.cs" />
     <Compile Include="Classwork.cs" />
