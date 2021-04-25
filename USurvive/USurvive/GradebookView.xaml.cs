@@ -62,7 +62,15 @@ namespace USurvive
                     if (grade.ClassName == uclass.classname)
                     {
                         stop = true;
-                        uclass.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                     
+                        if (grade.MaxPoints == 0)
+                        {
+                            uclass.insert(0);
+                        }
+                        else
+                        {
+                            uclass.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                        }
                     }
 
 
@@ -70,7 +78,15 @@ namespace USurvive
                 if (!stop)
                 {
                     GPAClass tempc = new GPAClass(grade.ClassName, grade.Hours, grade.GradeWeight);
-                    tempc.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+
+                    if (grade.MaxPoints == 0)
+                    {
+                        tempc.insert(0);
+                    }
+                    else
+                    {
+                        tempc.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                    }
                     classes.Add(tempc);
 
                 }
@@ -92,6 +108,8 @@ namespace USurvive
                 }
      
                 int grade = totalavg / counter;
+                if (totalavg == 0)
+                    grade = 0;
                 string sgrade = grade.ToString();
                 Current.Text += "\n";
                 Current.Text += "Class: " + uclass.classname + " Grade: " + sgrade;
@@ -444,7 +462,14 @@ namespace USurvive
                     if (grade.ClassName == uclass.classname)
                     {
                         stop = true;
-                        uclass.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                        if (grade.MaxPoints == 0)
+                        {
+                            uclass.insert(0);
+                        }
+                        else
+                        {
+                            uclass.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                        }
                     }
 
 
@@ -452,7 +477,14 @@ namespace USurvive
                 if (!stop)
                 {
                     GPAClass tempc = new GPAClass(grade.ClassName, grade.Hours, grade.GradeWeight);
-                    tempc.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                    if (grade.MaxPoints == 0)
+                    {
+                        tempc.insert(0);
+                    }
+                    else
+                    {
+                        tempc.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                    }
                     classes.Add(tempc);
 
                 }
@@ -554,6 +586,159 @@ namespace USurvive
             }
             tbSGPA.Text = "Semester GPA: " + semestergpa.ToString();
 
+
+        }
+        private void enterField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= enterField_GotFocus; // remove this handler (we only want to delete text on first focus)
+        }
+
+        private void DG1_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            InitializeComponent();
+            cmbGrades.ItemsSource = Globals.clList.classes;
+
+            DG1.DataContext = Globals.gradebook.grades;
+            GPACalculator gPAViewer = new GPACalculator();
+            int totalcredits = 0;
+            double totalgradeweight = 0;
+            double globalestimated;
+            ArrayList classes = new ArrayList();
+            double semestergpa = 0.0;
+            foreach (Grade grade in Globals.gradebook.grades)
+            {
+                bool stop = false;
+
+                foreach (GPAClass uclass in classes)
+                {
+                    if (grade.ClassName == uclass.classname)
+                    {
+                        stop = true;
+                        if (grade.MaxPoints == 0)
+                        {
+                            uclass.insert(0);
+                        }
+                        else
+                        {
+                            uclass.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                        }
+                    }
+
+
+                }
+                if (!stop)
+                {
+                    GPAClass tempc = new GPAClass(grade.ClassName, grade.Hours, grade.GradeWeight);
+                    if (grade.MaxPoints == 0)
+                    {
+                        tempc.insert(0);
+                    }
+                    else
+                    {
+                        tempc.insert((int)(((double)grade.PointsEarned / (double)grade.MaxPoints) * 100));
+                    }
+                    classes.Add(tempc);
+
+                }
+            }
+            Current.Text = "";
+            Current.Text = "Current Grades: ";
+            foreach (GPAClass uclass in classes)
+            {
+                int totalavg = 0;
+                int counter = 0;
+                double estimated = 0.0;
+                double estimated2 = 0.0;
+                int totalweight = 0;
+
+                foreach (int agrade in uclass.grades)
+                {
+                    totalavg += agrade;
+                    counter++;
+                    estimated = (double)agrade * ((double)uclass.gradeweight / 100.00);
+                    totalweight += uclass.gradeweight;
+                    estimated2 += estimated;
+                    Console.WriteLine(agrade);
+                    Console.WriteLine(estimated);
+                }
+                globalestimated = estimated2;
+                int grade = totalavg / counter;
+                string sgrade = grade.ToString();
+
+                Current.Text += "\n";
+
+                Current.Text += "Class: " + uclass.classname + " Grade: " + sgrade;
+                if (grade >= 90)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "4.0\r\n";
+                    totalgradeweight += uclass.hours * 4.0;
+                }
+                if (grade >= 87 && grade < 90)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "3.5\r\n";
+                    totalgradeweight += uclass.hours * 3.5;
+                }
+                if (grade >= 80 && grade < 87)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "3.0\r\n";
+                    totalgradeweight += uclass.hours * 3.0;
+                }
+                if (grade >= 77 && grade < 80)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "2.5\r\n";
+                    totalgradeweight += uclass.hours * 2.5;
+                }
+                if (grade >= 70 && grade < 77)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "2.0\r\n";
+                    totalgradeweight += uclass.hours * 2.0;
+                }
+                if (grade >= 67 && grade < 70)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "1.5\r\n";
+                    totalgradeweight += uclass.hours * 1.5;
+                }
+                if (grade >= 60 && grade < 67)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "1.0\r\n";
+                    totalgradeweight += uclass.hours * 1.0;
+                }
+                if (grade < 60)
+                {
+                    gPAViewer.tbGPA.Text += uclass.classname;
+                    gPAViewer.tbGPA.Text += " GPA: ";
+                    gPAViewer.tbGPA.Text += "0\r\n";
+                    totalgradeweight += uclass.hours * 0.0;
+                }
+                totalcredits += uclass.hours;
+                tbSGPA.Text = globalestimated.ToString();
+            }
+
+            if (totalgradeweight == 0.0)
+            {
+                semestergpa = 0.0;
+            }
+            else
+            {
+                semestergpa = totalgradeweight / totalcredits;
+            }
+            tbSGPA.Text = "Semester GPA: " + semestergpa.ToString();
 
         }
     }

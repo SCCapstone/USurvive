@@ -25,7 +25,7 @@
         <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
     <ComboBox Grid.Column="1" MinWidth="200" Grid.Row="0" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbGrades" SelectionChanged="cmbGrades_SelectionChanged" VerticalAlignment="Center"></ComboBox>
-    <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False">
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False" CellEditEnding="DG1_CellEditEnding">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Assignment Name" DataGridColumn.Width ="115"  Binding="{Binding Name}"/>
             <DataGridTextColumn Header="Class Name"  DataGridColumn.Width ="115" Binding="{Binding ClassName}"/>
@@ -47,11 +47,8 @@
             Current Grades:
             
         </TextBlock>
-        <TextBox Name="oldgpa" Grid.Row="3">Enter your current gpa</TextBox>
-        <Button
-            Grid.Column="1" Grid.Row="2" Click="RefreshGrade" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
-            Refresh current grades
-        </Button>
+        <TextBox Name="oldgpa" Grid.Row="3" GotFocus="enterField_GotFocus">Enter your current gpa</TextBox>
+   
   
         <Button
             Grid.Column="0" Grid.Row="4" Click="DisplayGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135" Height="Auto">
