@@ -45,13 +45,28 @@ namespace USurvive
             this.Close();
         }
 
+        /// <summary>
+        /// Logic for clicking Select (formerly ok) button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             
             string settingfile = Globals.dataDir + "databaseSetting";
             if (File.Exists(settingfile))
             {
-                File.Delete(settingfile);
+                try
+                {
+                    File.Delete(settingfile);
+                }
+                catch
+                {
+                    Error err = new Error();
+                    err.tb_ErrorText.Text = "Can't delete settings file. \nAnother program might be using it.";
+                    err.ShowDialog();
+                    return;
+                }
             }
             using (StreamWriter fileOutput = new StreamWriter(settingfile, true))
             {
@@ -60,6 +75,38 @@ namespace USurvive
             }
             DatabaseLoad.LoadDatabase();
             this.Close();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            string userDir = Globals.dataDir + (string)userDropdown.SelectedItem;
+            if (!Globals.databaseName.Equals((string)userDropdown.SelectedItem + "\\"))
+            {
+                
+                if (Directory.Exists(userDir))
+                {
+                    try
+                    {
+                        Directory.Delete(userDir, true);  // recursively delete user directory
+                    }
+                    catch
+                    {
+                        Error err = new Error();
+                        err.tb_ErrorText.Text = "Can't delete user file. \nAnother program might be using it.";
+                        err.ShowDialog();
+                        return;
+                    }
+                    loadDropdown();
+                    userDropdown.SelectedIndex = 0;  // reselect first item so we don't get an empty TextBox
+                }
+            }
+            else
+            {
+                Error err = new Error();
+                err.tb_ErrorText.Text = "You can't delete the user that is currently in use.";
+                err.ShowDialog();
+                return;
+            }
         }
 
         private void databaseClick(object sender, RoutedEventArgs e)
@@ -92,6 +139,7 @@ namespace USurvive
                     //Should we ask if this is okay?  On one hand, we already warn them in text.  On the other, this is a potentially destructive operation.
                     DatabaseExport.ImportDatabase();
                     Done doneImport = new Done(Globals.databaseName.Replace("\\", ""), "import");
+                    loadDropdown();
                     doneImport.Show();
                     break;
                 case 2:
