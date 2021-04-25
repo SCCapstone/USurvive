@@ -32,6 +32,11 @@ namespace USurvive
             } catch (FileNotFoundException)
             {
                 verifyHash = new byte[] { 0x00 };
+            } catch
+            {
+                Error err = new Error();
+                err.tb_ErrorText.Text = "There was a problem loading your file.";
+                return;
             }
 
             byte[] hash;

@@ -61,7 +61,8 @@ namespace USurvive
                 File.Delete(gradeFile);
             }
 
-
+            string path = Globals.dataDir + Globals.databaseName;
+            Directory.CreateDirectory(path);  // if the user file is somehow deleted, recreate it.
             using (System.IO.StreamWriter fileOutput = new System.IO.StreamWriter(classFile, true))
             {
                 foreach(Class clas in Globals.clList.classes)

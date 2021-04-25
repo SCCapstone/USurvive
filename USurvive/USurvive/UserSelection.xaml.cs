@@ -99,6 +99,11 @@ namespace USurvive
                     loadDropdown();
                     userDropdown.SelectedIndex = 0;  // reselect first item so we don't get an empty TextBox
                 }
+                else  // The file doesn't exist, just "delete" it by reloading the dropdown
+                {
+                    loadDropdown();
+                    userDropdown.SelectedIndex = 0;
+                }
             }
             else
             {
