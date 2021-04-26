@@ -24,7 +24,6 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="2*"/>
             <RowDefinition/>
 
         </Grid.RowDefinitions>
@@ -50,7 +49,7 @@
         <xctk:DateTimePicker Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="8,8,10,8" FormatString="yyyy-MM-dd hh:mm:ss" Name="dpDueDate"/>
         <!--<TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="8,8,10,8" Name="tbGrade"/>-->
         <CheckBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="8,8,10,8" Name="cbAutoIncrement" Checked="cbAutoIncrement_Checked" Unchecked="cbAutoIncrement_Checked"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="8,8,10,8" Name="tbAutoIncrementDays"/>
+        <xctk:IntegerUpDown Minimum="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="8,8,10,8" Name="tbAutoIncrementDays"/>
         <xctk:DateTimePicker Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Margin="8,8,10,8" FormatString="yyyy-MM-dd hh:mm:ss" Name="dpNoteTime"/>
         <CheckBox Grid.Column="1" Grid.Row="10" VerticalAlignment="Center" Margin="8,8,10,8" Name="cbComplete"/>
 
