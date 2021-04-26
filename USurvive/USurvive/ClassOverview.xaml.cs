@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Collections;
 
 namespace USurvive
 {
@@ -47,23 +48,30 @@ namespace USurvive
                 }
             }
 
-            float totGrade = -1;
+            ArrayList gradeList = new ArrayList();
             foreach (Grade grade in grades)
             {
-                // don't grade assignments worth zero points or not in this class
-                if ( grade.ClassName != null && grade.ClassName.Equals(source.Name) && grade.MaxPoints != 0)  
+                if (grade.ClassName == source.Name && grade.MaxPoints > 0)
                 {
-                    if (totGrade == -1)    
-                        totGrade = grade.GradeWeight * (grade.PointsEarned/grade.MaxPoints);
-                    else
-                        totGrade += grade.GradeWeight * (grade.PointsEarned / grade.MaxPoints);
+                    gradeList.Add((double)grade.PointsEarned / grade.MaxPoints);
                 }
             }
-
-            if (totGrade == -1)
-                gradeText.Text = "Nothing scorable assigned yet.";  // here scorable means with a MaxPoints greater than zero
+            double sum = 0;
+            foreach (double score in gradeList)
+            {
+                sum += score;
+            }
+            int overallgrade;
+            if (gradeList.Count < 1)
+            {
+                gradeText.Text = "Nothing scorable assigned yet.";
+            }
             else
-                gradeText.Text = "" + totGrade; 
+            { 
+                overallgrade = (int)((sum / gradeList.Count) * 100);
+                gradeText.Text = "" + overallgrade;
+            }
+
             dgUncompletedAssignments.DataContext = uncompletedClasswork;
             dgUncompletedAssessments.DataContext = uncompletedAssessments;
 
