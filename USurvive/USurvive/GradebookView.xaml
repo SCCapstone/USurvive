@@ -10,9 +10,9 @@
 
 <Grid>
     <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
+        <ColumnDefinition Width="auto"/>
+        <ColumnDefinition Width="auto"/>
+        <ColumnDefinition Width="auto"/>
 
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
@@ -24,8 +24,8 @@
         <RowDefinition Height="auto"/>
         <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
-    <ComboBox Grid.Column="1" MinWidth="200" Grid.Row="0" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbGrades" SelectionChanged="cmbGrades_SelectionChanged" VerticalAlignment="Center"></ComboBox>
-        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False" CellEditEnding="DG1_CellEditEnding">
+    <ComboBox Grid.Column="1" MinWidth="150" Grid.Row="0" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbGrades" SelectionChanged="cmbGrades_SelectionChanged" VerticalAlignment="Center"></ComboBox>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" CanUserAddRows="False" RowEditEnding="DG1_RowEditEnding"  CellEditEnding="DG1_CellEditEnding" CurrentCellChanged="DG1_CurrentCellChanged" LostFocus="DG1_LostFocus">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Assignment Name" DataGridColumn.Width ="115"  Binding="{Binding Name}"/>
             <DataGridTextColumn Header="Class Name"  DataGridColumn.Width ="115" Binding="{Binding ClassName}"/>
@@ -40,12 +40,12 @@
             Filter
     </TextBlock>
         
-    <TextBlock Name="Warning" Grid.Column="2" Grid.Row="0" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center">
+    <TextBlock Name="Warning" Grid.Column="2" Grid.Row="0" FontSize="12"  HorizontalAlignment="Right" VerticalAlignment="Center">
             To edit grades, double click on what you want to edit. 
         </TextBlock>
         <TextBlock Name="Current" Grid.Column="0" Grid.Row="2" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center">
             Current Grades:
-            
+             
         </TextBlock>
         <TextBox Name="oldgpa" Grid.Row="3" GotFocus="enterField_GotFocus">Enter your current gpa</TextBox>
    
@@ -57,10 +57,7 @@
         <TextBlock Name="tbSGPA" Grid.Column="0" Grid.Row="5" FontSize="20">
             Semester GPA: 
         </TextBlock>
-        <Button
-            Grid.Column="0" Grid.Row="6" Click="UpdateGPA" HorizontalAlignment="Left" Style="{StaticResource buttonStyle}" Width="135"  Height="Auto">
-            Update Semester GPA
-        </Button>
+  
     </Grid>
 
 
