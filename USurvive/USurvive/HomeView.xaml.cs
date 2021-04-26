@@ -33,6 +33,15 @@ namespace USurvive
             showOverdueAssignments();
         }
 
+        public void refresh()
+        {
+            setTimeframe(7);
+            InitializeComponent();
+            showCurrentClasses();
+            showUpcomingAssignments();
+            showOverdueAssignments();
+        }
+
         public void setTimeframe(int t)
         {
             timeframe = t;
@@ -41,7 +50,7 @@ namespace USurvive
         private void ChooseUser_Click(object sender, RoutedEventArgs e)
         {
             DatabaseSave.SaveDatabase();
-            UserSelection userSelection = new UserSelection();
+            UserSelection userSelection = new UserSelection(this);
             userSelection.Show();
         }
 

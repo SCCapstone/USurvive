@@ -21,10 +21,12 @@ namespace USurvive
     /// </summary>
     public partial class UserSelection : Window
     {
-        public UserSelection()
+        HomeView parent;
+        public UserSelection(HomeView parent)
         {
             InitializeComponent();
             loadDropdown();
+            this.parent = parent;
             
         }
 
@@ -42,6 +44,7 @@ namespace USurvive
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
+            parent.refresh();
             this.Close();
         }
 
@@ -74,6 +77,7 @@ namespace USurvive
                 Globals.databaseName = (string)userDropdown.SelectedItem + "\\";
             }
             DatabaseLoad.LoadDatabase();
+            parent.refresh();
             this.Close();
         }
 
@@ -112,6 +116,7 @@ namespace USurvive
                 err.ShowDialog();
                 return;
             }
+            parent.refresh();
         }
 
         private void databaseClick(object sender, RoutedEventArgs e)
