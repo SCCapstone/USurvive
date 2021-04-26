@@ -30,6 +30,7 @@ namespace USurvive
             tbAutoIncrementDays.Text = "0";
             tbAutoIncrementDays.IsEnabled = false;
             cmbClasses.ItemsSource = Globals.clList.classes;
+            cmbPriority.SelectedIndex = 0;
         }
 
         public EditAssignment(Classwork cw)

@@ -50,7 +50,7 @@ namespace USurvive
 
             ArrayList gradeList = new ArrayList();
             foreach (Grade grade in grades)
-            {
+            {   
                 if (grade.ClassName == source.Name && grade.MaxPoints > 0)
                 {
                     gradeList.Add((double)grade.PointsEarned / grade.MaxPoints);
