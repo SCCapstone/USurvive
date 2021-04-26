@@ -6,8 +6,8 @@ title: Home
 # About
 USurvive is a time management desktop application for university students. Busy students can input their classes, assignments, and grades into USurvive. The homescreen provides a summary currently enrolled classes, upcoming assignments, and overdue assignments. The sidebar shows the classes for the day selected in the calendar and upcoming assignments relative to the selected calandar day. The classes view allows you to add, edit, delete, and see an overview of individual classes. The assignments view allows you to manage assignments by adding them, editing them, or deleting them. The gradebook allows you to enter assignment grades and calculate your overall GPA. 
 # Final Demo
-## This is a placeholder
-https://user-images.githubusercontent.com/47221430/115805011-16fb3480-a3b2-11eb-98dc-93be4ee8d85e.mp4
+https://user-images.githubusercontent.com/27149078/116138668-1a890700-a6a3-11eb-8802-edff48c2854d.mp4
+
 
 # App Images
 
