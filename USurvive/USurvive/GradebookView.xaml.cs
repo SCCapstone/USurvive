@@ -632,8 +632,11 @@ namespace USurvive
             {
                 (sender as DataGrid).CellEditEnding -= DG1_CellEditEnding;
                 (sender as DataGrid).CommitEdit();
-                (sender as DataGrid).CommitEdit();
-                (sender as DataGrid).Items.Refresh();
+                bool isGoodVal = (sender as DataGrid).CommitEdit();
+                if (isGoodVal)
+                    (sender as DataGrid).Items.Refresh();
+                else
+                    return;
                 (sender as DataGrid).CellEditEnding += DG1_CellEditEnding;
             }
             else return;
