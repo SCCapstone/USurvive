@@ -49,26 +49,33 @@ namespace USurvive
             }
 
             ArrayList gradeList = new ArrayList();
+            ArrayList gradeList2 = new ArrayList();
             foreach (Grade grade in grades)
             {   
                 if (grade.ClassName == source.Name && grade.MaxPoints > 0)
                 {
-                    gradeList.Add((double)grade.PointsEarned / grade.MaxPoints);
+                    gradeList.Add((double)grade.PointsEarned);
+                    gradeList2.Add((double)grade.MaxPoints);
                 }
             }
             double sum = 0;
+            double sum2 = 0;
             foreach (double score in gradeList)
             {
                 sum += score;
             }
-            int overallgrade;
+            foreach (double score in gradeList2)
+            {
+                sum2 += score;
+            }
+            double overallgrade;
             if (gradeList.Count < 1)
             {
                 gradeText.Text = "Nothing scorable assigned yet.";
             }
             else
             { 
-                overallgrade = (int)((sum / gradeList.Count) * 100);
+                overallgrade = Math.Round((double)((sum / sum2) * 100),2);
                 gradeText.Text = "" + overallgrade;
             }
 

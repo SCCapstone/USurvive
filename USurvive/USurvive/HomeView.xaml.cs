@@ -75,25 +75,32 @@ namespace USurvive
         private double getClassGrade(Class newClass)
         {
             ArrayList gradeList = new ArrayList();
+            ArrayList gradeList2 = new ArrayList();
             foreach (Grade grade in Globals.gradebook.grades)
             {
                 if(grade.ClassName == newClass.Name && grade.MaxPoints > 0)
                 {
-                    gradeList.Add((double)grade.PointsEarned/(double)grade.MaxPoints);
+                    gradeList.Add((double)grade.PointsEarned);
+                    gradeList2.Add((double)grade.MaxPoints);
                 }
             }
             double sum = 0;
+            double sum2 = 0;
             foreach (double score in gradeList)
             {
                 sum += score;
             }
+            foreach (double score in gradeList2)
+            {
+                sum2 += score;
+            }
 
-            if(gradeList.Count < 1)
+            if (gradeList.Count < 1)
             {
                 return -1;
             }
             
-            return (sum / gradeList.Count)*100;
+            return Math.Round((sum / sum2)*100,2);
         }
 
         private void showUpcomingAssignments()
