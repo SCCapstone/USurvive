@@ -54,7 +54,7 @@
         <CheckBox Grid.Column="1" Grid.Row="10" VerticalAlignment="Center" Margin="8,8,10,8" Name="cbComplete"/>
 
         <!-- Combo Box -->
-        <ComboBox Grid.Column="1" Grid.Row="4" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbPriority">
+        <ComboBox Grid.Column="1" Grid.Row="4" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,8,10,8" Name="cmbPriority">
             <ComboBoxItem>1 (Highest)</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
             <ComboBoxItem>3</ComboBoxItem>
