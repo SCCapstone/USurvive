@@ -725,6 +725,8 @@ namespace USurvive
                 }
                 globalestimated = estimated2;
                 double grade = Math.Round((double)totalpoints / (double)totalmax * 100,2);
+                if(totalmax == 0)
+                    grade = 0;
                 string sgrade = grade.ToString();
 
                 Current.Text += "\n";
